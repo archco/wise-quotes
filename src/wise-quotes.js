@@ -19,6 +19,19 @@ const WiseQuotes = (() => {
       this.tag = new Tag(this.db);
     }
 
+    // getter
+    
+    get count() {
+      return new Promise((resolve, reject) => {
+        this.db.get(`SELECT COUNT(*) AS count FROM ${TABLE.QUOTE}`, function (err, row) {
+          if (err) reject(err);
+          resolve(row.count);
+        });
+      });
+    }
+
+    // public
+
     migration() {
       this.schema.drop(); // if exist drop.
       this.schema.create();
