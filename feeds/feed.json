@@ -1,25 +1,37 @@
 [
   {
-    "content": "Don't cry because it's over, smile because it happened.",
-    "author": "Dr. Seuss",
-    "language": "en",
-    "tags": ["life", "optimism"]
-  },
-  {
-    "content": "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+    "content": "Any fool can know. The point is to understand.",
     "author": "Albert Einstein",
     "language": "en",
-    "tags": ["humor", "human", "universe"]
+    "tags": ["wisdom", "knowledge"]
   },
   {
-    "content": "Love all, trust a few, do wrong to none.",
-    "author": "William Shakespeare",
+    "content": "어느 바보라도 알 수는 있다. 중요한건 이해하는 것이다.",
+    "author": "알버트 아인슈타인",
+    "language": "ko",
+    "tags": ["wisdom", "knowledge"]
+  },
+  {
+    "content": "For every minute you are angry you lose sixty seconds of happiness.",
+    "author": "Ralph Waldo Emerson",
     "language": "en",
-    "tags": ["love", "trust"]
+    "tags": ["happiness"]
   },
   {
-    "content": "나는 생각한다, 그러므로 나는 존재한다.",
-    "author": "르네 데카르트",
+    "content": "1분간 화낼 때마다 당신은 60초의 행복을 놓치는 것이다.",
+    "author": "랠프 월도 에머슨",
+    "language": "ko",
+    "tags": ["happiness"]
+  },
+  {
+    "content": "A day without laughter is a day wasted.",
+    "author": "Nicolas Chamfort",
+    "language": "en",
+    "tags": ["philosophy"]
+  },
+  {
+    "content": "웃음이 없는 날은 쓸모 없는 날이다.",
+    "author": "니콜라스 샹포르",
     "language": "ko",
     "tags": ["philosophy"]
   }
