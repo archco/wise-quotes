@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Don't cry because it's over, smile because it happened.",
+    "author": "Dr. Seuss",
+    "language": "en",
+    "tags": ["life", "optimism"]
+  },
+  {
+    "content": "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+    "author": "Albert Einstein",
+    "language": "en",
+    "tags": ["humor", "human", "universe"]
+  },
+  {
+    "content": "Love all, trust a few, do wrong to none.",
+    "author": "William Shakespeare",
+    "language": "en",
+    "tags": ["love", "trust"]
+  },
+  {
+    "content": "나는 생각한다, 그러므로 나는 존재한다.",
+    "author": "르네 데카르트",
+    "language": "ko",
+    "tags": ["philosophy"]
+  }
+]
