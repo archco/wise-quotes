@@ -21,11 +21,31 @@ const WiseQuotes = (() => {
 
     // getter
     
+    /**
+     * count
+     * @return {Promise} [resolve(count) | reject(err)]
+     */
     get count() {
       return new Promise((resolve, reject) => {
         this.db.get(`SELECT COUNT(*) AS count FROM ${TABLE.QUOTE}`, function (err, row) {
           if (err) reject(err);
           resolve(row.count);
+        });
+      });
+    }
+
+    /**
+     * random
+     * @return {Promise} [resolve(row) | reject(err)]
+     */
+    get random() {
+      return new Promise((resolve, reject) => {
+        this.db.get(`SELECT id,author,content,language FROM ${TABLE.QUOTE} ORDER BY RANDOM()`, (err, row) => {
+          if (err) reject(err);
+          this.tag.getTags(row.id, (tags) => {
+            if (tags) row.tags = tags;
+            resolve(row);
+          });
         });
       });
     }
