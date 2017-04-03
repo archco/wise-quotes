@@ -36,13 +36,13 @@ const Tag = (() => {
         });
       };
       let get = (id) => {
-        this.db.get(`SELECT * FROM ${TABLE.TAG} WHERE id = ?`, id, function (err, row) {
+        this.db.get(`SELECT * FROM ${TABLE.TAG} WHERE id = ?`, id, (err, row) => {
           if (err) throw err;
           callback(row);
         });
       };
 
-      this.db.get(`SELECT * FROM ${TABLE.TAG} WHERE name = ?`, str, function (err, row) {
+      this.db.get(`SELECT * FROM ${TABLE.TAG} WHERE name = ?`, str, (err, row) => {
         if (err) throw err;
         if (row) {
           callback(row);
@@ -53,17 +53,15 @@ const Tag = (() => {
     }
 
     sync(quoteID, tags) {
-      this.db.serialize(() => {
-        // delete old quote's tags.
-        this.truncate(quoteID);
-      
-        // relate new tags.
-        for (let tag of tags) {
-          this.getOrCreate(tag, (row) => {
-            this._relate(quoteID, row.id);
-          });
-        }
-      });
+      // delete old quote's tags.
+      this.truncate(quoteID);
+
+      // relate new tags.
+      for (let tag of tags) {
+        this.getOrCreate(tag, (row) => {
+          this._relate(quoteID, row.id);
+        });
+      }
     }
 
     truncate(quoteID) {

@@ -1,38 +1,38 @@
 [
   {
-    "content": "Any fool can know. The point is to understand.",
-    "author": "Albert Einstein",
+    "content": "No one can make you feel inferior without your consent.",
+    "author": "Eleanor Roosevelt",
     "language": "en",
-    "tags": ["wisdom", "knowledge"]
+    "tags": ["wisdom", "confidence"]
   },
   {
-    "content": "어느 바보라도 알 수는 있다. 중요한건 이해하는 것이다.",
-    "author": "알버트 아인슈타인",
+    "content": "아무도 당신의 동의 없이 당신에게 열등감을 느끼게 할 수 없다.",
+    "author": "엘리너 루스벨트",
     "language": "ko",
-    "tags": ["wisdom", "knowledge"]
+    "tags": ["wisdom", "confidence"]
   },
   {
-    "content": "For every minute you are angry you lose sixty seconds of happiness.",
-    "author": "Ralph Waldo Emerson",
+    "content": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Aristotle",
     "language": "en",
-    "tags": ["happiness"]
+    "tags": ["wisdom", "philosophy"]
   },
   {
-    "content": "1분간 화낼 때마다 당신은 60초의 행복을 놓치는 것이다.",
-    "author": "랠프 월도 에머슨",
+    "content": "자신을 아는 것은 모든 지혜의 시작이다.",
+    "author": "아리스토텔레스",
     "language": "ko",
-    "tags": ["happiness"]
+    "tags": ["wisdom", "philosophy"]
   },
   {
-    "content": "A day without laughter is a day wasted.",
-    "author": "Nicolas Chamfort",
+    "content": "The only true wisdom is in knowing you know nothing.",
+    "author": "Socrates",
     "language": "en",
-    "tags": ["philosophy"]
+    "tags": ["wisdom", "philosophy", "knowledge"]
   },
   {
-    "content": "웃음이 없는 날은 쓸모 없는 날이다.",
-    "author": "니콜라스 샹포르",
+    "content": "유일한 진짜 지혜는 자신이 아무것도 알지 못한다는 것을 아는 것이다.",
+    "author": "소크라테스",
     "language": "ko",
-    "tags": ["philosophy"]
+    "tags": ["wisdom", "philosophy", "knowledge"]
   }
 ]
