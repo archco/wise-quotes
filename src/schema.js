@@ -27,7 +27,11 @@ const Schema = (() => {
           `CREATE TABLE IF NOT EXISTS ${TABLE.LANG} (
             code TEXT PRIMARY KEY,
             name TEXT NOT NULL
-          )`
+          )`,
+          function (err) {
+            if (err) throw err;
+            console.log(`${TABLE.LANG} table is created.`);
+          }
         );
         // quote table.
         this.db.run(
@@ -37,7 +41,11 @@ const Schema = (() => {
             content TEXT NOT NULL,
             language TEXT NOT NULL,
             FOREIGN KEY(language) REFERENCES ${TABLE.LANG}(code)
-          )`
+          )`,
+          function (err) {
+            if (err) throw err;
+            console.log(`${TABLE.QUOTE} table is created.`);
+          }
         );
         // tag table.
         this.db.run(
@@ -45,7 +53,11 @@ const Schema = (() => {
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,
             description TEXT
-          )`
+          )`,
+          function (err) {
+            if (err) throw err;
+            console.log(`${TABLE.TAG} table is created.`);
+          }
         );
         // quote_tag table.
         this.db.run(
@@ -53,13 +65,13 @@ const Schema = (() => {
             quote_id INTEGER NOT NULL,
             tag_id INTEGER NOT NULL,
             PRIMARY KEY (quote_id, tag_id)
-          )`
+          )`,
+          function (err) {
+            if (err) throw err;
+            console.log(`${TABLE.QUOTE_TAG} table is created.`);
+          }
         );
       });
-      console.log(`${TABLE.LANG} table is created.`);
-      console.log(`${TABLE.QUOTE} table is created.`);
-      console.log(`${TABLE.TAG} table is created.`);
-      console.log(`${TABLE.QUOTE_TAG} table is created.`);
     }
 
     drop() {

@@ -10,7 +10,7 @@ const WiseQuotes = (() => {
     TAG: 'tag',
     QUOTE_TAG: 'quote_tag'
   };
-  const DB_FILE = 'db/quotes.sqlite3';
+  const DB_FILE = path.resolve(__dirname, '../db/quotes.sqlite3');
 
   class WiseQuotes {
     constructor() {
