@@ -1,38 +1,44 @@
 [
   {
-    "content": "No one can make you feel inferior without your consent.",
-    "author": "Eleanor Roosevelt",
+    "content": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+    "author": "Winston S. Churchill",
     "language": "en",
-    "tags": ["wisdom", "confidence"]
+    "tags": ["inspiration", "success", "failure", "courage"]
   },
   {
-    "content": "아무도 당신의 동의 없이 당신에게 열등감을 느끼게 할 수 없다.",
-    "author": "엘리너 루스벨트",
+    "content": "성공은 마지막이 아니며, 실패는 치명적이지 않다. 중요한건 계속하는 용기이다.",
+    "author": "윈스턴 처칠",
     "language": "ko",
-    "tags": ["wisdom", "confidence"]
+    "tags": ["inspiration", "success", "failure", "courage"]
   },
   {
-    "content": "Knowing yourself is the beginning of all wisdom.",
-    "author": "Aristotle",
+    "content": "成功があがりでもなければ、失敗が終わりでもない。肝心なのは、続ける勇気である。",
+    "author": "ウィンストン・チャーチル",
+    "language": "ja",
+    "tags": ["inspiration", "success", "failure", "courage"]
+  },
+  {
+    "content": "Try not to become a man of success. Rather become a man of value.",
+    "author": "Albert Einstein",
     "language": "en",
-    "tags": ["wisdom", "philosophy"]
+    "tags": ["success"]
   },
   {
-    "content": "자신을 아는 것은 모든 지혜의 시작이다.",
-    "author": "아리스토텔레스",
+    "content": "성공한 사람보다는 가치있는 사람이 되려 하라.",
+    "author": "알베르트 아인슈타인",
     "language": "ko",
-    "tags": ["wisdom", "philosophy"]
+    "tags": ["success"]
   },
   {
-    "content": "The only true wisdom is in knowing you know nothing.",
-    "author": "Socrates",
+    "content": "이미 끝났으니 울지마라, 이미 지나갔으니 웃어라.",
+    "author": "닥터 수스",
     "language": "en",
-    "tags": ["wisdom", "philosophy", "knowledge"]
+    "tags": ["life", "optimism"]
   },
   {
-    "content": "유일한 진짜 지혜는 자신이 아무것도 알지 못한다는 것을 아는 것이다.",
-    "author": "소크라테스",
+    "content": "이 두가지는 무한하다: 우주와 인간의 어리석음; 그리고 나는 우주에 관해서는 확신하지 못한다.",
+    "author": "알베르트 아인슈타인",
     "language": "ko",
-    "tags": ["wisdom", "philosophy", "knowledge"]
+    "tags": ["humor", "universe", "human"]
   }
 ]
