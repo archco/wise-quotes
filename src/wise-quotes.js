@@ -23,12 +23,15 @@ const WiseQuotes = (() => {
     
     /**
      * count
-     * @return {Promise} [resolve(count) | reject(err)]
+     * @return {Promise} [resolve({Number} count) | reject(err)]
      */
     get count() {
       return new Promise((resolve, reject) => {
         this.db.get(`SELECT COUNT(*) AS count FROM ${TABLE.QUOTE}`, function (err, row) {
-          if (err) reject(err);
+          if (err) {
+            reject(err);
+            return;
+          }
           resolve(row.count);
         });
       });
@@ -36,16 +39,17 @@ const WiseQuotes = (() => {
 
     /**
      * random
-     * @return {Promise} [resolve(row) | reject(err)]
+     * @return {Promise} [resolve({Object} row) | reject(err)]
      */
     get random() {
       return new Promise((resolve, reject) => {
         this.db.get(`SELECT id,author,content,language FROM ${TABLE.QUOTE} ORDER BY RANDOM()`, (err, row) => {
-          if (err) reject(err);
-          this.tag.getTags(row.id, (tags) => {
-            if (tags) row.tags = tags;
-            resolve(row);
-          });
+          if (err) {
+            reject(err);
+            return;
+          }
+
+          this.read(row.id).then(resolve, reject);
         });
       });
     }
@@ -58,76 +62,135 @@ const WiseQuotes = (() => {
       this.schema.seed();
     }
 
-    create(obj, callback) {
-      let sql = `INSERT INTO ${TABLE.QUOTE} (author,content,language) VALUES (?,?,?)`;
-      let relateTags = (id) => {
-        if (obj.tags && Array.isArray(obj.tags)) {
-          this.tag.sync(id, obj.tags);
-        }
-      };
-      let read = (id) => {
-        this.read(id, callback);
-      };
-      
-      this.db.run(sql, [obj.author, obj.content, obj.language], function (err) {
-        if (err) throw err;
-        relateTags(this.lastID);
-        read(this.lastID);
+    test() {
+      this.count.then((count) => {
+        console.log(count);
       });
     }
 
-    read(id, callback) {
-      let sql = `SELECT id,author,content,language FROM ${TABLE.QUOTE} WHERE id = ?`;
-      
-      this.db.get(sql, id, (err, row) => {
-        if (err) throw err;
-        this.tag.getTags(row.id, (tags) => {
-          if (tags) row.tags = tags;
-          callback(row);
+    /**
+     * create a new quote.
+     * 
+     * @param  {Object} obj
+     * @return {Promise} [ resolve({Object} row) | reject(err) ]
+     */
+    create(obj) {
+      return new Promise((resolve, reject) => {
+        let sql = `INSERT INTO ${TABLE.QUOTE} (author,content,language) VALUES (?,?,?)`;
+        let relateTags = (id) => {
+          return this.tag.sync(id, obj.tags);
+        };
+        let read = (id) => {
+          return this.read(id, callback);
+        };
+        
+        this.db.run(sql, [obj.author, obj.content, obj.language], function (err) {
+          if (err) {
+            reject(err);
+            return;
+          }
+
+          relateTags(this.lastID)
+          .then(() => {
+            read(this.lastID).then(resolve, reject);
+          })
+          .catch(reject);
         });
       });
     }
 
-    update(id, obj, callback) {
-      let sql = `UPDATE ${TABLE.QUOTE} SET author = ?, content = ?, language = ? WHERE id = ${id}`;
-      let relateTags = (id) => {
-        if (obj.tags && Array.isArray(obj.tags)) {
-          this.tag.sync(id, obj.tags);
-        }
-      };
-      let read = (id) => {
-        this.read(id, callback);
-      };
+    /**
+     * read - get a quote.
+     * 
+     * @param  {Number} id
+     * @return {Promise} [ resolve({Object} row) | reject(err) ]
+     */
+    read(id) {
+      return new Promise((resolve, reject) => {
+        let sql = `SELECT id,author,content,language FROM ${TABLE.QUOTE} WHERE id = ?`;
+      
+        this.db.get(sql, id, (err, row) => {
+          if (err) {
+            reject(err);
+            return;
+          }
 
-      this.db.run(sql, [obj.author, obj.content, obj.language], function (err) {
-        if (err) throw err;
-        relateTags(id);
-        read(id);
-      });
-    }
-
-    delete(id, callback) {
-      let sql = `DELETE FROM ${TABLE.QUOTE} WHERE id = ${id}`;
-
-      this.db.serialize(() => {
-        // delete quote_tag.
-        this.tag.truncate(id);
-        // delete quote.
-        this.db.run(sql, function (err) {
-          if (err) throw err;
-          callback(this.changes);
+          this.tag.getTags(row.id)
+          .then((tags) => {
+            if (tags) row.tags = tags;
+            resolve(row);
+          })
+          .catch((err) => {
+            reject(err);
+          });
         });
       });
     }
 
+    /**
+     * update quote.
+     * 
+     * @param  {Number} id
+     * @param  {Object} obj
+     * @return {Promise} [ resolve({Object} row) | reject(err) ]
+     */
+    update(id, obj) {
+      return new Promise((resolve, reject) => {
+        let sql = `UPDATE ${TABLE.QUOTE} SET author = ?, content = ?, language = ? WHERE id = ?`;
+        
+        this.db.run(sql, [obj.author, obj.content, obj.language, id], (err) => {
+          if (err) {
+            reject(err);
+            return;
+          }
+
+          this.tag.sync(id, obj.tags)
+          .then((msg) => {
+            this.read(id).then(resolve, reject);
+          })
+          .catch(reject);
+        });
+      });
+    }
+
+    /**
+     * delete
+     * 
+     * @param  {Number} id
+     * @return {Promise} [ resolve({Number} changes) | reject(err) ]
+     */
+    delete(id) {
+      return new Promise((resolve, reject) => {
+        let sql = `DELETE FROM ${TABLE.QUOTE} WHERE id = ?`;
+
+        this.tag.truncate(id)
+        .then(() => {
+          this.db.run(sql, id, function (err) {
+            if (err) {
+              reject(err);
+              return;
+            }
+
+            resolve(this.changes);
+          });
+        })
+        .catch(reject);
+      });
+    }
+
+    /**
+     * feed
+     * 
+     * @param  {String} filename
+     * @return {void}
+     */
     feed(filename = 'feed.json') {
       let feeds = require(path.resolve(__dirname, '../feeds/', filename));
       
-      this.db.serialize(() => {
-        feeds.forEach((obj) => {
-          this.create(obj, (row) => {
-            console.log(`Insert: ${row.id}`);
-          });
+      feeds.forEach((obj) => {
+        this.create(obj)
+        .then((row) => {
+          console.log(`Insert: ${row.id}`);
         });
       });
     }
