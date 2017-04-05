@@ -48,24 +48,22 @@ const Tag = (() => {
     getOrCreate(tagName) {
       return new Promise((resolve, reject) => {
         let sql = `SELECT * FROM ${TABLE.TAG} WHERE name = ?`;
-        let errHandler = (err) => {
-          reject(err);
-        };
 
         this.db.get(sql, tagName, (err, row) => {
           if (err) {
             reject(err);
             return;
           }
+
           if (row) {
             resolve(row);
           } else {
             this.create(tagName)
-            .then(this.get, errHandler)
-            .then((row) => {
-              resolve(row);
-            })
-            .catch(errHandler);
+            .then((id) => {
+              return this.read(id);
+            }, reject)
+            .then(resolve)
+            .catch(reject);
           }
         });
       });
@@ -124,12 +122,12 @@ const Tag = (() => {
     }
 
     /**
-     * get a tag.
+     * read a tag.
      * 
      * @param  {Number} id 
      * @return {Promise} [ resolve({Object} row) | reject(err) ]
      */
-    get(id) {
+    read(id) {
       return new Promise((resolve, reject) => {
         this.db.get(`SELECT * FROM ${TABLE.TAG} WHERE id = ?`, id, (err, row) => {
           if (err) {

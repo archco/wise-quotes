@@ -63,8 +63,12 @@ const WiseQuotes = (() => {
     }
 
     test() {
-      this.count.then((count) => {
-        console.log(count);
+      this.tag.getOrCreate('test5')
+      .then((row) => {
+        console.log(row);
+      })
+      .catch((err) => {
+        throw err;
       });
     }
 
@@ -81,7 +85,7 @@ const WiseQuotes = (() => {
           return this.tag.sync(id, obj.tags);
         };
         let read = (id) => {
-          return this.read(id, callback);
+          return this.read(id);
         };
         
         this.db.run(sql, [obj.author, obj.content, obj.language], function (err) {
@@ -92,8 +96,9 @@ const WiseQuotes = (() => {
 
           relateTags(this.lastID)
           .then(() => {
-            read(this.lastID).then(resolve, reject);
-          })
+            return read(this.lastID);
+          }, reject)
+          .then(resolve)
           .catch(reject);
         });
       });
@@ -191,6 +196,9 @@ const WiseQuotes = (() => {
         this.create(obj)
         .then((row) => {
           console.log(`Insert: ${row.id}`);
+        })
+        .catch((err) => {
+          console.error(err);
         });
       });
     }
