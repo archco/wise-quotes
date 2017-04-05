@@ -1,44 +1,44 @@
 [
   {
-    "content": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
-    "author": "Winston S. Churchill",
-    "language": "en",
-    "tags": ["inspiration", "success", "failure", "courage"]
-  },
-  {
-    "content": "성공은 마지막이 아니며, 실패는 치명적이지 않다. 중요한건 계속하는 용기이다.",
-    "author": "윈스턴 처칠",
+    "content": "사랑은 모두에게, 신뢰는 소수에게만, 잘못하는건 없도록.",
+    "author": "윌리엄 셰익스피어",
     "language": "ko",
-    "tags": ["inspiration", "success", "failure", "courage"]
+    "tags": ["love", "trust"]
   },
   {
-    "content": "成功があがりでもなければ、失敗が終わりでもない。肝心なのは、続ける勇気である。",
-    "author": "ウィンストン・チャーチル",
+    "content": "全てを愛し、少なきを信じ、過ち無き事を。",
+    "author": "ウィリアム・シェイクスピア",
     "language": "ja",
-    "tags": ["inspiration", "success", "failure", "courage"]
+    "tags": ["love", "trust"]
   },
   {
-    "content": "Try not to become a man of success. Rather become a man of value.",
-    "author": "Albert Einstein",
+    "content": "I think; therefore I am.",
+    "author": "René Descartes",
     "language": "en",
-    "tags": ["success"]
+    "tags": ["philosophy"]
   },
   {
-    "content": "성공한 사람보다는 가치있는 사람이 되려 하라.",
-    "author": "알베르트 아인슈타인",
-    "language": "ko",
-    "tags": ["success"]
-  },
-  {
-    "content": "이미 끝났으니 울지마라, 이미 지나갔으니 웃어라.",
-    "author": "닥터 수스",
+    "content": "Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that.",
+    "author": "Martin Luther King Jr.",
     "language": "en",
-    "tags": ["life", "optimism"]
+    "tags": ["darkness", "light", "love", "hate"]
   },
   {
-    "content": "이 두가지는 무한하다: 우주와 인간의 어리석음; 그리고 나는 우주에 관해서는 확신하지 못한다.",
-    "author": "알베르트 아인슈타인",
+    "content": "어둠이 어둠을 몰아낼 수 없으며 오직 빛만이 어둠을 몰아낼 수 있다. 증오를 증오로 몰아낼 수 없으며 오직 사랑만이 증오를 몰아낼 수 있다.",
+    "author": "마틴 루터 킹 주니어",
     "language": "ko",
-    "tags": ["humor", "universe", "human"]
+    "tags": ["darkness", "light", "love", "hate"]
+  },
+  {
+    "content": "A friend is someone who knows all about you and still loves you.",
+    "author": "Elbert Hubbard",
+    "language": "en",
+    "tags": ["friend", "friendship", "love"]
+  },
+  {
+    "content": "친구란 당신에 대해 모든것을 알고 있음에도 여전히 당신을 사랑하는 사람이다.",
+    "author": "엘버트 허바드",
+    "language": "ko",
+    "tags": ["friend", "friendship", "love"]
   }
 ]
