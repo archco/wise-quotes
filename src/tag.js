@@ -140,7 +140,7 @@ class Tag {
       .then((res) => {
         // relate new tags.
         let stmt = this.db.prepare(`INSERT INTO ${this.table.quote_tag} (quote_id, tag_id) VALUES (?,?)`);
-        let count = 1;
+        let count = 0;
         if (tags.length == 0) {
           resolve('No have Tag.');
           return;
@@ -152,7 +152,7 @@ class Tag {
             stmt.run(quoteID, row.id, (err) => {
               if (err) reject(err);
               count++;
-              if (count > tags.length) {
+              if (count >= tags.length) {
                 resolve('Related complete.');
               }
             });
