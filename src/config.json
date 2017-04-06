@@ -1,0 +1,9 @@
+{
+  "database": "../db/quotes.sqlite3",
+  "table": {
+    "quote": "quote",
+    "lang": "language",
+    "tag": "tag",
+    "quote_tag": "quote_tag"
+  }
+}
