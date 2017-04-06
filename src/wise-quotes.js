@@ -55,9 +55,13 @@ class WiseQuotes {
   // public
 
   migration() {
-    this.schema.drop(); // if exist drop.
-    this.schema.create();
-    this.schema.seed();
+    return this.schema.drop()
+    .then(() => {
+      return this.schema.create();
+    })
+    .then(() => {
+      return this.schema.seed();
+    });
   }
 
   test() {
@@ -189,16 +193,16 @@ class WiseQuotes {
    */
   feed(filename = 'feed.json') {
     let feeds = require(path.resolve(__dirname, '../feeds/', filename));
+    let array = [];
     
     feeds.forEach((obj) => {
-      this.create(obj)
-      .then((row) => {
+      let promise = this.create(obj).then((row) => {
         console.log(`Insert: ${row.id}`);
-      })
-      .catch((err) => {
-        console.error(err);
       });
+      array.push(promise);
     });
+
+    return Promise.all(array);
   }
 
   _setConfigDatabase() {
