@@ -1,4 +1,8 @@
 const WiseQuotes = require('../index.js');
 
 let wq = new WiseQuotes();
-wq.feed();
+
+wq.feed()
+.then(() => {
+  console.log('Feed Complete.');
+});
