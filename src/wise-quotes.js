@@ -82,11 +82,12 @@ class WiseQuotes {
         }
 
         relateTags(this.lastID)
+        .catch(reject)
         .then(() => {
           return read(this.lastID);
-        }, reject)
-        .then(resolve)
-        .catch(reject);
+        })
+        .catch(reject)
+        .then(resolve);
       });
     });
   }
@@ -156,17 +157,16 @@ class WiseQuotes {
       let sql = `DELETE FROM ${this.table.quote} WHERE id = ?`;
 
       this.tag.truncate(id)
+      .catch(reject)
       .then(() => {
         this.db.run(sql, id, function (err) {
           if (err) {
             reject(err);
-            return;
+          } else {
+            resolve(this.changes);
           }
-
-          resolve(this.changes);
         });
-      })
-      .catch(reject);
+      });
     });
   }
 

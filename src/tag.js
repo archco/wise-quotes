@@ -133,34 +133,27 @@ class Tag {
     });
   }
 
-  _relateToQuote(quoteID, tags) {
-    return new Promise((resolve, reject) => {
-      // delete old quote's tags.
-      this.truncate(quoteID)
-      .then((res) => {
-        // relate new tags.
-        let stmt = this.db.prepare(`INSERT INTO ${this.table.quote_tag} (quote_id, tag_id) VALUES (?,?)`);
-        let count = 0;
-        if (tags.length == 0) {
-          resolve('No have Tag.');
-          return;
-        }
+  async _relateToQuote(quoteID, tags) {
+    let result;
+    await this.truncate(quoteID);
 
-        for (let tag of tags) {
-          this.getOrCreate(tag)
-          .then((row) => {
-            stmt.run(quoteID, row.id, (err) => {
-              if (err) reject(err);
-              count++;
-              if (count >= tags.length) {
-                resolve('Related complete.');
-              }
-            });
-          })
-          .catch(reject);
+    for (let tagName of tags) {
+      let tag = await this.getOrCreate(tagName);
+      await this._relate(quoteID, tag.id);
+    }
+
+    return 'Relate Successfully.';
+  }
+
+  _relate(quoteID, tagID) {
+    return new Promise((resolve, reject) => {
+      this.db.run(`INSERT INTO ${this.table.quote_tag} (quote_id, tag_id) VALUES (?,?)`, [quoteID, tagID], function (err) {
+        if (err) {
+          reject(err);
+        } else {
+          resolve('done');
         }
       })
-      .catch(reject);
     });
   }
 }
