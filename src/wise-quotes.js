@@ -54,24 +54,17 @@ class WiseQuotes {
 
   // public
 
-  migration() {
-    return this.schema.drop()
-    .then(() => {
-      return this.schema.create();
-    })
-    .then(() => {
-      return this.schema.seed();
-    });
-  }
+  async migration() {
+    let result;
 
-  test() {
-    this.tag.getOrCreate('test5')
-    .then((row) => {
-      console.log(row);
-    })
-    .catch((err) => {
-      throw err;
-    });
+    result = await this.schema.drop();
+    console.log(result);
+    result = await this.schema.create();
+    console.log(result);
+    result = await this.schema.seed();
+    console.log(result);
+
+    return 'Migration Complete.'
   }
 
   /**
@@ -191,18 +184,15 @@ class WiseQuotes {
    * @param  {String} filename
    * @return {void}
    */
-  feed(filename = 'feed.json') {
+  async feed(filename = 'feed.json') {
     let feeds = require(path.resolve(__dirname, '../feeds/', filename));
-    let array = [];
-    
-    feeds.forEach((obj) => {
-      let promise = this.create(obj).then((row) => {
-        console.log(`Insert: ${row.id}`);
-      });
-      array.push(promise);
-    });
 
-    return Promise.all(array);
+    for (let feed of feeds) {
+      let result = await this.create(feed);
+      console.log(`Feed: insertID - ${result.id}`);
+    }
+
+    return 'Feeds Complete.';
   }
 
   _setConfigDatabase() {
