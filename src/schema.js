@@ -61,11 +61,9 @@ class Schema {
           function (err) {
             if (err) {
               reject(err);
-              return;
+            } else {
+              resolve('create: All queries executed.');
             }
-            let message = 'create: All queries executed.';
-            console.log(message);
-            resolve(message);
           }
         );
       });
@@ -91,18 +89,28 @@ class Schema {
         this.db.run(`DROP TABLE IF EXISTS ${this.table.lang}`, (err) => {
           if(err) {
             reject(err);
-            return;
+          } else {
+            resolve('drop: All queries executed');
           }
-          let message = 'drop: All queries executed';
-          console.log(message);
-          resolve(message);
         });
       });
     });
   }
 
-  seed() {
-    return Promise.all([this._seedLanguage(), this._seedTag()]);
+  /**
+   * seed - async function.
+   * 
+   * @return {AsyncFunction} message.
+   */
+  async seed() {
+    let result;
+
+    result = await this._seedLanguage();
+    console.log(result);
+    result = await this._seedTag();
+    console.log(result);
+
+    return "Seed Complete.";
   }
 
   _seedLanguage() {
@@ -112,17 +120,16 @@ class Schema {
 
       for (let lang of Language) {
         stmt.run(lang.alpha2, lang.English, (err) => {
-          if (err) {
-            reject(err);
-            return;
-          }
+          if (err) reject(err);
         });
       }
 
       stmt.finalize((err) => {
-        let message = `Seed to ${this.table.lang}`;
-        console.log(message);
-        resolve(message);
+        if (err) {
+          reject(err);
+        } else {
+          resolve(`Seed: ${this.table.lang}`);
+        }
       });
     });
   }
@@ -134,17 +141,16 @@ class Schema {
 
       for (let tag of Tags) {
         stmt.run(tag, `Popular tag: ${tag}`, (err) => {
-          if (err) {
-            reject(err);
-            return;
-          }
+          if (err) reject(err);
         });
       }
 
       stmt.finalize((err) => {
-        let message = `Seed to ${this.table.tag}`;
-        console.log(message);
-        resolve(message);
+        if (err) {
+          reject(err);
+        } else {
+          resolve(`Seed: ${this.table.tag}`);
+        }
       });
     });
   }
