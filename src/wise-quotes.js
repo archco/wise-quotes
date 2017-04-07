@@ -21,39 +21,31 @@ class WiseQuotes {
   
   /**
    * count
-   * @return {Promise} [resolve({Number} count) | reject(err)]
+   * @return {AsyncFunction} [resolve({Number} count) | reject(err)]
    */
   get count() {
-    return new Promise((resolve, reject) => {
-      this.db.get(`SELECT COUNT(*) AS count FROM ${this.table.quote}`, function (err, row) {
-        if (err) {
-          reject(err);
-          return;
-        }
-        resolve(row.count);
-      });
-    });
+    return (async () => {
+      return await this.getCount();
+    })();
   }
 
   /**
    * random
-   * @return {Promise} [resolve({Object} row) | reject(err)]
+   * @return {AsyncFunction} [resolve({Object} row) | reject(err)]
    */
   get random() {
-    return new Promise((resolve, reject) => {
-      this.db.get(`SELECT id,author,content,language FROM ${this.table.quote} ORDER BY RANDOM()`, (err, row) => {
-        if (err) {
-          reject(err);
-          return;
-        }
-
-        this.read(row.id).then(resolve, reject);
-      });
-    });
+    return (async () => {
+      return await this.getRandom();
+    })();
   }
 
   // public
 
+  /**
+   * migration - async function.
+   * 
+   * @return {AsyncFunction} message.
+   */
   async migration() {
     let result;
 
@@ -182,7 +174,7 @@ class WiseQuotes {
    * feed
    * 
    * @param  {String} filename
-   * @return {void}
+   * @return {AsyncFunction} message.
    */
   async feed(filename = 'feed.json') {
     let feeds = require(path.resolve(__dirname, '../feeds/', filename));
@@ -193,6 +185,31 @@ class WiseQuotes {
     }
 
     return 'Feeds Complete.';
+  }
+
+  getCount() {
+    return new Promise((resolve, reject) => {
+      this.db.get(`SELECT COUNT(*) AS count FROM ${this.table.quote}`, function (err, row) {
+        if (err) {
+          reject(err);
+          return;
+        }
+        resolve(row.count);
+      });
+    });
+  }
+
+  getRandom() {
+    return new Promise((resolve, reject) => {
+      this.db.get(`SELECT id,author,content,language FROM ${this.table.quote} ORDER BY RANDOM()`, (err, row) => {
+        if (err) {
+          reject(err);
+          return;
+        }
+
+        this.read(row.id).then(resolve, reject);
+      });
+    });
   }
 
   _setConfigDatabase() {
