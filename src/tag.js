@@ -1,6 +1,5 @@
 const sqlite3 = require('sqlite3').verbose();
 
-
 class Tag {
   constructor(db, table) {
     if (!(db instanceof sqlite3.Database)) {

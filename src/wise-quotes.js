@@ -4,7 +4,6 @@ const Config = require('./config.json');
 const Schema = require('./schema.js');
 const Tag = require('./tag.js');
 
-
 class WiseQuotes {
   constructor(config = {}) {
     // configuration.
@@ -208,9 +207,9 @@ class WiseQuotes {
       this.db.get(`SELECT COUNT(*) AS count FROM ${this.table.quote}`, function (err, row) {
         if (err) {
           reject(err);
-          return;
+        } else {
+          resolve(row.count);
         }
-        resolve(row.count);
       });
     });
   }

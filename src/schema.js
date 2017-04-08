@@ -4,7 +4,6 @@ const sqlite3 = require('sqlite3').verbose();
 const Language = require('./lib/language-codes.json');
 const Tags = require('./lib/popular-tags.json');
 
-
 class Schema {
   constructor(db, table) {
     if (!(db instanceof sqlite3.Database)) {
