@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node ./node_modules/mocha/bin/mocha",
     "status": "node ./bin/status.js",
-    "feed": "node ./bin/feed.js"
+    "feed": "node ./bin/feed.js",
+    "backup": "node ./bin/backup.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/archco/wise-quotes#readme",
   "dependencies": {
+    "dateformat": "^2.0.0",
     "jsonfile": "^2.4.0",
     "sqlite3": "^3.1.8"
   },
