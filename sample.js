@@ -17,4 +17,6 @@ let wq = new WiseQuotes({
   let count = await wq.count;
   console.log(`count: ${count}`);
   console.log(await wq.random);
+  // all.
+  console.log(await wq.all());
 })();

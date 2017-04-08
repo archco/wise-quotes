@@ -171,6 +171,22 @@ class WiseQuotes {
   }
 
   /**
+   * get all quotes.
+   * 
+   * @return {Promise} [resolve({Array} rows) | reject(err)]
+   */
+  async all() {
+    let rows = await this._getAllQuotes();
+
+    for (let row of rows) {
+      let tags = await this.tag.getTags(row.id);
+      row.tags = tags;
+    }
+
+    return rows;
+  }
+
+  /**
    * feed
    * 
    * @param  {String} filename
@@ -204,10 +220,9 @@ class WiseQuotes {
       this.db.get(`SELECT id,author,content,language FROM ${this.table.quote} ORDER BY RANDOM()`, (err, row) => {
         if (err) {
           reject(err);
-          return;
+        } else {
+          this.read(row.id).then(resolve, reject);
         }
-
-        this.read(row.id).then(resolve, reject);
       });
     });
   }
@@ -223,6 +238,18 @@ class WiseQuotes {
       // absolute path of database file.
       this.config.database = path.resolve(__dirname, this.config.database);
     }
+  }
+
+  _getAllQuotes() {
+    return new Promise((resolve, reject) => {
+      this.db.all(`SELECT id,author,content,language FROM ${this.table.quote}`, (err, rows) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(rows);
+        }
+      });
+    });
   }
 }
 

@@ -86,4 +86,19 @@ describe('WiseQuotes', function () {
       row.should.include.keys('id', 'content', 'author', 'language');
     });
   });
+
+  describe('#all', function () {
+    // get all quotes.
+    
+    it('should be fullfilled', function (done) {
+      wq.all().then(() => {
+        done();
+      }).catch(done);
+    });
+
+    it('should eventually be a array', async function () {
+      let rows = await wq.all();
+      rows.should.be.a('array');
+    });
+  });
 });
