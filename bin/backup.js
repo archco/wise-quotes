@@ -4,7 +4,7 @@ const dateformat = require('dateformat');
 const WiseQuotes = require('../index.js');
 
 let wq = new WiseQuotes();
-let file = path.resolve(__dirname, '../db/backup/' + dateformat(new Date(), 'yyyymmdd') + '_quote.json');
+let file = path.resolve(__dirname, '../db/backup/' + dateformat(new Date(), 'yyyymmdd') + '_quotes.json');
 
 (async () => {
   let rows = await wq.all();
