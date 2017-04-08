@@ -11,7 +11,7 @@ let wq = new WiseQuotes({
   let result;
   result = await wq.migration();
   console.log(result);
-  result = await wq.feed();
+  result = await wq.feed('feed-sample.json');
   console.log(result);
   // status.
   let count = await wq.count;

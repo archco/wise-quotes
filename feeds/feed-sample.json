@@ -1,0 +1,56 @@
+[
+  {
+    "content": "It is not a lack of love, but a lack of friendship that makes unhappy marriages.",
+    "author": "Friedrich Nietzsche",
+    "language": "en",
+    "tags": ["love", "friendship", "marriage"]
+  },
+  {
+    "content": "不幸な結婚とは、愛の欠如ではなく、友情の欠如から生まれる。",
+    "author": "フリードリヒ・ニーチェ",
+    "language": "ja",
+    "tags": ["love", "friendship", "marriage"]
+  },
+  {
+    "content": "애정의 결핍이 아니라 우정의 결핍이 불행한 결혼을 만든다.",
+    "author": "프리드리히 니체",
+    "language": "ko",
+    "tags": ["love", "friendship", "marriage"]
+  },
+  {
+    "content": "That which does not kill us makes us stronger.",
+    "author": "Friedrich Nietzsche",
+    "language": "en",
+    "tags": ["philosophy"]
+  },
+  {
+    "content": "私を殺さないものは、私をいっそう強くする。",
+    "author": "フリードリヒ・ニーチェ",
+    "language": "ja",
+    "tags": ["philosophy"]
+  },
+  {
+    "content": "나를 죽이지 않는 모든 것은 나를 더욱 강하게 한다.",
+    "author": "프리드리히 니체",
+    "language": "ko",
+    "tags": ["philosophy"]
+  },
+  {
+    "content": "I'm not upset that you lied to me, I'm upset that from now on I can't believe you.",
+    "author": "Friedrich Nietzsche",
+    "language": "en",
+    "tags": ["lie", "liyng"]
+  },
+  {
+    "content": "あなたが私に嘘をついた事に腹が立ったのではなく、今から私があなたを信じなくなったのが腹が立つ。",
+    "author": "フリードリヒ・ニーチェ",
+    "language": "ja",
+    "tags": ["lie", "liyng"]
+  },
+  {
+    "content": "당신이 나에게 거짓말을 한 것에 화난 게 아니다, 나는 이제 당신을 믿을 수 없음에 화가 난 것이다.",
+    "author": "프리드리히 니체",
+    "language": "ko",
+    "tags": ["lie", "liyng"]
+  }
+]
