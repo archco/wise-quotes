@@ -1,56 +1,56 @@
 [
   {
-    "content": "It is not a lack of love, but a lack of friendship that makes unhappy marriages.",
+    "content": "And those who were seen dancing were thought to be insane by those who could not hear the music.",
     "author": "Friedrich Nietzsche",
     "language": "en",
-    "tags": ["love", "friendship", "marriage"]
+    "tags": ["philosophy", "dance", "music"]
   },
   {
-    "content": "不幸な結婚とは、愛の欠如ではなく、友情の欠如から生まれる。",
+    "content": "音楽を聴くことができない人から見ると、踊っている人は正気には思えない。",
     "author": "フリードリヒ・ニーチェ",
     "language": "ja",
-    "tags": ["love", "friendship", "marriage"]
+    "tags": ["philosophy", "dance", "music"]
   },
   {
-    "content": "애정의 결핍이 아니라 우정의 결핍이 불행한 결혼을 만든다.",
+    "content": "음악을 못 듣는 사람에게는 춤추는 사람이 제정신이라고 생각하지 않을 것이다.",
     "author": "프리드리히 니체",
     "language": "ko",
-    "tags": ["love", "friendship", "marriage"]
+    "tags": ["philosophy", "dance", "music"]
   },
   {
-    "content": "That which does not kill us makes us stronger.",
-    "author": "Friedrich Nietzsche",
+    "content": "The fool doth think he is wise, but the wise man knows himself to be a fool.",
+    "author": "William Shakespeare",
     "language": "en",
-    "tags": ["philosophy"]
+    "tags": ["wisdom"]
   },
   {
-    "content": "私を殺さないものは、私をいっそう強くする。",
-    "author": "フリードリヒ・ニーチェ",
+    "content": "愚か者は己を賢いと思うが、賢い者は己の愚かさを知っている。",
+    "author": "ウィリアム・シェイクスピア",
     "language": "ja",
-    "tags": ["philosophy"]
+    "tags": ["wisdom"]
   },
   {
-    "content": "나를 죽이지 않는 모든 것은 나를 더욱 강하게 한다.",
-    "author": "프리드리히 니체",
+    "content": "어리석은 자는 자신이 지혜롭다고 생각하지만, 지혜로운 자는 자신의 어리석음을 알고 있다.",
+    "author": "윌리엄 셰익스피어",
     "language": "ko",
-    "tags": ["philosophy"]
+    "tags": ["wisdom"]
   },
   {
-    "content": "I'm not upset that you lied to me, I'm upset that from now on I can't believe you.",
-    "author": "Friedrich Nietzsche",
+    "content": "Be the change that you wish to see in the world.",
+    "author": "Mahatma Gandhi",
     "language": "en",
-    "tags": ["lie", "liyng"]
+    "tags": ["inspiration", "change", "action"]
   },
   {
-    "content": "あなたが私に嘘をついた事に腹が立ったのではなく、今から私があなたを信じなくなったのが腹が立つ。",
-    "author": "フリードリヒ・ニーチェ",
+    "content": "世界の中で自分が見たいと思う変化に、あなたがなりなさい。",
+    "author": "マハトマ・ガンディー",
     "language": "ja",
-    "tags": ["lie", "liyng"]
+    "tags": ["inspiration", "change", "action"]
   },
   {
-    "content": "당신이 나에게 거짓말을 한 것에 화난 게 아니다, 나는 이제 당신을 믿을 수 없음에 화가 난 것이다.",
-    "author": "프리드리히 니체",
+    "content": "당신이 세상에서 보고싶은 변화, 당신 스스로가 그 변화가 되어라.",
+    "author": "마하트마 간디",
     "language": "ko",
-    "tags": ["lie", "liyng"]
+    "tags": ["inspiration", "change", "action"]
   }
 ]
