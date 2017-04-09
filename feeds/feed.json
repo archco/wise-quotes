@@ -1,56 +1,56 @@
 [
   {
-    "content": "And those who were seen dancing were thought to be insane by those who could not hear the music.",
-    "author": "Friedrich Nietzsche",
+    "content": "If you tell the truth, you don't have to remember anything.",
+    "author": "Mark Twain",
     "language": "en",
-    "tags": ["philosophy", "dance", "music"]
+    "tags": ["truth", "lie"]
   },
   {
-    "content": "音楽を聴くことができない人から見ると、踊っている人は正気には思えない。",
-    "author": "フリードリヒ・ニーチェ",
+    "content": "本当のことを言えば、あとは何も気にすることはない。",
+    "author": "マーク・トウェイン",
     "language": "ja",
-    "tags": ["philosophy", "dance", "music"]
+    "tags": ["truth", "lie"]
   },
   {
-    "content": "음악을 못 듣는 사람에게는 춤추는 사람이 제정신이라고 생각하지 않을 것이다.",
-    "author": "프리드리히 니체",
+    "content": "진실을 말하면 나중을 걱정할 필요가 없다.",
+    "author": "마크 트웨인",
     "language": "ko",
-    "tags": ["philosophy", "dance", "music"]
+    "tags": ["truth", "lie"]
   },
   {
-    "content": "The fool doth think he is wise, but the wise man knows himself to be a fool.",
-    "author": "William Shakespeare",
+    "content": "The man who does not read has no advantage over the man who cannot read.",
+    "author": "Mark Twain",
     "language": "en",
-    "tags": ["wisdom"]
+    "tags": ["read", "literacy"]
   },
   {
-    "content": "愚か者は己を賢いと思うが、賢い者は己の愚かさを知っている。",
-    "author": "ウィリアム・シェイクスピア",
+    "content": "読まない人は読めない人より何にも利点がない。",
+    "author": "マーク・トウェイン",
     "language": "ja",
-    "tags": ["wisdom"]
+    "tags": ["read", "literacy"]
   },
   {
-    "content": "어리석은 자는 자신이 지혜롭다고 생각하지만, 지혜로운 자는 자신의 어리석음을 알고 있다.",
-    "author": "윌리엄 셰익스피어",
+    "content": "읽지 않는 사람이 읽지 못하는 사람보다 나은 점은 없다.",
+    "author": "마크 트웨인",
     "language": "ko",
-    "tags": ["wisdom"]
+    "tags": ["read", "literacy"]
   },
   {
-    "content": "Be the change that you wish to see in the world.",
-    "author": "Mahatma Gandhi",
+    "content": "Never put off till tomorrow what may be done day after tomorrow just as well.",
+    "author": "Mark Twain",
     "language": "en",
-    "tags": ["inspiration", "change", "action"]
+    "tags": ["humor", "procrastination", "positive"]
   },
   {
-    "content": "世界の中で自分が見たいと思う変化に、あなたがなりなさい。",
-    "author": "マハトマ・ガンディー",
+    "content": "あさってでもできるようなことを明日に延期することはない。",
+    "author": "マーク・トウェイン",
     "language": "ja",
-    "tags": ["inspiration", "change", "action"]
+    "tags": ["humor", "procrastination", "positive"]
   },
   {
-    "content": "당신이 세상에서 보고싶은 변화, 당신 스스로가 그 변화가 되어라.",
-    "author": "마하트마 간디",
+    "content": "내일모레에도 할 수 있는 일을 내일로 미룰 필요가 없다.",
+    "author": "마크 트웨인",
     "language": "ko",
-    "tags": ["inspiration", "change", "action"]
+    "tags": ["humor", "procrastination", "positive"]
   }
 ]
