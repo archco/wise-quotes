@@ -1,0 +1,708 @@
+[
+  {
+    "id": 1,
+    "author": "Dr. Seuss",
+    "content": "Don't cry because it's over, smile because it happened.",
+    "language": "en",
+    "tags": [
+      "life",
+      "optimism"
+    ]
+  },
+  {
+    "id": 2,
+    "author": "닥터 수스",
+    "content": "이미 끝났으니 울지마라, 이미 지나갔으니 웃어라.",
+    "language": "ko",
+    "tags": [
+      "life",
+      "optimism"
+    ]
+  },
+  {
+    "id": 3,
+    "author": "Albert Einstein",
+    "content": "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+    "language": "en",
+    "tags": [
+      "humor",
+      "universe",
+      "human"
+    ]
+  },
+  {
+    "id": 4,
+    "author": "알베르트 아인슈타인",
+    "content": "이 두가지는 무한하다: 우주와 인간의 어리석음; 그리고 나는 우주에 관해서는 확신하지 못한다.",
+    "language": "ko",
+    "tags": [
+      "humor",
+      "universe",
+      "human"
+    ]
+  },
+  {
+    "id": 5,
+    "author": "William Shakespeare",
+    "content": "Love all, trust a few, do wrong to none.",
+    "language": "en",
+    "tags": [
+      "love",
+      "trust"
+    ]
+  },
+  {
+    "id": 6,
+    "author": "윌리엄 셰익스피어",
+    "content": "사랑은 모두에게, 신뢰는 소수에게만, 잘못하는건 없도록.",
+    "language": "ko",
+    "tags": [
+      "love",
+      "trust"
+    ]
+  },
+  {
+    "id": 7,
+    "author": "ウィリアム・シェイクスピア",
+    "content": "全てを愛し、少なきを信じ、過ち無き事を。",
+    "language": "ja",
+    "tags": [
+      "love",
+      "trust"
+    ]
+  },
+  {
+    "id": 8,
+    "author": "René Descartes",
+    "content": "I think; therefore I am.",
+    "language": "en",
+    "tags": [
+      "philosophy"
+    ]
+  },
+  {
+    "id": 9,
+    "author": "르네 데카르트",
+    "content": "나는 생각한다, 그러므로 나는 존재한다.",
+    "language": "ko",
+    "tags": [
+      "philosophy"
+    ]
+  },
+  {
+    "id": 10,
+    "author": "Albert Einstein",
+    "content": "Any fool can know. The point is to understand.",
+    "language": "en",
+    "tags": [
+      "wisdom",
+      "knowledge"
+    ]
+  },
+  {
+    "id": 11,
+    "author": "알베르트 아인슈타인",
+    "content": "어느 바보라도 알 수는 있다. 중요한건 이해하는 것이다.",
+    "language": "ko",
+    "tags": [
+      "wisdom",
+      "knowledge"
+    ]
+  },
+  {
+    "id": 12,
+    "author": "Ralph Waldo Emerson",
+    "content": "For every minute you are angry you lose sixty seconds of happiness.",
+    "language": "en",
+    "tags": [
+      "happiness"
+    ]
+  },
+  {
+    "id": 13,
+    "author": "랠프 월도 에머슨",
+    "content": "1분간 화낼 때마다 당신은 60초의 행복을 놓치는 것이다.",
+    "language": "ko",
+    "tags": [
+      "happiness"
+    ]
+  },
+  {
+    "id": 14,
+    "author": "Nicolas Chamfort",
+    "content": "A day without laughter is a day wasted.",
+    "language": "en",
+    "tags": [
+      "philosophy"
+    ]
+  },
+  {
+    "id": 15,
+    "author": "니콜라스 샹포르",
+    "content": "웃음이 없는 날은 쓸모 없는 날이다.",
+    "language": "ko",
+    "tags": [
+      "philosophy"
+    ]
+  },
+  {
+    "id": 16,
+    "author": "Oscar Wilde",
+    "content": "Be yourself; everyone else is already taken.",
+    "language": "en",
+    "tags": [
+      "inspiration",
+      "honesty"
+    ]
+  },
+  {
+    "id": 17,
+    "author": "오스카 와일드",
+    "content": "너 자신이 되라; 다른 사람은 이미 있다.",
+    "language": "ko",
+    "tags": [
+      "inspiration",
+      "honesty"
+    ]
+  },
+  {
+    "id": 18,
+    "author": "Friedrich Nietzsche",
+    "content": "Without music, life would be a mistake.",
+    "language": "en",
+    "tags": [
+      "inspiration",
+      "philosophy",
+      "music"
+    ]
+  },
+  {
+    "id": 19,
+    "author": "프리드리히 니체",
+    "content": "음악이 없다면 삶은 실수가 될 것이다.",
+    "language": "ko",
+    "tags": [
+      "inspiration",
+      "philosophy",
+      "music"
+    ]
+  },
+  {
+    "id": 20,
+    "author": "Thomas A. Edison",
+    "content": "I have not failed. I've just found 10,000 ways that won't work.",
+    "language": "en",
+    "tags": [
+      "inspiration",
+      "failure"
+    ]
+  },
+  {
+    "id": 21,
+    "author": "토머스 에디슨",
+    "content": "나는 실패하지 않았다. 나는 방금 작동하지 않는 10,000가지 방법을 찾았다.",
+    "language": "ko",
+    "tags": [
+      "inspiration",
+      "failure"
+    ]
+  },
+  {
+    "id": 22,
+    "author": "Eleanor Roosevelt",
+    "content": "No one can make you feel inferior without your consent.",
+    "language": "en",
+    "tags": [
+      "wisdom",
+      "confidence"
+    ]
+  },
+  {
+    "id": 23,
+    "author": "엘리너 루스벨트",
+    "content": "아무도 당신의 동의 없이 당신에게 열등감을 느끼게 할 수 없다.",
+    "language": "ko",
+    "tags": [
+      "wisdom",
+      "confidence"
+    ]
+  },
+  {
+    "id": 24,
+    "author": "Aristotle",
+    "content": "Knowing yourself is the beginning of all wisdom.",
+    "language": "en",
+    "tags": [
+      "philosophy",
+      "wisdom"
+    ]
+  },
+  {
+    "id": 25,
+    "author": "아리스토텔레스",
+    "content": "자신을 아는 것은 모든 지혜의 시작이다.",
+    "language": "ko",
+    "tags": [
+      "philosophy",
+      "wisdom"
+    ]
+  },
+  {
+    "id": 26,
+    "author": "Socrates",
+    "content": "The only true wisdom is in knowing you know nothing.",
+    "language": "en",
+    "tags": [
+      "philosophy",
+      "wisdom",
+      "knowledge"
+    ]
+  },
+  {
+    "id": 27,
+    "author": "소크라테스",
+    "content": "유일한 진짜 지혜는 자신이 아무것도 알지 못한다는 것을 아는 것이다.",
+    "language": "ko",
+    "tags": [
+      "philosophy",
+      "wisdom",
+      "knowledge"
+    ]
+  },
+  {
+    "id": 28,
+    "author": "Robert Frost",
+    "content": "In three words I can sum up everything I've learned about life: it goes on.",
+    "language": "en",
+    "tags": [
+      "life"
+    ]
+  },
+  {
+    "id": 29,
+    "author": "로버트 프로스트",
+    "content": "세단어로 내가 인생에 대해 배운 모든 것을 요약 할 수있다: 삶은 계속 된다(it goes on).",
+    "language": "ko",
+    "tags": [
+      "life"
+    ]
+  },
+  {
+    "id": 30,
+    "author": "Pablo Picasso",
+    "content": "Everything you can imagine is real.",
+    "language": "en",
+    "tags": [
+      "inspiration",
+      "imagination",
+      "art"
+    ]
+  },
+  {
+    "id": 31,
+    "author": "파블로 피카소",
+    "content": "당신이 상상할 수 있는 모든 것은 진짜이다.",
+    "language": "ko",
+    "tags": [
+      "inspiration",
+      "imagination",
+      "art"
+    ]
+  },
+  {
+    "id": 32,
+    "author": "Virginia Woolf",
+    "content": "You cannot find peace by avoiding life.",
+    "language": "en",
+    "tags": [
+      "life",
+      "peace"
+    ]
+  },
+  {
+    "id": 33,
+    "author": "버지니아 울프",
+    "content": "인생을 피해서는 평화를 찾을 수 없다.",
+    "language": "ko",
+    "tags": [
+      "life",
+      "peace"
+    ]
+  },
+  {
+    "id": 34,
+    "author": "Winston S. Churchill",
+    "content": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+    "language": "en",
+    "tags": [
+      "inspiration",
+      "success",
+      "failure",
+      "courage"
+    ]
+  },
+  {
+    "id": 35,
+    "author": "윈스턴 처칠",
+    "content": "성공은 마지막이 아니며, 실패는 치명적이지 않다. 중요한건 계속하는 용기이다.",
+    "language": "ko",
+    "tags": [
+      "inspiration",
+      "success",
+      "failure",
+      "courage"
+    ]
+  },
+  {
+    "id": 36,
+    "author": "ウィンストン・チャーチル",
+    "content": "成功があがりでもなければ、失敗が終わりでもない。肝心なのは、続ける勇気である。",
+    "language": "ja",
+    "tags": [
+      "inspiration",
+      "success",
+      "failure",
+      "courage"
+    ]
+  },
+  {
+    "id": 37,
+    "author": "Albert Einstein",
+    "content": "Try not to become a man of success. Rather become a man of value.",
+    "language": "en",
+    "tags": [
+      "success"
+    ]
+  },
+  {
+    "id": 38,
+    "author": "알베르트 아인슈타인",
+    "content": "성공한 사람보다는 가치있는 사람이 되려 하라.",
+    "language": "ko",
+    "tags": [
+      "success"
+    ]
+  },
+  {
+    "id": 39,
+    "author": "Martin Luther King Jr.",
+    "content": "Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that.",
+    "language": "en",
+    "tags": [
+      "love",
+      "darkness",
+      "hate",
+      "light"
+    ]
+  },
+  {
+    "id": 40,
+    "author": "마틴 루터 킹 주니어",
+    "content": "어둠이 어둠을 몰아낼 수 없으며 오직 빛만이 어둠을 몰아낼 수 있다. 증오를 증오로 몰아낼 수 없으며 오직 사랑만이 증오를 몰아낼 수 있다.",
+    "language": "ko",
+    "tags": [
+      "love",
+      "darkness",
+      "hate",
+      "light"
+    ]
+  },
+  {
+    "id": 41,
+    "author": "Elbert Hubbard",
+    "content": "A friend is someone who knows all about you and still loves you.",
+    "language": "en",
+    "tags": [
+      "love",
+      "friendship",
+      "friend"
+    ]
+  },
+  {
+    "id": 42,
+    "author": "엘버트 허바드",
+    "content": "친구란 당신에 대해 모든것을 알고 있음에도 여전히 당신을 사랑하는 사람이다.",
+    "language": "ko",
+    "tags": [
+      "love",
+      "friendship",
+      "friend"
+    ]
+  },
+  {
+    "id": 43,
+    "author": "Friedrich Nietzsche",
+    "content": "It is not a lack of love, but a lack of friendship that makes unhappy marriages.",
+    "language": "en",
+    "tags": [
+      "love",
+      "friendship",
+      "marriage"
+    ]
+  },
+  {
+    "id": 44,
+    "author": "フリードリヒ・ニーチェ",
+    "content": "不幸な結婚とは、愛の欠如ではなく、友情の欠如から生まれる。",
+    "language": "ja",
+    "tags": [
+      "love",
+      "friendship",
+      "marriage"
+    ]
+  },
+  {
+    "id": 45,
+    "author": "프리드리히 니체",
+    "content": "애정의 결핍이 아니라 우정의 결핍이 불행한 결혼을 만든다.",
+    "language": "ko",
+    "tags": [
+      "love",
+      "friendship",
+      "marriage"
+    ]
+  },
+  {
+    "id": 46,
+    "author": "Friedrich Nietzsche",
+    "content": "I'm not upset that you lied to me, I'm upset that from now on I can't believe you.",
+    "language": "en",
+    "tags": [
+      "lie",
+      "liyng"
+    ]
+  },
+  {
+    "id": 47,
+    "author": "フリードリヒ・ニーチェ",
+    "content": "あなたが私に嘘をついた事に腹が立ったのではなく、今から私があなたを信じなくなったのが腹が立つ。",
+    "language": "ja",
+    "tags": [
+      "lie",
+      "liyng"
+    ]
+  },
+  {
+    "id": 48,
+    "author": "프리드리히 니체",
+    "content": "당신이 나에게 거짓말을 한 것에 화난 게 아니다, 나는 이제 당신을 믿을 수 없음에 화가 난 것이다.",
+    "language": "ko",
+    "tags": [
+      "lie",
+      "liyng"
+    ]
+  },
+  {
+    "id": 49,
+    "author": "Friedrich Nietzsche",
+    "content": "That which does not kill us makes us stronger.",
+    "language": "en",
+    "tags": [
+      "philosophy"
+    ]
+  },
+  {
+    "id": 50,
+    "author": "프리드리히 니체",
+    "content": "나를 죽이지 않는 모든 것은 나를 더욱 강하게 한다.",
+    "language": "ko",
+    "tags": [
+      "philosophy"
+    ]
+  },
+  {
+    "id": 51,
+    "author": "フリードリヒ・ニーチェ",
+    "content": "私を殺さないものは、私をいっそう強くする。",
+    "language": "ja",
+    "tags": [
+      "philosophy"
+    ]
+  },
+  {
+    "id": 52,
+    "author": "Friedrich Nietzsche",
+    "content": "And those who were seen dancing were thought to be insane by those who could not hear the music.",
+    "language": "en",
+    "tags": [
+      "philosophy",
+      "music",
+      "dance"
+    ]
+  },
+  {
+    "id": 53,
+    "author": "フリードリヒ・ニーチェ",
+    "content": "音楽を聴くことができない人から見ると、踊っている人は正気には思えない。",
+    "language": "ja",
+    "tags": [
+      "philosophy",
+      "music",
+      "dance"
+    ]
+  },
+  {
+    "id": 54,
+    "author": "프리드리히 니체",
+    "content": "음악을 못 듣는 사람에게는 춤추는 사람이 제정신이라고 생각하지 않을 것이다.",
+    "language": "ko",
+    "tags": [
+      "philosophy",
+      "music",
+      "dance"
+    ]
+  },
+  {
+    "id": 55,
+    "author": "William Shakespeare",
+    "content": "The fool doth think he is wise, but the wise man knows himself to be a fool.",
+    "language": "en",
+    "tags": [
+      "wisdom"
+    ]
+  },
+  {
+    "id": 56,
+    "author": "ウィリアム・シェイクスピア",
+    "content": "愚か者は己を賢いと思うが、賢い者は己の愚かさを知っている。",
+    "language": "ja",
+    "tags": [
+      "wisdom"
+    ]
+  },
+  {
+    "id": 57,
+    "author": "윌리엄 셰익스피어",
+    "content": "어리석은 자는 자신이 지혜롭다고 생각하지만, 지혜로운 자는 자신의 어리석음을 알고 있다.",
+    "language": "ko",
+    "tags": [
+      "wisdom"
+    ]
+  },
+  {
+    "id": 58,
+    "author": "Mahatma Gandhi",
+    "content": "Be the change that you wish to see in the world.",
+    "language": "en",
+    "tags": [
+      "inspiration",
+      "change",
+      "action"
+    ]
+  },
+  {
+    "id": 59,
+    "author": "マハトマ・ガンディー",
+    "content": "世界の中で自分が見たいと思う変化に、あなたがなりなさい。",
+    "language": "ja",
+    "tags": [
+      "inspiration",
+      "change",
+      "action"
+    ]
+  },
+  {
+    "id": 60,
+    "author": "마하트마 간디",
+    "content": "당신이 세상에서 보고싶은 변화, 당신 스스로가 그 변화가 되어라.",
+    "language": "ko",
+    "tags": [
+      "inspiration",
+      "change",
+      "action"
+    ]
+  },
+  {
+    "id": 61,
+    "author": "Mark Twain",
+    "content": "If you tell the truth, you don't have to remember anything.",
+    "language": "en",
+    "tags": [
+      "truth",
+      "lie"
+    ]
+  },
+  {
+    "id": 62,
+    "author": "マーク・トウェイン",
+    "content": "本当のことを言えば、あとは何も気にすることはない。",
+    "language": "ja",
+    "tags": [
+      "truth",
+      "lie"
+    ]
+  },
+  {
+    "id": 63,
+    "author": "마크 트웨인",
+    "content": "진실을 말하면 나중을 걱정할 필요가 없다.",
+    "language": "ko",
+    "tags": [
+      "truth",
+      "lie"
+    ]
+  },
+  {
+    "id": 64,
+    "author": "Mark Twain",
+    "content": "The man who does not read has no advantage over the man who cannot read.",
+    "language": "en",
+    "tags": [
+      "read",
+      "literacy"
+    ]
+  },
+  {
+    "id": 65,
+    "author": "マーク・トウェイン",
+    "content": "読まない人は読めない人より何にも利点がない。",
+    "language": "ja",
+    "tags": [
+      "read",
+      "literacy"
+    ]
+  },
+  {
+    "id": 66,
+    "author": "마크 트웨인",
+    "content": "읽지 않는 사람이 읽지 못하는 사람보다 나은 점은 없다.",
+    "language": "ko",
+    "tags": [
+      "read",
+      "literacy"
+    ]
+  },
+  {
+    "id": 67,
+    "author": "Mark Twain",
+    "content": "Never put off till tomorrow what may be done day after tomorrow just as well.",
+    "language": "en",
+    "tags": [
+      "humor",
+      "procrastination",
+      "positive"
+    ]
+  },
+  {
+    "id": 68,
+    "author": "マーク・トウェイン",
+    "content": "あさってでもできるようなことを明日に延期することはない。",
+    "language": "ja",
+    "tags": [
+      "humor",
+      "procrastination",
+      "positive"
+    ]
+  },
+  {
+    "id": 69,
+    "author": "마크 트웨인",
+    "content": "내일모레에도 할 수 있는 일을 내일로 미룰 필요가 없다.",
+    "language": "ko",
+    "tags": [
+      "humor",
+      "procrastination",
+      "positive"
+    ]
+  }
+]
