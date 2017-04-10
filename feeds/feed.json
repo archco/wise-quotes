@@ -1,56 +1,56 @@
 [
   {
-    "content": "If you tell the truth, you don't have to remember anything.",
-    "author": "Mark Twain",
+    "content": "Genius is one percent inspiration, ninety-nine percent perspiration.",
+    "author": "Thomas A. Edison",
     "language": "en",
-    "tags": ["truth", "lie"]
+    "tags": ["inspiration", "persistence"]
   },
   {
-    "content": "本当のことを言えば、あとは何も気にすることはない。",
-    "author": "マーク・トウェイン",
+    "content": "天才とは、１パーセントのひらめきと、99パーセントの努力である",
+    "author": "トーマス・エジソン",
     "language": "ja",
-    "tags": ["truth", "lie"]
+    "tags": ["inspiration", "persistence"]
   },
   {
-    "content": "진실을 말하면 나중을 걱정할 필요가 없다.",
-    "author": "마크 트웨인",
+    "content": "천재는 1%의 영감과 99%의 노력으로 이루어진다.",
+    "author": "토머스 에디슨",
     "language": "ko",
-    "tags": ["truth", "lie"]
+    "tags": ["inspiration", "persistence"]
   },
   {
-    "content": "The man who does not read has no advantage over the man who cannot read.",
-    "author": "Mark Twain",
+    "content": "There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.",
+    "author": "Albert Einstein",
     "language": "en",
-    "tags": ["read", "literacy"]
+    "tags": ["inspiration", "life", "miracle"]
   },
   {
-    "content": "読まない人は読めない人より何にも利点がない。",
-    "author": "マーク・トウェイン",
+    "content": "人生を生きるの方法は二通りある。一つは、何にも奇跡な事はないと思うこと。もう一つは、全てが奇跡だと思うことだ。",
+    "author": "アルベルト・アインシュタイン",
     "language": "ja",
-    "tags": ["read", "literacy"]
+    "tags": ["inspiration", "life", "miracle"]
   },
   {
-    "content": "읽지 않는 사람이 읽지 못하는 사람보다 나은 점은 없다.",
-    "author": "마크 트웨인",
+    "content": "인생을 사는데 두 가지 방법이 있다. 하나는 기적은 없다고 생각하는 것. 다른 하나는 모든 것이 기적이라고 생각하는 것이다.",
+    "author": "알베르트 아인슈타인",
     "language": "ko",
-    "tags": ["read", "literacy"]
+    "tags": ["inspiration", "life", "miracle"]
   },
   {
-    "content": "Never put off till tomorrow what may be done day after tomorrow just as well.",
-    "author": "Mark Twain",
+    "content": "If you want your children to be intelligent, read them fairy tales. If you want them to be more intelligent, read them more fairy tales.",
+    "author": "Albert Einstein",
     "language": "en",
-    "tags": ["humor", "procrastination", "positive"]
+    "tags": ["children", "fairy-tales"]
   },
   {
-    "content": "あさってでもできるようなことを明日に延期することはない。",
-    "author": "マーク・トウェイン",
+    "content": "あなたの子が賢いことを望むならば童話を読んであげてください。もしもっと賢くしてなることを望むなら、より多くの童話を読んであげてください。",
+    "author": "アルベルト・アインシュタイン",
     "language": "ja",
-    "tags": ["humor", "procrastination", "positive"]
+    "tags": ["children", "fairy-tales"]
   },
   {
-    "content": "내일모레에도 할 수 있는 일을 내일로 미룰 필요가 없다.",
-    "author": "마크 트웨인",
+    "content": "당신의 자식이 총명하기를 바란다면 동화를 읽어주세요. 만약 더욱 총명해지기를 바란다면 더 많은 동화를 읽어주세요.",
+    "author": "알베르트 아인슈타인",
     "language": "ko",
-    "tags": ["humor", "procrastination", "positive"]
+    "tags": ["children", "fairy-tales"]
   }
 ]
