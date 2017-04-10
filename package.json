@@ -1,14 +1,14 @@
 {
   "name": "wise-quotes",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The database for wise saying and quotes.",
   "main": "index.js",
   "scripts": {
     "test": "node ./node_modules/mocha/bin/mocha",
-    "status": "node ./bin/status.js",
-    "feed": "node ./bin/feed.js",
-    "backup": "node ./bin/backup.js",
-    "build": "node ./bin/build.js"
+    "status": "node ./bin/wise-quotes --status",
+    "feed": "node ./bin/wise-quotes feed",
+    "backup": "node ./bin/wise-quotes backup",
+    "build": "node ./bin/wise-quotes build"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/archco/wise-quotes#readme",
   "dependencies": {
+    "commander": "^2.9.0",
     "dateformat": "^2.0.0",
     "jsonfile": "^2.4.0",
     "sqlite3": "^3.1.8"
