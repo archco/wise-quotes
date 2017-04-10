@@ -8,7 +8,7 @@ let file = path.resolve(__dirname, '../db/quotes.json');
 (async () => {
   let rows = await wq.all();
   
-  jsonfile.writeFile(file, rows, {spaces: 2}, function (err) {
+  jsonfile.writeFile(file, rows, {spaces: 0}, function (err) {
     if (err) {
       console.error(err);  
     } else {
