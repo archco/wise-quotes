@@ -5,6 +5,7 @@ const jsonfile = require('jsonfile');
 const program = require('commander');
 const dateformat = require('dateformat');
 const WiseQuotes = require('../index.js');
+const pkg = require('../package.json');
 
 const wq = new WiseQuotes();
 
@@ -12,7 +13,7 @@ const wq = new WiseQuotes();
   Definitions.
 *************************************************************/
 
-program.version('0.1.1')
+program.version(pkg.version)
   .option('-s, --status', 'display status');
 
 program
