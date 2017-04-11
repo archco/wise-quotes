@@ -120,11 +120,10 @@ class WiseQuotes {
    * @return {Promise} [resolve({Array} rows) | reject(err)]
    */
   async all() {
-    let rows = await this._getAllQuotes();
+    let rows = await this.db.all(`SELECT id,author,content,language FROM ${this.table.quote}`);
 
     for (let row of rows) {
-      let tags = await this.tag.getTags(row.id);
-      row.tags = tags;
+      row.tags = await this.tag.getTags(row.id);
     }
 
     return rows;
@@ -159,6 +158,8 @@ class WiseQuotes {
     return await this.read(row.id);
   }
 
+  // private
+
   _setConfigDatabase() {
     if (!this.config.database) {
       throw new Error('config.database is not exist.');
@@ -170,12 +171,6 @@ class WiseQuotes {
       // absolute path of database file.
       this.config.database = path.resolve(__dirname, this.config.database);
     }
-  }
-
-  async _getAllQuotes() {
-    let rows = await this.db.all(`SELECT id,author,content,language FROM ${this.table.quote}`);
-
-    return rows;
   }
 }
 

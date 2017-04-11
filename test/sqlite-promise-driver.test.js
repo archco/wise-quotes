@@ -16,7 +16,7 @@ describe('SqlitePromiseDriver', function () {
       return 'done';
     })()
       .then(r => {
-        console.log(r);
+        // console.log(r);
         done();
       })
       .catch(done);
@@ -25,7 +25,7 @@ describe('SqlitePromiseDriver', function () {
   describe('#constructor', function () {
     
     it('should have property "db"', function () {
-      console.log(spd.db);
+      // console.log(spd.db);
       spd.should.have.property('db');
     });
     it('"db" should be an instanceof sqlite.Database', function () {
@@ -49,7 +49,7 @@ describe('SqlitePromiseDriver', function () {
     it('should be fullfilled', function (done) {
       spd.run('INSERT INTO lorem VALUES (?)', 'run')
         .then((result) => {
-          console.log(result);
+          // console.log(result);
           done();
         })
         .catch(done);
@@ -68,9 +68,9 @@ describe('SqlitePromiseDriver', function () {
     
     it('should', function (done) {
       spd.each('select * from lorem', [], (err, row) => {
-        console.log(row.info);
+        // console.log(row.info);
       }).then((res) => {
-        console.log(res);
+        // console.log(res); // 11
         done();
       })
       .catch(done);
@@ -81,7 +81,7 @@ describe('SqlitePromiseDriver', function () {
     
     it('should be an instanceof sqlite3.Statement', function () {
       let stmt = spd.prepare('INSERT INTO lorem VALUES (?)');
-      console.log(stmt);
+      // console.log(stmt);
       stmt.should.be.an.instanceof(sqlite3.Statement);
     });
   });
