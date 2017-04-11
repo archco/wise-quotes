@@ -56,6 +56,27 @@ describe('SqlitePromiseDriver', function () {
     });
   });
 
+  describe('#all', function () {
+    
+    it('should eventually be a array', async function () {
+      let rows = await spd.all('select * from lorem');
+      rows.should.be.a('array');
+    });
+  });
+
+  describe('#each', function () {
+    
+    it('should', function (done) {
+      spd.each('select * from lorem', [], (err, row) => {
+        console.log(row.info);
+      }).then((res) => {
+        console.log(res);
+        done();
+      })
+      .catch(done);
+    });
+  });
+
   describe('#prepare', function () {
     
     it('should be an instanceof sqlite3.Statement', function () {
