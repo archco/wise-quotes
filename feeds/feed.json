@@ -1,56 +1,56 @@
 [
   {
-    "content": "Genius is one percent inspiration, ninety-nine percent perspiration.",
-    "author": "Thomas A. Edison",
+    "content": "You only live once, but if you do it right, once is enough.",
+    "author": "Mae West",
     "language": "en",
-    "tags": ["inspiration", "persistence"]
+    "tags": ["life", "humor"]
   },
   {
-    "content": "天才とは、１パーセントのひらめきと、99パーセントの努力である",
-    "author": "トーマス・エジソン",
+    "content": "人生は一度きり、でも正しく生きたなら、一度で十分よ。",
+    "author": "メイ・ウエスト",
     "language": "ja",
-    "tags": ["inspiration", "persistence"]
+    "tags": ["life", "humor"]
   },
   {
-    "content": "천재는 1%의 영감과 99%의 노력으로 이루어진다.",
-    "author": "토머스 에디슨",
+    "content": "인생은 한번 뿐이지만 제대로 산다면 한번으로 충분해요.",
+    "author": "메이 웨스트",
     "language": "ko",
-    "tags": ["inspiration", "persistence"]
+    "tags": ["life", "humor"]
   },
   {
-    "content": "There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.",
-    "author": "Albert Einstein",
+    "content": "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.",
+    "author": "Ralph Waldo Emerson",
     "language": "en",
-    "tags": ["inspiration", "life", "miracle"]
+    "tags": ["philosophy", "be-yourself", "accomplishment"]
   },
   {
-    "content": "人生を生きるの方法は二通りある。一つは、何にも奇跡な事はないと思うこと。もう一つは、全てが奇跡だと思うことだ。",
-    "author": "アルベルト・アインシュタイン",
+    "content": "絶えずあなたを何者かに変えようとする世界の中で、自分らしくあり続けること。それがもっとも素晴らしい偉業である。",
+    "author": "ラルフ・ワルド・エマーソン",
     "language": "ja",
-    "tags": ["inspiration", "life", "miracle"]
+    "tags": ["philosophy", "be-yourself", "accomplishment"]
   },
   {
-    "content": "인생을 사는데 두 가지 방법이 있다. 하나는 기적은 없다고 생각하는 것. 다른 하나는 모든 것이 기적이라고 생각하는 것이다.",
-    "author": "알베르트 아인슈타인",
+    "content": "끊임없이 당신을 다른 누군가로 바꾸려는 세상 속에서 자신답게 유지하는 거야말로 가장 위대한 위업이다.",
+    "author": "랠프 월도 에머슨",
     "language": "ko",
-    "tags": ["inspiration", "life", "miracle"]
+    "tags": ["philosophy", "be-yourself", "accomplishment"]
   },
   {
-    "content": "If you want your children to be intelligent, read them fairy tales. If you want them to be more intelligent, read them more fairy tales.",
-    "author": "Albert Einstein",
+    "content": "Envy is ignorance; imitation is suicide..",
+    "author": "Ralph Waldo Emerson",
     "language": "en",
-    "tags": ["children", "fairy-tales"]
+    "tags": ["envy", "imitation", "originality"]
   },
   {
-    "content": "あなたの子が賢いことを望むならば童話を読んであげてください。もしもっと賢くしてなることを望むなら、より多くの童話を読んであげてください。",
-    "author": "アルベルト・アインシュタイン",
+    "content": "嫉妬は無知のしるしであり、人真似は自殺行為である。",
+    "author": "ラルフ・ワルド・エマーソン",
     "language": "ja",
-    "tags": ["children", "fairy-tales"]
+    "tags": ["envy", "imitation", "originality"]
   },
   {
-    "content": "당신의 자식이 총명하기를 바란다면 동화를 읽어주세요. 만약 더욱 총명해지기를 바란다면 더 많은 동화를 읽어주세요.",
-    "author": "알베르트 아인슈타인",
+    "content": "질투는 무지함이며 남을 흉내 내는 것은 자살 행위이다.",
+    "author": "랠프 월도 에머슨",
     "language": "ko",
-    "tags": ["children", "fairy-tales"]
+    "tags": ["envy", "imitation", "originality"]
   }
 ]

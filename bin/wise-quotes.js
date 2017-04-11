@@ -48,8 +48,8 @@ if (program.status) {
 
 async function displayStatus() {
   let count = await wq.count;
-  console.log(`Total rows: ${count}`);
 
+  console.log(`Total rows: ${count}`);
   console.log(await wq.random);
 }
 
@@ -81,5 +81,6 @@ async function generateBackupJSON() {
 
 async function feedProcess() {
   let result = await wq.feed();
+  
   console.log(result);
 }
