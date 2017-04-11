@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - Add command line interface. #7
+- Add SqlitePromiseDriver #9
+
+### Changed
+- Refactoring source codes for using SqlitePromiseDriver. #9
 
 ## [0.1.1] - 2017-04-08
 quotes count: 60
