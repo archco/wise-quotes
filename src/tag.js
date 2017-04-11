@@ -1,9 +1,9 @@
-const sqlite3 = require('sqlite3').verbose();
+const SqlitePromiseDriver = require('./sqlite-promise-driver.js');
 
 class Tag {
   constructor(db, table) {
-    if (!(db instanceof sqlite3.Database)) {
-      throw new Error('"this.db" must be instance of sqlite3.Database');
+    if (!(db instanceof SqlitePromiseDriver)) {
+      throw new Error('"this.db" must be instance of SqlitePromiseDriver');
     }
     this.db = db;
     this.table = table;
@@ -14,22 +14,15 @@ class Tag {
    * @param  {Number} quoteID
    * @return {Promise} [ resolve({Array} tags) | reject(err) ]
    */
-  getTags(quoteID) {
-    return new Promise((resolve, reject) => {
-      let sql = `SELECT tag_id,name FROM ${this.table.quote_tag} JOIN ${this.table.tag} ON ${this.table.quote_tag}.tag_id = ${this.table.tag}.id WHERE quote_id = ?`;
+  async getTags(quoteID) {
+    let tags = [];
+    let rows = await this.db.all(`SELECT tag_id,name FROM ${this.table.quote_tag} JOIN ${this.table.tag} ON ${this.table.quote_tag}.tag_id = ${this.table.tag}.id WHERE quote_id = ?`, quoteID);
 
-      this.db.all(sql, quoteID, (err, rows) => {
-        if (err) {
-          reject(err);
-        } else {
-          let tags = [];
-          rows.forEach((row) => {
-            tags.push(row.name);
-          });
-          resolve(tags);
-        }
-      });
-    });
+    for (let row of rows) {
+      tags.push(row.name);
+    }
+
+    return tags;
   }
 
   /**
@@ -38,28 +31,15 @@ class Tag {
    * @param  {String} tagName
    * @return {Promise} [ resolve({Object} row) | reject(err) ]
    */
-  getOrCreate(tagName) {
-    return new Promise((resolve, reject) => {
-      let sql = `SELECT * FROM ${this.table.tag} WHERE name = ?`;
+  async getOrCreate(tagName) {
+    let row = await this.db.get(`SELECT * FROM ${this.table.tag} WHERE name = ?`, tagName);
 
-      this.db.get(sql, tagName, (err, row) => {
-        if (err) {
-          reject(err);
-          return;
-        }
-
-        if (row) {
-          resolve(row);
-        } else {
-          this.create(tagName)
-          .then((id) => {
-            return this.read(id);
-          }, reject)
-          .then(resolve)
-          .catch(reject);
-        }
-      });
-    });
+    if (row) {
+      return row;
+    } else {
+      let insertID = await this.create(tagName);
+      return this.read(insertID);
+    }
   }
 
   /**
@@ -84,16 +64,10 @@ class Tag {
    * @param  {Number} quoteID
    * @return {Promise} [ resolve({Object} result) | reject(err) ]
    */
-  truncate(quoteID) {
-    return new Promise((resolve, reject) => {
-      this.db.run(`DELETE FROM ${this.table.quote_tag} WHERE quote_id = ?`, quoteID, function (err) {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(this);
-        }
-      });
-    });
+  async truncate(quoteID) {
+    let result = await this.db.run(`DELETE FROM ${this.table.quote_tag} WHERE quote_id = ?`, quoteID);
+
+    return result;
   }
 
   /**
@@ -102,16 +76,10 @@ class Tag {
    * @param  {String} name
    * @return {Promise} [ resolve({Number} lastID) | reject(err) ]
    */
-  create(name) {
-    return new Promise((resolve, reject) => {
-      this.db.run(`INSERT INTO ${this.table.tag} (name) VALUES (?)`, name, function (err) {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(this.lastID);
-        }
-      });
-    });
+  async create(name) {
+    let result = await this.db.run(`INSERT INTO ${this.table.tag} (name) VALUES (?)`, name);
+
+    return result.lastID;
   }
 
   /**
@@ -120,20 +88,14 @@ class Tag {
    * @param  {Number} id 
    * @return {Promise} [ resolve({Object} row) | reject(err) ]
    */
-  read(id) {
-    return new Promise((resolve, reject) => {
-      this.db.get(`SELECT * FROM ${this.table.tag} WHERE id = ?`, id, (err, row) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(row);
-        }
-      });
-    });
+  async read(id) {
+    let row = await this.db.get(`SELECT * FROM ${this.table.tag} WHERE id = ?`, id);
+
+    return row;
   }
 
   async _relateToQuote(quoteID, tags) {
-    let result;
+    // first, remove old tags.
     await this.truncate(quoteID);
 
     for (let tagName of tags) {
@@ -144,16 +106,10 @@ class Tag {
     return 'Relate Successfully.';
   }
 
-  _relate(quoteID, tagID) {
-    return new Promise((resolve, reject) => {
-      this.db.run(`INSERT INTO ${this.table.quote_tag} (quote_id, tag_id) VALUES (?,?)`, [quoteID, tagID], function (err) {
-        if (err) {
-          reject(err);
-        } else {
-          resolve('done');
-        }
-      })
-    });
+  async _relate(quoteID, tagID) {
+    await this.db.run(`INSERT INTO ${this.table.quote_tag} (quote_id, tag_id) VALUES (?,?)`, [quoteID, tagID]);
+
+    return true;
   }
 }
 

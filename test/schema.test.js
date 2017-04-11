@@ -3,7 +3,7 @@ const chai = require('chai');
 const should = chai.should();
 
 // modules.
-const sqlite3 = require('sqlite3').verbose();
+const SqlitePromiseDriver = require('../src/sqlite-promise-driver.js');
 const WiseQuotes = require('../src/wise-quotes.js');
 const Schema = require('../src/schema.js');
 
@@ -27,8 +27,8 @@ describe('Schema', function () {
     it('should have property "table"', function () {
       schema.should.have.property('table');
     });
-    it('property "db" should be an instanceof sqlite3.Database', function () {
-      schema.db.should.to.be.an.instanceof(sqlite3.Database);
+    it('property "db" should be an instanceof SqlitePromiseDriver', function () {
+      schema.db.should.to.be.an.instanceof(SqlitePromiseDriver);
     });
   });
 });

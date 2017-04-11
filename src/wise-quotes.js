@@ -1,5 +1,5 @@
-const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
+const SqlitePromiseDriver = require('./sqlite-promise-driver.js');
 const Config = require('./config.json');
 const Schema = require('./schema.js');
 const Tag = require('./tag.js');
@@ -11,7 +11,7 @@ class WiseQuotes {
     this.table = this.config.table;
     this._setConfigDatabase();
 
-    this.db = new sqlite3.Database(this.config.database);
+    this.db = new SqlitePromiseDriver(this.config.database);
     this.schema = new Schema(this.db, this.table);
     this.tag = new Tag(this.db, this.table);
   }
@@ -64,31 +64,11 @@ class WiseQuotes {
    * @param  {Object} obj
    * @return {Promise} [ resolve({Object} row) | reject(err) ]
    */
-  create(obj) {
-    return new Promise((resolve, reject) => {
-      let sql = `INSERT INTO ${this.table.quote} (author,content,language) VALUES (?,?,?)`;
-      let relateTags = (id) => {
-        return this.tag.sync(id, obj.tags);
-      };
-      let read = (id) => {
-        return this.read(id);
-      };
-      
-      this.db.run(sql, [obj.author, obj.content, obj.language], function (err) {
-        if (err) {
-          reject(err);
-          return;
-        }
+  async create(obj) {
+    let result = await this.db.run(`INSERT INTO ${this.table.quote} (author,content,language) VALUES (?,?,?)`, [obj.author, obj.content, obj.language]);
+    await this.tag.sync(result.lastID, obj.tags);
 
-        relateTags(this.lastID)
-        .catch(reject)
-        .then(() => {
-          return read(this.lastID);
-        })
-        .catch(reject)
-        .then(resolve);
-      });
-    });
+    return this.read(result.lastID);
   }
 
   /**
@@ -97,26 +77,14 @@ class WiseQuotes {
    * @param  {Number} id
    * @return {Promise} [ resolve({Object} row) | reject(err) ]
    */
-  read(id) {
-    return new Promise((resolve, reject) => {
-      let sql = `SELECT id,author,content,language FROM ${this.table.quote} WHERE id = ?`;
-    
-      this.db.get(sql, id, (err, row) => {
-        if (err) {
-          reject(err);
-          return;
-        }
+  async read(id) {
+    let row = await this.db.get(`SELECT id,author,content,language FROM ${this.table.quote} WHERE id = ?`, id);
+    let tags = await this.tag.getTags(row.id);
+    if (tags) {
+      row.tags = tags;
+    }
 
-        this.tag.getTags(row.id)
-        .then((tags) => {
-          if (tags) row.tags = tags;
-          resolve(row);
-        })
-        .catch((err) => {
-          reject(err);
-        });
-      });
-    });
+    return row;
   }
 
   /**
@@ -126,23 +94,11 @@ class WiseQuotes {
    * @param  {Object} obj
    * @return {Promise} [ resolve({Object} row) | reject(err) ]
    */
-  update(id, obj) {
-    return new Promise((resolve, reject) => {
-      let sql = `UPDATE ${this.table.quote} SET author = ?, content = ?, language = ? WHERE id = ?`;
-      
-      this.db.run(sql, [obj.author, obj.content, obj.language, id], (err) => {
-        if (err) {
-          reject(err);
-          return;
-        }
+  async update(id, obj) {
+    await this.db.run(`UPDATE ${this.table.quote} SET author = ?, content = ?, language = ? WHERE id = ?`, [obj.author, obj.content, obj.language, id]);
+    await this.tag.sync(id, obj.tags);
 
-        this.tag.sync(id, obj.tags)
-        .then((msg) => {
-          this.read(id).then(resolve, reject);
-        })
-        .catch(reject);
-      });
-    });
+    return await this.read(id);
   }
 
   /**
@@ -151,22 +107,11 @@ class WiseQuotes {
    * @param  {Number} id
    * @return {Promise} [ resolve({Number} changes) | reject(err) ]
    */
-  delete(id) {
-    return new Promise((resolve, reject) => {
-      let sql = `DELETE FROM ${this.table.quote} WHERE id = ?`;
+  async delete(id) {
+    await this.tag.truncate(id);
+    let result = await this.db.run(`DELETE FROM ${this.table.quote} WHERE id = ?`);
 
-      this.tag.truncate(id)
-      .catch(reject)
-      .then(() => {
-        this.db.run(sql, id, function (err) {
-          if (err) {
-            reject(err);
-          } else {
-            resolve(this.changes);
-          }
-        });
-      });
-    });
+    return result.changes;
   }
 
   /**
@@ -202,28 +147,16 @@ class WiseQuotes {
     return 'Feeds Complete.';
   }
 
-  getCount() {
-    return new Promise((resolve, reject) => {
-      this.db.get(`SELECT COUNT(*) AS count FROM ${this.table.quote}`, function (err, row) {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(row.count);
-        }
-      });
-    });
+  async getCount() {
+    let row = await this.db.get(`SELECT COUNT(*) AS count FROM ${this.table.quote}`);
+
+    return row.count;
   }
 
-  getRandom() {
-    return new Promise((resolve, reject) => {
-      this.db.get(`SELECT id,author,content,language FROM ${this.table.quote} ORDER BY RANDOM()`, (err, row) => {
-        if (err) {
-          reject(err);
-        } else {
-          this.read(row.id).then(resolve, reject);
-        }
-      });
-    });
+  async getRandom() {
+    let row = await this.db.get(`SELECT id FROM ${this.table.quote} ORDER BY RANDOM()`);
+
+    return await this.read(row.id);
   }
 
   _setConfigDatabase() {
@@ -239,16 +172,10 @@ class WiseQuotes {
     }
   }
 
-  _getAllQuotes() {
-    return new Promise((resolve, reject) => {
-      this.db.all(`SELECT id,author,content,language FROM ${this.table.quote}`, (err, rows) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(rows);
-        }
-      });
-    });
+  async _getAllQuotes() {
+    let rows = await this.db.all(`SELECT id,author,content,language FROM ${this.table.quote}`);
+
+    return rows;
   }
 }
 
