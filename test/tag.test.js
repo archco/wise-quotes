@@ -63,13 +63,4 @@ describe('Tag', function () {
       should.not.exist(row);
     });
   });
-
-  describe('#getQuotes', function () {
-    
-    it('should eventually be a array', async function () {
-      let rows = await tag.getQuotes(1);
-      // console.log(rows);
-      rows.should.be.a('array');
-    });
-  });
 })

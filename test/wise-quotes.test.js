@@ -7,7 +7,8 @@ const WiseQuotes = require('../src/wise-quotes.js');
 let sampleFile = '../db/sample.sqlite3';
 let memory = ':memory:';
 const wq = new WiseQuotes({
-  database: memory
+  database: memory,
+  language: 'all'
 });
 
 describe('WiseQuotes', function () {
@@ -100,12 +101,38 @@ describe('WiseQuotes', function () {
     });
   });
 
+  describe('#retrieveByTagID', function () {
+    
+    it('should eventually be an array', async function () {
+      let rows = await wq.retrieveByTagID(1);
+      rows.should.be.an('array');
+    });
+  });
+
   describe('#retrieveByTagName', function () {
     
-    it('should eventually ba an array', async function () {
+    it('should eventually be an array', async function () {
       let rows = await wq.retrieveByTagName('love');
       // console.log(rows);
       rows.should.be.an('array');
+    });
+  });
+
+  describe('#_getLanguageWhereClause', function () {
+    
+    it('should be a string', function () {
+      let w = wq._getLanguageWhereClause();
+      // console.log(w);
+      w.should.be.a('string');
+    });
+  });
+
+  describe('#_refineSql', function () {
+    
+    it('should be a string', function () {
+      let sql = wq._refineSql('SELECT COUNT(*) AS count FROM quote WHERE %L');
+      // console.log(sql);
+      sql.should.be.a('string');
     });
   });
 });

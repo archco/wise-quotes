@@ -24,7 +24,8 @@ class WiseQuotes {
    */
   get count() {
     return (async () => {
-      let row = await this.db.get(`SELECT COUNT(*) AS count FROM ${this.table.quote}`);
+      let sql = this._refineSql(`SELECT COUNT(*) AS count FROM ${this.table.quote} WHERE %L`);
+      let row = await this.db.get(sql);
 
       return row.count;
     })();
@@ -36,7 +37,8 @@ class WiseQuotes {
    */
   get random() {
     return (async () => {
-      let row = await this.db.get(`SELECT id FROM ${this.table.quote} ORDER BY RANDOM()`);
+      let sql = this._refineSql(`SELECT id FROM ${this.table.quote} WHERE %L ORDER BY RANDOM()`);
+      let row = await this.db.get(sql);
 
       return await this.read(row.id);
     })();
@@ -79,11 +81,13 @@ class WiseQuotes {
    * read - get a quote.
    * 
    * @param  {Number} id
-   * @return {Promise} [ resolve({Object} row) | reject(err) ]
+   * @return {Promise} [ resolve({Object|undefined} row) | reject(err) ]
    */
   async read(id) {
     let row = await this.db.get(`SELECT id,author,content,language FROM ${this.table.quote} WHERE id = ?`, id);
-    row = await this.tag.quoteAppendTags(row);
+    if (row) {
+      row = await this.tag.quoteAppendTags(row);
+    }
 
     return row;
   }
@@ -121,7 +125,8 @@ class WiseQuotes {
    * @return {Promise} [ resolve({Array} rows) | reject(err) ]
    */
   async all() {
-    let rows = await this.db.all(`SELECT id,author,content,language FROM ${this.table.quote}`);
+    let sql = this._refineSql(`SELECT id,author,content,language FROM ${this.table.quote} WHERE %L`);
+    let rows = await this.db.all(sql);
 
     for (let row of rows) {
       row.tags = await this.tag.getTags(row.id);
@@ -159,12 +164,25 @@ class WiseQuotes {
     let tag = await this.tag.getByName(tagName);
 
     if (tag) {
-      rows = await this.tag.getQuotes(tag.id);
+      rows = await this.retrieveByTagID(tag.id);
       for (let row of rows) {
         row = await this.tag.quoteAppendTags(row);
       }
     }
     
+    return rows;
+  }
+
+  /**
+   * get quotes by tag id.
+   * 
+   * @param  {Number} tagID
+   * @return {Promise} [ resolve({Array} rows) | reject(err) ]
+   */
+  async retrieveByTagID(tagID) {
+    let sql = this._refineSql(`SELECT ${this.table.quote}.* FROM ${this.table.quote_tag} JOIN ${this.table.quote} ON ${this.table.quote_tag}.quote_id = ${this.table.quote}.id WHERE (tag_id = ?) AND (%L)`);
+    let rows = await this.db.all(sql, tagID);
+
     return rows;
   }
 
@@ -181,6 +199,28 @@ class WiseQuotes {
       // absolute path of database file.
       this.config.database = path.resolve(__dirname, this.config.database);
     }
+  }
+
+  _getLanguageWhereClause() {
+    let l = this.config.language ? this.config.language : 'all';
+    if (l === 'all') {
+      return 'language IS NOT NULL';
+    } else if (Array.isArray(l)) {
+      let array = [];
+      l.forEach(v => array.push(`language = '${v}'`));
+      return array.join(' OR ');
+    } else {
+      // single language.
+      return `language = '${l}'`
+    }
+  }
+
+  _refineSql(sql) {
+    let lang = this._getLanguageWhereClause();
+    // language where clause.
+    sql = sql.replace(/(%L)/, lang);
+
+    return sql;
   }
 }
 
