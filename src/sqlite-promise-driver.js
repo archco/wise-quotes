@@ -84,7 +84,7 @@ class SqlitePromiseDriver {
    * 
    * @param  {String}   sql
    * @param  {Array}    params
-   * @param  {Function} callback
+   * @param  {Function} callback (err, row)
    * @return {Promise} [ resolve({Number} effected) | reject(err) ]
    */
   each(sql, params = [], callback = null) {

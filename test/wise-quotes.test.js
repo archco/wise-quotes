@@ -10,29 +10,27 @@ const wq = new WiseQuotes({
   database: memory
 });
 
-before(function (done) {
-  let initialize = async () => {
-    let result;
-    result = await wq.migration();
-    console.log(result);
-    result = await wq.feed('feed-sample.json');
-    console.log(result);
-    // status.
-    let count = await wq.count;
-    console.log(`count: ${count}`);
-
-    return 'initialized';
-  };
-
-  initialize()
-  .then(r => {
-    console.log(r);
-    done();
-  })
-  .catch(done);
-});
-
 describe('WiseQuotes', function () {
+
+  before(function (done) {
+    let initialize = async () => {
+      await wq.migration();
+      await wq.feed('feed-sample.json');
+      
+      // status.
+      let count = await wq.count;
+
+      return `initialized: count - ${count}`;
+    };
+
+    initialize()
+      .then(r => {
+        console.log(r);
+        done();
+      })
+      .catch(done);
+  });
+
   describe('#constructor', function () {
     it('should be an instanceof WiseQuotes', function () {
       wq.should.to.be.an.instanceof(WiseQuotes);

@@ -7,7 +7,6 @@ const Tags = require('./lib/popular-tags.json');
 class Schema {
   constructor(db, table) {
     if (!(db instanceof SqlitePromiseDriver)) {
-      console.log(db);
       throw new Error('"this.db" must be instance of SqlitePromiseDriver');
     }
     this.db = db;
@@ -74,9 +73,9 @@ class Schema {
     let result;
 
     result = await this._seedLanguage();
-    console.log(result);
+    // console.log(result);
     result = await this._seedTag();
-    console.log(result);
+    // console.log(result);
 
     return "Seed Complete.";
   }

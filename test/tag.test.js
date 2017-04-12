@@ -8,16 +8,35 @@ const WiseQuotes = require('../src/wise-quotes.js');
 const Tag = require('../src/tag.js');
 
 // prepare variables and instance.
-var dbTarget = {
+const dbTarget = {
   memory: ':memory:',
   file: '../db/sample.sqlite3'
 };
-var wq = new WiseQuotes({
+const wq = new WiseQuotes({
   database: dbTarget.memory
 });
-var tag = wq.tag;
+const tag = wq.tag;
 
 describe('Tag', function () {
+
+  before(function (done) {
+    let initialize = async () => {
+      await wq.migration();
+      await wq.feed('feed-sample.json');
+      
+      // status.
+      let count = await wq.count;
+
+      return `initialized: count - ${count}`;
+    };
+
+    initialize()
+      .then(r => {
+        console.log(r);
+        done();
+      })
+      .catch(done);
+  });
   
   describe('#constructor', function () {
     
@@ -29,6 +48,14 @@ describe('Tag', function () {
     });
     it('property "db" should be an instanceof SqlitePromiseDriver', function () {
       tag.db.should.to.be.an.instanceof(SqlitePromiseDriver);
+    });
+  });
+
+  describe('#getByName', function () {
+    
+    it('should eventually be a object', async function () {
+      let row = await tag.getByName('love');
+      row.should.be.a('object');
     });
   });
 })

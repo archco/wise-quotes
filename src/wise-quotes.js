@@ -20,7 +20,7 @@ class WiseQuotes {
   
   /**
    * count
-   * @return {AsyncFunction} [resolve({Number} count) | reject(err)]
+   * @return {Promise} [ resolve({Number} count) | reject(err) ]
    */
   get count() {
     return (async () => {
@@ -30,7 +30,7 @@ class WiseQuotes {
 
   /**
    * random
-   * @return {AsyncFunction} [resolve({Object} row) | reject(err)]
+   * @return {Promise} [ resolve({Object} row) | reject(err) ]
    */
   get random() {
     return (async () => {
@@ -43,17 +43,17 @@ class WiseQuotes {
   /**
    * migration - async function.
    * 
-   * @return {AsyncFunction} message.
+   * @return {Promise} [ resolve({String} message) | reject(err) ]
    */
   async migration() {
     let result;
 
     result = await this.schema.drop();
-    console.log(result);
+    // console.log(result);
     result = await this.schema.create();
-    console.log(result);
+    // console.log(result);
     result = await this.schema.seed();
-    console.log(result);
+    // console.log(result);
 
     return 'Migration Complete.'
   }
@@ -79,10 +79,7 @@ class WiseQuotes {
    */
   async read(id) {
     let row = await this.db.get(`SELECT id,author,content,language FROM ${this.table.quote} WHERE id = ?`, id);
-    let tags = await this.tag.getTags(row.id);
-    if (tags) {
-      row.tags = tags;
-    }
+    row = await this.tag.quoteAppendTags(row);
 
     return row;
   }
@@ -117,7 +114,7 @@ class WiseQuotes {
   /**
    * get all quotes.
    * 
-   * @return {Promise} [resolve({Array} rows) | reject(err)]
+   * @return {Promise} [ resolve({Array} rows) | reject(err) ]
    */
   async all() {
     let rows = await this.db.all(`SELECT id,author,content,language FROM ${this.table.quote}`);
@@ -133,17 +130,18 @@ class WiseQuotes {
    * feed
    * 
    * @param  {String} filename
-   * @return {AsyncFunction} message.
+   * @return {Promise} [ resolve({String} message) | reject(err) ]
    */
   async feed(filename = 'feed.json') {
     let feeds = require(path.resolve(__dirname, '../feeds/', filename));
+    let result;
 
     for (let feed of feeds) {
-      let result = await this.create(feed);
-      console.log(`Feed: insertID - ${result.id}`);
+      result = await this.create(feed);
+      // console.log(`Feed: insertID - ${result.id}`);
     }
 
-    return 'Feeds Complete.';
+    return `Feeds Complete: lastID ${result.id}`;
   }
 
   async getCount() {

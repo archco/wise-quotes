@@ -25,6 +25,10 @@ class Tag {
     return tags;
   }
 
+  async getQuotes(tagID) {
+
+  }
+
   /**
    * getOrCreate
    * 
@@ -32,7 +36,7 @@ class Tag {
    * @return {Promise} [ resolve({Object} row) | reject(err) ]
    */
   async getOrCreate(tagName) {
-    let row = await this.db.get(`SELECT * FROM ${this.table.tag} WHERE name = ?`, tagName);
+    let row = await this.getByName(tagName);
 
     if (row) {
       return row;
@@ -92,6 +96,25 @@ class Tag {
     let row = await this.db.get(`SELECT * FROM ${this.table.tag} WHERE id = ?`, id);
 
     return row;
+  }
+
+  /**
+   * getByName
+   * 
+   * @param  {String} tagName
+   * @return {Promise} [ resolve({Object} row) | reject(err) ]
+   */
+  async getByName(tagName) {
+    let row = await this.db.get(`SELECT * FROM ${this.table.tag} WHERE name = ?`, tagName);
+
+    return row;
+  }
+
+  async quoteAppendTags(quote) {
+    let tags = await this.getTags(quote.id);
+    if (tags) quote.tags = tags;
+
+    return quote;
   }
 
   async _relateToQuote(quoteID, tags) {
