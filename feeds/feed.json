@@ -1,56 +1,56 @@
 [
   {
-    "content": "You only live once, but if you do it right, once is enough.",
-    "author": "Mae West",
-    "language": "en",
-    "tags": ["life", "humor"]
-  },
-  {
-    "content": "人生は一度きり、でも正しく生きたなら、一度で十分よ。",
-    "author": "メイ・ウエスト",
-    "language": "ja",
-    "tags": ["life", "humor"]
-  },
-  {
-    "content": "인생은 한번 뿐이지만 제대로 산다면 한번으로 충분해요.",
-    "author": "메이 웨스트",
-    "language": "ko",
-    "tags": ["life", "humor"]
-  },
-  {
-    "content": "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.",
+    "content": "Our greatest glory is not in never failing, but in rising up every time we fail.",
     "author": "Ralph Waldo Emerson",
     "language": "en",
-    "tags": ["philosophy", "be-yourself", "accomplishment"]
+    "tags": ["glory", "failure"]
   },
   {
-    "content": "絶えずあなたを何者かに変えようとする世界の中で、自分らしくあり続けること。それがもっとも素晴らしい偉業である。",
+    "content": "偉大な栄光とは失敗しないことではない。失敗するたびに立ち上がることにある。",
     "author": "ラルフ・ワルド・エマーソン",
     "language": "ja",
-    "tags": ["philosophy", "be-yourself", "accomplishment"]
+    "tags": ["glory", "failure"]
   },
   {
-    "content": "끊임없이 당신을 다른 누군가로 바꾸려는 세상 속에서 자신답게 유지하는 거야말로 가장 위대한 위업이다.",
+    "content": "위대한 영광이란 실패하지 않는 것이 아니다. 실패할 때마다 다시 일어나는 것이다.",
     "author": "랠프 월도 에머슨",
     "language": "ko",
-    "tags": ["philosophy", "be-yourself", "accomplishment"]
+    "tags": ["glory", "failure"]
   },
   {
-    "content": "Envy is ignorance; imitation is suicide..",
+    "content": "Happiness is a perfume you cannot pour on others without getting a few drops on yourself.",
     "author": "Ralph Waldo Emerson",
     "language": "en",
-    "tags": ["envy", "imitation", "originality"]
+    "tags": ["happiness", "thoughtful"]
   },
   {
-    "content": "嫉妬は無知のしるしであり、人真似は自殺行為である。",
+    "content": "幸福は香水のごときものである。 人に振りかけると、自分にも必ずかかる。",
     "author": "ラルフ・ワルド・エマーソン",
     "language": "ja",
-    "tags": ["envy", "imitation", "originality"]
+    "tags": ["happiness", "thoughtful"]
   },
   {
-    "content": "질투는 무지함이며 남을 흉내 내는 것은 자살 행위이다.",
+    "content": "행복은 향수와 같아서 다른 사람에게 뿌리면 자신에게도 묻어난다.",
     "author": "랠프 월도 에머슨",
     "language": "ko",
-    "tags": ["envy", "imitation", "originality"]
+    "tags": ["happiness", "thoughtful"]
+  },
+  {
+    "content": "The only way to have a friend is to be one.",
+    "author": "Ralph Waldo Emerson",
+    "language": "en",
+    "tags": ["friend", "friendship"]
+  },
+  {
+    "content": "友人を得る唯一の方法は、自分がその人の友人になることである。",
+    "author": "ラルフ・ワルド・エマーソン",
+    "language": "ja",
+    "tags": ["friend", "friendship"]
+  },
+  {
+    "content": "친구를 얻는 유일한 방법은 자신이 그 사람의 친구가 되는 것이다.",
+    "author": "랠프 월도 에머슨",
+    "language": "ko",
+    "tags": ["friend", "friendship"]
   }
 ]
