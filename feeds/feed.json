@@ -1,56 +1,56 @@
 [
   {
-    "content": "Our greatest glory is not in never failing, but in rising up every time we fail.",
-    "author": "Ralph Waldo Emerson",
+    "content": "Wheresoever you go, go with all your heart.",
+    "author": "Confucius",
     "language": "en",
-    "tags": ["glory", "failure"]
+    "tags": ["faith", "focus"]
   },
   {
-    "content": "偉大な栄光とは失敗しないことではない。失敗するたびに立ち上がることにある。",
-    "author": "ラルフ・ワルド・エマーソン",
+    "content": "どこへ行くにも、誠心誠意 尽くしなさい。",
+    "author": "孔子",
     "language": "ja",
-    "tags": ["glory", "failure"]
+    "tags": ["faith", "focus"]
   },
   {
-    "content": "위대한 영광이란 실패하지 않는 것이 아니다. 실패할 때마다 다시 일어나는 것이다.",
-    "author": "랠프 월도 에머슨",
+    "content": "어디를 가든지 마음을 다해 가라.",
+    "author": "공자",
     "language": "ko",
-    "tags": ["glory", "failure"]
+    "tags": ["faith", "focus"]
   },
   {
-    "content": "Happiness is a perfume you cannot pour on others without getting a few drops on yourself.",
-    "author": "Ralph Waldo Emerson",
+    "content": "It does not matter how slowly you go as long as you do not stop.",
+    "author": "Confucius",
     "language": "en",
-    "tags": ["happiness", "thoughtful"]
+    "tags": ["life", "inspiration", "perseverance"]
   },
   {
-    "content": "幸福は香水のごときものである。 人に振りかけると、自分にも必ずかかる。",
-    "author": "ラルフ・ワルド・エマーソン",
+    "content": "止まりさえしなければ、どんなにゆっくりでも進めばよい。",
+    "author": "孔子",
     "language": "ja",
-    "tags": ["happiness", "thoughtful"]
+    "tags": ["life", "inspiration", "perseverance"]
   },
   {
-    "content": "행복은 향수와 같아서 다른 사람에게 뿌리면 자신에게도 묻어난다.",
-    "author": "랠프 월도 에머슨",
+    "content": "멈추지 않는다면 아무리 천천히라도 문제가 되지 않는다.",
+    "author": "공자",
     "language": "ko",
-    "tags": ["happiness", "thoughtful"]
+    "tags": ["life", "inspiration", "perseverance"]
   },
   {
-    "content": "The only way to have a friend is to be one.",
-    "author": "Ralph Waldo Emerson",
+    "content": "If you make a mistake and do not correct it, this is called a mistake.",
+    "author": "Confucius",
     "language": "en",
-    "tags": ["friend", "friendship"]
+    "tags": ["mistake"]
   },
   {
-    "content": "友人を得る唯一の方法は、自分がその人の友人になることである。",
-    "author": "ラルフ・ワルド・エマーソン",
+    "content": "過ちを直そうとしないと、もう一つの過ちを犯すことになる。",
+    "author": "孔子",
     "language": "ja",
-    "tags": ["friend", "friendship"]
+    "tags": ["mistake"]
   },
   {
-    "content": "친구를 얻는 유일한 방법은 자신이 그 사람의 친구가 되는 것이다.",
-    "author": "랠프 월도 에머슨",
+    "content": "실수를 저지르고 이를 고치려 하지 않으면 또 다른 실수를 부른다.",
+    "author": "공자",
     "language": "ko",
-    "tags": ["friend", "friendship"]
+    "tags": ["mistake"]
   }
 ]
