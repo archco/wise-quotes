@@ -4,9 +4,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.1.2] - 2017-04-12
+quotes count: 105
 ### Added
 - Add command line interface. #7
 - Add SqlitePromiseDriver #9
+- Add a new config "language" #8
 
 ### Changed
 - Refactoring source codes for using SqlitePromiseDriver. #9
@@ -27,5 +31,6 @@ quotes count: 60
 quotes count: 10  
 First Release.
 
-[Unreleased]: https://github.com/archco/wise-quotes/compare/v0.1.1...master
+[Unreleased]: https://github.com/archco/wise-quotes/compare/v0.1.2...master
+[0.1.2]: https://github.com/archco/wise-quotes/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/archco/wise-quotes/compare/v0.1.0...v0.1.1
