@@ -24,7 +24,9 @@ class WiseQuotes {
    */
   get count() {
     return (async () => {
-      return await this.getCount();
+      let row = await this.db.get(`SELECT COUNT(*) AS count FROM ${this.table.quote}`);
+
+      return row.count;
     })();
   }
 
@@ -34,7 +36,9 @@ class WiseQuotes {
    */
   get random() {
     return (async () => {
-      return await this.getRandom();
+      let row = await this.db.get(`SELECT id FROM ${this.table.quote} ORDER BY RANDOM()`);
+
+      return await this.read(row.id);
     })();
   }
 
@@ -144,16 +148,24 @@ class WiseQuotes {
     return `Feeds Complete: lastID ${result.id}`;
   }
 
-  async getCount() {
-    let row = await this.db.get(`SELECT COUNT(*) AS count FROM ${this.table.quote}`);
+  /**
+   * retrieveByTagName
+   * 
+   * @param  {String} tagName
+   * @return {Promise} [ resolve({Array} rows) | reject(err) ]
+   */
+  async retrieveByTagName(tagName) {
+    let rows = [];
+    let tag = await this.tag.getByName(tagName);
 
-    return row.count;
-  }
-
-  async getRandom() {
-    let row = await this.db.get(`SELECT id FROM ${this.table.quote} ORDER BY RANDOM()`);
-
-    return await this.read(row.id);
+    if (tag) {
+      rows = await this.tag.getQuotes(tag.id);
+      for (let row of rows) {
+        row = await this.tag.quoteAppendTags(row);
+      }
+    }
+    
+    return rows;
   }
 
   // private

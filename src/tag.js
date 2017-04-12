@@ -10,7 +10,8 @@ class Tag {
   }
 
   /**
-   * getTags
+   * returns array of tag names by quote id.
+   * 
    * @param  {Number} quoteID
    * @return {Promise} [ resolve({Array} tags) | reject(err) ]
    */
@@ -25,8 +26,16 @@ class Tag {
     return tags;
   }
 
+  /**
+   * get quotes by tag id.
+   * 
+   * @param  {Number} tagID
+   * @return {Promise} [ resolve({Array} rows) | reject(err) ]
+   */
   async getQuotes(tagID) {
+    let rows = await this.db.all(`SELECT ${this.table.quote}.* FROM ${this.table.quote_tag} JOIN ${this.table.quote} ON ${this.table.quote_tag}.quote_id = ${this.table.quote}.id WHERE tag_id = ?`, tagID);
 
+    return rows;
   }
 
   /**
@@ -110,6 +119,12 @@ class Tag {
     return row;
   }
 
+  /**
+   * quoteAppendTags
+   * 
+   * @param  {Object} quote
+   * @return {Promise} [ resolve({Object} quote) | reject(err) ]
+   */
   async quoteAppendTags(quote) {
     let tags = await this.getTags(quote.id);
     if (tags) quote.tags = tags;

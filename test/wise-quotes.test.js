@@ -94,9 +94,18 @@ describe('WiseQuotes', function () {
       }).catch(done);
     });
 
-    it('should eventually be a array', async function () {
+    it('should eventually be an array', async function () {
       let rows = await wq.all();
-      rows.should.be.a('array');
+      rows.should.be.an('array');
+    });
+  });
+
+  describe('#retrieveByTagName', function () {
+    
+    it('should eventually ba an array', async function () {
+      let rows = await wq.retrieveByTagName('love');
+      // console.log(rows);
+      rows.should.be.an('array');
     });
   });
 });

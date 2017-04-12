@@ -55,7 +55,21 @@ describe('Tag', function () {
     
     it('should eventually be a object', async function () {
       let row = await tag.getByName('love');
+      // console.log(row);
       row.should.be.a('object');
+    });
+    it('if no exist tag should eventually return undefined', async function () {
+      let row = await tag.getByName('no-name');
+      should.not.exist(row);
+    });
+  });
+
+  describe('#getQuotes', function () {
+    
+    it('should eventually be a array', async function () {
+      let rows = await tag.getQuotes(1);
+      // console.log(rows);
+      rows.should.be.a('array');
     });
   });
 })
