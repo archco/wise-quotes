@@ -1,56 +1,56 @@
 [
   {
-    "content": "Wheresoever you go, go with all your heart.",
-    "author": "Confucius",
+    "content": "Without haste, but without rest.",
+    "author": "Johann Wolfgang von Goethe",
     "language": "en",
-    "tags": ["faith", "focus"]
+    "tags": ["steady", "perseverance"]
   },
   {
-    "content": "どこへ行くにも、誠心誠意 尽くしなさい。",
-    "author": "孔子",
+    "content": "急がずに、だが休まずに。",
+    "author": "ヨハン・ヴォルフガング・フォン・ゲーテ",
     "language": "ja",
-    "tags": ["faith", "focus"]
+    "tags": ["steady", "perseverance"]
   },
   {
-    "content": "어디를 가든지 마음을 다해 가라.",
-    "author": "공자",
+    "content": "서두르지 말고 하지만 쉬지 않고.",
+    "author": "요한 볼프강 폰 괴테",
     "language": "ko",
-    "tags": ["faith", "focus"]
+    "tags": ["steady", "perseverance"]
   },
   {
-    "content": "It does not matter how slowly you go as long as you do not stop.",
-    "author": "Confucius",
+    "content": "What is important in life is life, and not the result of life.",
+    "author": "Johann Wolfgang von Goethe",
     "language": "en",
-    "tags": ["life", "inspiration", "perseverance"]
+    "tags": ["philosophy", "life"]
   },
   {
-    "content": "止まりさえしなければ、どんなにゆっくりでも進めばよい。",
-    "author": "孔子",
+    "content": "人生において重要なのは生きることであって、生きた結果ではない。",
+    "author": "ヨハン・ヴォルフガング・フォン・ゲーテ",
     "language": "ja",
-    "tags": ["life", "inspiration", "perseverance"]
+    "tags": ["philosophy", "life"]
   },
   {
-    "content": "멈추지 않는다면 아무리 천천히라도 문제가 되지 않는다.",
-    "author": "공자",
+    "content": "인생에 있어 중요한 건 삶이지 삶의 결과가 아니다.",
+    "author": "요한 볼프강 폰 괴테",
     "language": "ko",
-    "tags": ["life", "inspiration", "perseverance"]
+    "tags": ["philosophy", "life"]
   },
   {
-    "content": "If you make a mistake and do not correct it, this is called a mistake.",
-    "author": "Confucius",
+    "content": "Just trust yourself, then you will know how to live.",
+    "author": "Johann Wolfgang von Goethe",
     "language": "en",
-    "tags": ["mistake"]
+    "tags": ["inspiration", "trust"]
   },
   {
-    "content": "過ちを直そうとしないと、もう一つの過ちを犯すことになる。",
-    "author": "孔子",
+    "content": "自分自身を信じてみるだけでいい。きっと、生きる道が見えてくる。",
+    "author": "ヨハン・ヴォルフガング・フォン・ゲーテ",
     "language": "ja",
-    "tags": ["mistake"]
+    "tags": ["inspiration", "trust"]
   },
   {
-    "content": "실수를 저지르고 이를 고치려 하지 않으면 또 다른 실수를 부른다.",
-    "author": "공자",
+    "content": "일단 자신을 믿어라, 그러면 살길이 보일 것이다.",
+    "author": "요한 볼프강 폰 괴테",
     "language": "ko",
-    "tags": ["mistake"]
+    "tags": ["inspiration", "trust"]
   }
 ]

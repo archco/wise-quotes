@@ -23,7 +23,7 @@ describe('Tag', function () {
     let initialize = async () => {
       await wq.migration();
       await wq.feed('feed-sample.json');
-      
+
       // status.
       let count = await wq.count;
 
@@ -37,9 +37,9 @@ describe('Tag', function () {
       })
       .catch(done);
   });
-  
+
   describe('#constructor', function () {
-    
+
     it('should have property "db"', function () {
       tag.should.have.property('db');
     });
@@ -52,7 +52,7 @@ describe('Tag', function () {
   });
 
   describe('#getByName', function () {
-    
+
     it('should eventually be a object', async function () {
       let row = await tag.getByName('love');
       // console.log(row);

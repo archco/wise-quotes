@@ -56,7 +56,7 @@ async function displayStatus() {
 async function generateQuotesJSON() {
   let rows = await wq.all();
   let file = path.resolve(__dirname, '../db/quotes.json');
-  
+
   jsonfile.writeFile(file, rows, {spaces: 0}, function (err) {
     if (err) {
       console.error(err);
@@ -69,10 +69,10 @@ async function generateQuotesJSON() {
 async function generateBackupJSON() {
   let rows = await wq.all();
   let file = path.resolve(__dirname, '../db/backup/' + dateformat(new Date(), 'yyyymmdd') + '_quotes.json');
-  
+
   jsonfile.writeFile(file, rows, {spaces: 2}, function (err) {
     if (err) {
-      console.error(err);  
+      console.error(err);
     } else {
       console.log(`Backup to: ${file}`);
     }
@@ -81,6 +81,6 @@ async function generateBackupJSON() {
 
 async function feedProcess() {
   let result = await wq.feed();
-  
+
   console.log(result);
 }
