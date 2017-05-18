@@ -1,4 +1,5 @@
 const SqlitePromiseDriver = require('./sqlite-promise-driver.js');
+
 // Language Codes (ISO 639-1)
 // @links http://data.okfn.org/data/core/language-codes
 const Language = require('./lib/language-codes.json');
@@ -9,6 +10,7 @@ class Schema {
     if (!(db instanceof SqlitePromiseDriver)) {
       throw new Error('"this.db" must be instance of SqlitePromiseDriver');
     }
+
     this.db = db;
     this.table = table;
   }
@@ -21,6 +23,7 @@ class Schema {
         name TEXT NOT NULL
       )`
     );
+
     // quote table.
     await this.db.run(
       `CREATE TABLE ${this.table.quote} (
@@ -31,6 +34,7 @@ class Schema {
         FOREIGN KEY(language) REFERENCES ${this.table.lang}(code)
       )`
     );
+
     // tag table.
     await this.db.run(
       `CREATE TABLE ${this.table.tag} (
@@ -39,6 +43,7 @@ class Schema {
         description TEXT
       )`
     );
+
     // quote_tag table.
     await this.db.run(
       `CREATE TABLE ${this.table.quote_tag} (
@@ -52,38 +57,33 @@ class Schema {
   }
 
   async drop() {
-    // quote_tag
-    await this.db.run(`DROP TABLE IF EXISTS ${this.table.quote_tag}`);
-    // tag
-    await this.db.run(`DROP TABLE IF EXISTS ${this.table.tag}`);
-    // quote
-    await this.db.run(`DROP TABLE IF EXISTS ${this.table.quote}`);
-    // language
-    await this.db.run(`DROP TABLE IF EXISTS ${this.table.lang}`);
+    await this.db.run(`DROP TABLE IF EXISTS ${this.table.quote_tag}`); // quote_tag
+    await this.db.run(`DROP TABLE IF EXISTS ${this.table.tag}`); // tag
+    await this.db.run(`DROP TABLE IF EXISTS ${this.table.quote}`); // quote
+    await this.db.run(`DROP TABLE IF EXISTS ${this.table.lang}`); // language
 
     return 'drop: All queries executed';
   }
 
   /**
    * seed - async function.
-   * 
+   *
    * @return {AsyncFunction} message.
    */
   async seed() {
-    let result;
+    await this._seedLanguage();
+    await this._seedTag();
 
-    result = await this._seedLanguage();
-    // console.log(result);
-    result = await this._seedTag();
-    // console.log(result);
-
-    return "Seed Complete.";
+    return 'Seed Complete.';
   }
 
   async _seedLanguage() {
     // Language seed.
     for (let lang of Language) {
-      await this.db.run(`INSERT INTO ${this.table.lang} (code,name) VALUES (?,?)`, [lang.alpha2, lang.English]);
+      await this.db.run(
+        `INSERT INTO ${this.table.lang} (code,name) VALUES (?,?)`,
+        [lang.alpha2, lang.English]
+      );
     }
 
     return `Seed: ${this.table.lang}`;
@@ -92,7 +92,10 @@ class Schema {
   async _seedTag() {
     // Tags.
     for (let tag of Tags) {
-      await this.db.run(`INSERT INTO ${this.table.tag} (name,description) VALUES (?,?)`, [tag, `Popular tag: ${tag}`]);
+      await this.db.run(
+        `INSERT INTO ${this.table.tag} (name,description) VALUES (?,?)`,
+        [tag, `Popular tag: ${tag}`]
+      );
     }
 
     return `Seed: ${this.table.tag}`;

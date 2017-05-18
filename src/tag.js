@@ -5,19 +5,23 @@ class Tag {
     if (!(db instanceof SqlitePromiseDriver)) {
       throw new Error('"this.db" must be instance of SqlitePromiseDriver');
     }
+
     this.db = db;
     this.table = table;
   }
 
   /**
    * returns array of tag names by quote id.
-   * 
+   *
    * @param  {Number} quoteID
    * @return {Promise} [ resolve({Array} tags) | reject(err) ]
    */
   async getTags(quoteID) {
     let tags = [];
-    let rows = await this.db.all(`SELECT tag_id,name FROM ${this.table.quote_tag} JOIN ${this.table.tag} ON ${this.table.quote_tag}.tag_id = ${this.table.tag}.id WHERE quote_id = ?`, quoteID);
+    let rows = await this.db.all(
+      `SELECT tag_id,name FROM ${this.table.quote_tag} JOIN ${this.table.tag} ON ${this.table.quote_tag}.tag_id = ${this.table.tag}.id WHERE quote_id = ?`, // jscs:ignore maximumLineLength
+      quoteID
+    );
 
     for (let row of rows) {
       tags.push(row.name);
@@ -28,19 +32,22 @@ class Tag {
 
   /**
    * get quotes by tag id.
-   * 
+   *
    * @param  {Number} tagID
    * @return {Promise} [ resolve({Array} rows) | reject(err) ]
    */
   async getQuotes(tagID) {
-    let rows = await this.db.all(`SELECT ${this.table.quote}.* FROM ${this.table.quote_tag} JOIN ${this.table.quote} ON ${this.table.quote_tag}.quote_id = ${this.table.quote}.id WHERE tag_id = ?`, tagID);
+    let rows = await this.db.all(
+      `SELECT ${this.table.quote}.* FROM ${this.table.quote_tag} JOIN ${this.table.quote} ON ${this.table.quote_tag}.quote_id = ${this.table.quote}.id WHERE tag_id = ?`, // jscs:ignore maximumLineLength
+      tagID
+    );
 
     return rows;
   }
 
   /**
    * getOrCreate
-   * 
+   *
    * @param  {String} tagName
    * @return {Promise} [ resolve({Object} row) | reject(err) ]
    */
@@ -57,7 +64,7 @@ class Tag {
 
   /**
    * sync - Relate array of tags to quote.
-   * 
+   *
    * @param  {Number} quoteID
    * @param  {Array} tags
    * @return {Promise} [ resolve({String} msg) | reject(err) ]
@@ -73,19 +80,22 @@ class Tag {
 
   /**
    * truncate - Delete all related tags from quote.
-   * 
+   *
    * @param  {Number} quoteID
    * @return {Promise} [ resolve({Object} result) | reject(err) ]
    */
   async truncate(quoteID) {
-    let result = await this.db.run(`DELETE FROM ${this.table.quote_tag} WHERE quote_id = ?`, quoteID);
+    let result = await this.db.run(
+      `DELETE FROM ${this.table.quote_tag} WHERE quote_id = ?`,
+      quoteID
+    );
 
     return result;
   }
 
   /**
    * create a new tag.
-   * 
+   *
    * @param  {String} name
    * @return {Promise} [ resolve({Number} lastID) | reject(err) ]
    */
@@ -97,8 +107,8 @@ class Tag {
 
   /**
    * read a tag.
-   * 
-   * @param  {Number} id 
+   *
+   * @param  {Number} id
    * @return {Promise} [ resolve({Object} row) | reject(err) ]
    */
   async read(id) {
@@ -109,7 +119,7 @@ class Tag {
 
   /**
    * getByName
-   * 
+   *
    * @param  {String} tagName
    * @return {Promise} [ resolve({Object} row) | reject(err) ]
    */
@@ -121,7 +131,7 @@ class Tag {
 
   /**
    * quoteAppendTags
-   * 
+   *
    * @param  {Object} quote
    * @return {Promise} [ resolve({Object} quote) | reject(err) ]
    */
@@ -145,7 +155,10 @@ class Tag {
   }
 
   async _relate(quoteID, tagID) {
-    await this.db.run(`INSERT INTO ${this.table.quote_tag} (quote_id, tag_id) VALUES (?,?)`, [quoteID, tagID]);
+    await this.db.run(
+      `INSERT INTO ${this.table.quote_tag} (quote_id, tag_id) VALUES (?,?)`,
+      [quoteID, tagID]
+    );
 
     return true;
   }

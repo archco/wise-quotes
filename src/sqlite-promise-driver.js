@@ -7,7 +7,7 @@ class SqlitePromiseDriver {
 
   /**
    * close
-   * 
+   *
    * @return {Promise} [ resolve(true) | reject(err) ]
    */
   close() {
@@ -24,7 +24,7 @@ class SqlitePromiseDriver {
 
   /**
    * run
-   * 
+   *
    * @param  {String} sql
    * @param  {Array}  params
    * @return {Promise} [ resolve({Object} result) | reject(err) ]
@@ -37,13 +37,13 @@ class SqlitePromiseDriver {
         } else {
           resolve(this);
         }
-      })
+      });
     });
   }
 
   /**
    * get
-   * 
+   *
    * @param  {String} sql
    * @param  {Array}  params
    * @return {Promise} [ resolve({Object} row) | reject(err) ]
@@ -62,7 +62,7 @@ class SqlitePromiseDriver {
 
   /**
    * all
-   * 
+   *
    * @param  {String} sql
    * @param  {Array}  params
    * @return {Promise} [ resolve({Array} rows) | reject(err) ]
@@ -81,7 +81,7 @@ class SqlitePromiseDriver {
 
   /**
    * each - There is currently no way to abort execution.
-   * 
+   *
    * @param  {String}   sql
    * @param  {Array}    params
    * @param  {Function} callback (err, row)
@@ -96,6 +96,7 @@ class SqlitePromiseDriver {
           resolve(effected);
         }
       };
+
       if (typeof arguments[1] === 'function') {
         this.db.each(sql, arguments[1], completeHandle);
       } else {
@@ -106,7 +107,7 @@ class SqlitePromiseDriver {
 
   /**
    * exec
-   * 
+   *
    * @param  {String} sql
    * @return {Promise} [ resolve(true) | reject(err) ]
    */
@@ -124,7 +125,7 @@ class SqlitePromiseDriver {
 
   /**
    * prepare
-   * 
+   *
    * @param  {String}   sql
    * @param  {Array}    params
    * @param  {Function} callback

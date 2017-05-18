@@ -17,7 +17,7 @@ class WiseQuotes {
   }
 
   // getter
-  
+
   /**
    * count
    * @return {Promise} [ resolve({Number} count) | reject(err) ]
@@ -48,30 +48,28 @@ class WiseQuotes {
 
   /**
    * migration - async function.
-   * 
+   *
    * @return {Promise} [ resolve({String} message) | reject(err) ]
    */
   async migration() {
-    let result;
+    await this.schema.drop();
+    await this.schema.create();
+    await this.schema.seed();
 
-    result = await this.schema.drop();
-    // console.log(result);
-    result = await this.schema.create();
-    // console.log(result);
-    result = await this.schema.seed();
-    // console.log(result);
-
-    return 'Migration Complete.'
+    return 'Migration Complete.';
   }
 
   /**
    * create a new quote.
-   * 
+   *
    * @param  {Object} obj
    * @return {Promise} [ resolve({Object} row) | reject(err) ]
    */
   async create(obj) {
-    let result = await this.db.run(`INSERT INTO ${this.table.quote} (author,content,language) VALUES (?,?,?)`, [obj.author, obj.content, obj.language]);
+    let result = await this.db.run(
+      `INSERT INTO ${this.table.quote} (author,content,language) VALUES (?,?,?)`,
+      [obj.author, obj.content, obj.language]
+    );
     await this.tag.sync(result.lastID, obj.tags);
 
     return this.read(result.lastID);
@@ -79,12 +77,15 @@ class WiseQuotes {
 
   /**
    * read - get a quote.
-   * 
+   *
    * @param  {Number} id
    * @return {Promise} [ resolve({Object|undefined} row) | reject(err) ]
    */
   async read(id) {
-    let row = await this.db.get(`SELECT id,author,content,language FROM ${this.table.quote} WHERE id = ?`, id);
+    let row = await this.db.get(
+      `SELECT id,author,content,language FROM ${this.table.quote} WHERE id = ?`,
+      id
+    );
     if (row) {
       row = await this.tag.quoteAppendTags(row);
     }
@@ -94,13 +95,16 @@ class WiseQuotes {
 
   /**
    * update quote.
-   * 
+   *
    * @param  {Number} id
    * @param  {Object} obj
    * @return {Promise} [ resolve({Object} row) | reject(err) ]
    */
   async update(id, obj) {
-    await this.db.run(`UPDATE ${this.table.quote} SET author = ?, content = ?, language = ? WHERE id = ?`, [obj.author, obj.content, obj.language, id]);
+    await this.db.run(
+      `UPDATE ${this.table.quote} SET author = ?, content = ?, language = ? WHERE id = ?`,
+      [obj.author, obj.content, obj.language, id]
+    );
     await this.tag.sync(id, obj.tags);
 
     return await this.read(id);
@@ -108,7 +112,7 @@ class WiseQuotes {
 
   /**
    * delete
-   * 
+   *
    * @param  {Number} id
    * @return {Promise} [ resolve({Number} changes) | reject(err) ]
    */
@@ -121,11 +125,13 @@ class WiseQuotes {
 
   /**
    * get all quotes.
-   * 
+   *
    * @return {Promise} [ resolve({Array} rows) | reject(err) ]
    */
   async all() {
-    let sql = this._refineSql(`SELECT id,author,content,language FROM ${this.table.quote} WHERE %L`);
+    let sql = this._refineSql(
+      `SELECT id,author,content,language FROM ${this.table.quote} WHERE %L`
+    );
     let rows = await this.db.all(sql);
 
     for (let row of rows) {
@@ -137,7 +143,7 @@ class WiseQuotes {
 
   /**
    * feed
-   * 
+   *
    * @param  {String} filename
    * @return {Promise} [ resolve({String} message) | reject(err) ]
    */
@@ -147,7 +153,6 @@ class WiseQuotes {
 
     for (let feed of feeds) {
       result = await this.create(feed);
-      // console.log(`Feed: insertID - ${result.id}`);
     }
 
     return `Feeds Complete: lastID ${result.id}`;
@@ -155,7 +160,7 @@ class WiseQuotes {
 
   /**
    * retrieveByTagName
-   * 
+   *
    * @param  {String} tagName
    * @return {Promise} [ resolve({Array} rows) | reject(err) ]
    */
@@ -169,18 +174,20 @@ class WiseQuotes {
         row = await this.tag.quoteAppendTags(row);
       }
     }
-    
+
     return rows;
   }
 
   /**
    * get quotes by tag id.
-   * 
+   *
    * @param  {Number} tagID
    * @return {Promise} [ resolve({Array} rows) | reject(err) ]
    */
   async retrieveByTagID(tagID) {
-    let sql = this._refineSql(`SELECT ${this.table.quote}.* FROM ${this.table.quote_tag} JOIN ${this.table.quote} ON ${this.table.quote_tag}.quote_id = ${this.table.quote}.id WHERE (tag_id = ?) AND (%L)`);
+    let sql = this._refineSql(
+      `SELECT ${this.table.quote}.* FROM ${this.table.quote_tag} JOIN ${this.table.quote} ON ${this.table.quote_tag}.quote_id = ${this.table.quote}.id WHERE (tag_id = ?) AND (%L)` // jscs:ignore maximumLineLength
+    );
     let rows = await this.db.all(sql, tagID);
 
     return rows;
@@ -193,9 +200,7 @@ class WiseQuotes {
       throw new Error('config.database is not exist.');
     }
 
-    if (this.config.database == ':memory:') {
-      // do nothing. it use memory.
-    } else {
+    if (this.config.database !== ':memory:') {
       // absolute path of database file.
       this.config.database = path.resolve(__dirname, this.config.database);
     }
@@ -211,14 +216,13 @@ class WiseQuotes {
       return array.join(' OR ');
     } else {
       // single language.
-      return `language = '${l}'`
+      return `language = '${l}'`;
     }
   }
 
   _refineSql(sql) {
     let lang = this._getLanguageWhereClause();
-    // language where clause.
-    sql = sql.replace(/(%L)/, lang);
+    sql = sql.replace(/(%L)/, lang); // language where clause.
 
     return sql;
   }

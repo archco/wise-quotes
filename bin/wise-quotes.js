@@ -13,7 +13,8 @@ const wq = new WiseQuotes();
   Definitions.
 *************************************************************/
 
-program.version(pkg.version)
+program
+  .version(pkg.version)
   .option('-s, --status', 'display status');
 
 program
@@ -57,7 +58,7 @@ async function generateQuotesJSON() {
   let rows = await wq.all();
   let file = path.resolve(__dirname, '../db/quotes.json');
 
-  jsonfile.writeFile(file, rows, {spaces: 0}, function (err) {
+  jsonfile.writeFile(file, rows, { spaces: 0 }, function (err) {
     if (err) {
       console.error(err);
     } else {
@@ -68,9 +69,12 @@ async function generateQuotesJSON() {
 
 async function generateBackupJSON() {
   let rows = await wq.all();
-  let file = path.resolve(__dirname, '../db/backup/' + dateformat(new Date(), 'yyyymmdd') + '_quotes.json');
+  let file = path.resolve(
+    __dirname,
+    '../db/backup/' + dateformat(new Date(), 'yyyymmdd') + '_quotes.json'
+  );
 
-  jsonfile.writeFile(file, rows, {spaces: 2}, function (err) {
+  jsonfile.writeFile(file, rows, { spaces: 2 }, function (err) {
     if (err) {
       console.error(err);
     } else {
