@@ -5,15 +5,14 @@ const should = chai.should();
 // modules.
 const SqlitePromiseDriver = require('../src/sqlite-promise-driver.js');
 const WiseQuotes = require('../src/wise-quotes.js');
-const Tag = require('../src/tag.js');
 
 // prepare variables and instance.
 const dbTarget = {
   memory: ':memory:',
-  file: '../db/sample.sqlite3'
+  file: '../db/sample.sqlite3',
 };
 const wq = new WiseQuotes({
-  database: dbTarget.memory
+  database: dbTarget.memory,
 });
 const tag = wq.tag;
 
@@ -43,9 +42,11 @@ describe('Tag', function () {
     it('should have property "db"', function () {
       tag.should.have.property('db');
     });
+
     it('should have property "table"', function () {
       tag.should.have.property('table');
     });
+
     it('property "db" should be an instanceof SqlitePromiseDriver', function () {
       tag.db.should.to.be.an.instanceof(SqlitePromiseDriver);
     });
@@ -55,12 +56,12 @@ describe('Tag', function () {
 
     it('should eventually be a object', async function () {
       let row = await tag.getByName('love');
-      // console.log(row);
       row.should.be.a('object');
     });
+
     it('if no exist tag should eventually return undefined', async function () {
       let row = await tag.getByName('no-name');
       should.not.exist(row);
     });
   });
-})
+});
