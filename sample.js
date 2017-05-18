@@ -3,7 +3,7 @@ let file = '../db/sample.sqlite3';
 let memory = ':memory:';
 
 let wq = new WiseQuotes({
-  database: memory
+  database: memory,
 });
 
 (async function () {
@@ -13,10 +13,12 @@ let wq = new WiseQuotes({
   console.log(result);
   result = await wq.feed('feed-sample.json');
   console.log(result);
+
   // status.
   let count = await wq.count;
   console.log(`count: ${count}`);
   console.log(await wq.random);
+
   // all.
   console.log(await wq.all());
 })();
