@@ -1,56 +1,56 @@
 [
   {
-    "content": "Without haste, but without rest.",
-    "author": "Johann Wolfgang von Goethe",
+    "content": "If there was no suffering, man would not know his limits, would not know himself.",
+    "author": "Leo Tolstoy",
     "language": "en",
-    "tags": ["steady", "perseverance"]
+    "tags": ["suffering", "limit", "self"]
   },
   {
-    "content": "急がずに、だが休まずに。",
-    "author": "ヨハン・ヴォルフガング・フォン・ゲーテ",
+    "content": "もし苦しみがなかったら、人間は自分の限界を知らなかったろうし、自分というものを知らなかったろう。",
+    "author": "レフ・トルストイ",
     "language": "ja",
-    "tags": ["steady", "perseverance"]
+    "tags": ["suffering", "limit", "self"]
   },
   {
-    "content": "서두르지 말고 하지만 쉬지 않고.",
-    "author": "요한 볼프강 폰 괴테",
+    "content": "고난이 없다면 인간은 자신의 한계를 알지 못할 것이며 자신에 대해서도 알지 못할 것이다.",
+    "author": "레프 톨스토이",
     "language": "ko",
-    "tags": ["steady", "perseverance"]
+    "tags": ["suffering", "limit", "self"]
   },
   {
-    "content": "What is important in life is life, and not the result of life.",
-    "author": "Johann Wolfgang von Goethe",
+    "content": "The sole meaning of life is to serve humanity.",
+    "author": "Leo Tolstoy",
     "language": "en",
-    "tags": ["philosophy", "life"]
+    "tags": ["life", "humanity"]
   },
   {
-    "content": "人生において重要なのは生きることであって、生きた結果ではない。",
-    "author": "ヨハン・ヴォルフガング・フォン・ゲーテ",
+    "content": "人生の唯一の意義は、人のために生きることである。",
+    "author": "レフ・トルストイ",
     "language": "ja",
-    "tags": ["philosophy", "life"]
+    "tags": ["life", "humanity"]
   },
   {
-    "content": "인생에 있어 중요한 건 삶이지 삶의 결과가 아니다.",
-    "author": "요한 볼프강 폰 괴테",
+    "content": "인생의 유일한 의미는 사람을 위해 사는 것이다.",
+    "author": "레프 톨스토이",
     "language": "ko",
-    "tags": ["philosophy", "life"]
+    "tags": ["life", "humanity"]
   },
   {
-    "content": "Just trust yourself, then you will know how to live.",
-    "author": "Johann Wolfgang von Goethe",
+    "content": "Everyone thinks of changing the world, but no one thinks of changing himself.",
+    "author": "Leo Tolstoy",
     "language": "en",
-    "tags": ["inspiration", "trust"]
+    "tags": ["change", "self"]
   },
   {
-    "content": "自分自身を信じてみるだけでいい。きっと、生きる道が見えてくる。",
-    "author": "ヨハン・ヴォルフガング・フォン・ゲーテ",
+    "content": "誰もが世界を変えたいと思うが、誰も自分自身を変えようとは思わない。",
+    "author": "レフ・トルストイ",
     "language": "ja",
-    "tags": ["inspiration", "trust"]
+    "tags": ["change", "self"]
   },
   {
-    "content": "일단 자신을 믿어라, 그러면 살길이 보일 것이다.",
-    "author": "요한 볼프강 폰 괴테",
+    "content": "모두가 세상을 바꾸는 것을 생각하지만 누구도 자기 자신을 바꾸려고는 생각하지 않는다.",
+    "author": "레프 톨스토이",
     "language": "ko",
-    "tags": ["inspiration", "trust"]
+    "tags": ["change", "self"]
   }
 ]
