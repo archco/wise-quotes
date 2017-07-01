@@ -1,56 +1,56 @@
 [
   {
-    "content": "If there was no suffering, man would not know his limits, would not know himself.",
-    "author": "Leo Tolstoy",
+    "content": "Success has ruined many a man.",
+    "author": "Benjamin Franklin",
     "language": "en",
-    "tags": ["suffering", "limit", "self"]
+    "tags": ["success", "demerit"]
   },
   {
-    "content": "もし苦しみがなかったら、人間は自分の限界を知らなかったろうし、自分というものを知らなかったろう。",
-    "author": "レフ・トルストイ",
+    "content": "成功が多くの人をだめにした。",
+    "author": "ベンジャミン・フランクリン",
     "language": "ja",
-    "tags": ["suffering", "limit", "self"]
+    "tags": ["success", "demerit"]
   },
   {
-    "content": "고난이 없다면 인간은 자신의 한계를 알지 못할 것이며 자신에 대해서도 알지 못할 것이다.",
-    "author": "레프 톨스토이",
+    "content": "성공은 많은 사람을 망쳐놓았다.",
+    "author": "벤저민 프랭클린",
     "language": "ko",
-    "tags": ["suffering", "limit", "self"]
+    "tags": ["success", "demerit"]
   },
   {
-    "content": "The sole meaning of life is to serve humanity.",
-    "author": "Leo Tolstoy",
+    "content": "One today is worth two tomorrow.",
+    "author": "Benjamin Franklin",
     "language": "en",
-    "tags": ["life", "humanity"]
+    "tags": ["today", "now", "worth"]
   },
   {
-    "content": "人生の唯一の意義は、人のために生きることである。",
-    "author": "レフ・トルストイ",
+    "content": "今日という一日は、明日という日の二日分の値打ちがある。",
+    "author": "ベンジャミン・フランクリン",
     "language": "ja",
-    "tags": ["life", "humanity"]
+    "tags": ["today", "now", "worth"]
   },
   {
-    "content": "인생의 유일한 의미는 사람을 위해 사는 것이다.",
-    "author": "레프 톨스토이",
+    "content": "오늘이라는 하루는 내일이라는 날의 이틀분의 가치가 있다.",
+    "author": "벤저민 프랭클린",
     "language": "ko",
-    "tags": ["life", "humanity"]
+    "tags": ["today", "now", "worth"]
   },
   {
-    "content": "Everyone thinks of changing the world, but no one thinks of changing himself.",
-    "author": "Leo Tolstoy",
+    "content": "Never leave that till tomorrow which you can do today.",
+    "author": "Benjamin Franklin",
     "language": "en",
-    "tags": ["change", "self"]
+    "tags": ["today", "now"]
   },
   {
-    "content": "誰もが世界を変えたいと思うが、誰も自分自身を変えようとは思わない。",
-    "author": "レフ・トルストイ",
+    "content": "今日できることを明日に延ばすな。",
+    "author": "ベンジャミン・フランクリン",
     "language": "ja",
-    "tags": ["change", "self"]
+    "tags": ["today", "now"]
   },
   {
-    "content": "모두가 세상을 바꾸는 것을 생각하지만 누구도 자기 자신을 바꾸려고는 생각하지 않는다.",
-    "author": "레프 톨스토이",
+    "content": "오늘 할 수 있는 일을 내일로 미루지 말라.",
+    "author": "벤저민 프랭클린",
     "language": "ko",
-    "tags": ["change", "self"]
+    "tags": ["today", "now"]
   }
 ]
