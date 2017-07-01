@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/archco/wise-quotes#readme",
   "dependencies": {
-    "commander": "^2.9.0",
+    "commander": "^2.10.0",
     "dateformat": "^2.0.0",
     "jsonfile": "^2.4.0",
     "sqlite3": "^3.1.8"
@@ -32,7 +32,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.19.0",
-    "mocha": "^3.2.0"
+    "mocha": "^3.4.2"
   },
   "engines": {
     "node": ">=7.6.0"
