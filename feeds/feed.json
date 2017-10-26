@@ -1,56 +1,56 @@
 [
   {
-    "content": "It is only with the heart that one can see rightly; what is essential is invisible to the eye.",
-    "author": "Antoine de Saint-Exupéry",
+    "content": "To be, or not to be: that is the question.",
+    "author": "William Shakespeare",
     "language": "en",
-    "tags": ["heart", "essential"]
+    "tags": ["question"]
   },
   {
-    "content": "心で見なくちゃ、ものごとはよく見えないってことさ。かんじんなことは、目に見えないんだよ。",
-    "author": "アントワーヌ・ド・サン＝テグジュペリ",
+    "content": "生きるべきか、死ぬべきか。それが問題だ。",
+    "author": "ウィリアム・シェイクスピア",
     "language": "ja",
-    "tags": ["heart", "essential"]
+    "tags": ["question"]
   },
   {
-    "content": "마음으로 보아야만 올바르게 볼 수 있다. 중요한 건 눈에 보이지 않으니까.",
-    "author": "앙투안 드 생텍쥐페리",
+    "content": "죽느냐 사느냐 그것이 문제로다",
+    "author": "윌리엄 셰익스피어",
     "language": "ko",
-    "tags": ["heart", "essential"]
+    "tags": ["question"]
   },
   {
-    "content": "If you want to build a ship, don’t drum up the men to gather wood, divide the work and give orders. Instead, teach them to yearn for the vast and endless sea.",
-    "author": "Antoine de Saint-Exupéry",
+    "content": "There is nothing either good or bad, but thinking makes it so.",
+    "author": "William Shakespeare",
     "language": "en",
-    "tags": ["sea", "ship", "motivation"]
+    "tags": ["good", "bad", "thinking"]
   },
   {
-    "content": "船を造りたいのなら、男どもを森に集めたり、仕事を割り振って命令したりする必要はない。代わりに、彼らに広大で無限な海の存在を説けばいい。",
-    "author": "アントワーヌ・ド・サン＝テグジュペリ",
+    "content": "物事によいも悪いもない。考え方によって良くも悪くもなる。",
+    "author": "ウィリアム・シェイクスピア",
     "language": "ja",
-    "tags": ["sea", "ship", "motivation"]
+    "tags": ["good", "bad", "thinking"]
   },
   {
-    "content": "배를 만들고 싶다면 사람들을 숲에 모으고 일을 분담시켜 명령할 필요가 없다. 대신 그들에게 광대하고 무한한 바다의 존재를 알려줘라.",
-    "author": "앙투안 드 생텍쥐페리",
+    "content": "애초에 좋고 나쁨은 없다. 하지만 생각하기에 따라 좋게도 나쁘게도 된다.",
+    "author": "윌리엄 셰익스피어",
     "language": "ko",
-    "tags": ["sea", "ship", "motivation"]
+    "tags": ["good", "bad", "thinking"]
   },
   {
-    "content": "All grown-ups were once children… but only few of them remember it.",
-    "author": "Antoine de Saint-Exupéry",
+    "content": "You gods, will give us. Some faults to make us men.",
+    "author": "William Shakespeare",
     "language": "en",
-    "tags": ["grown-up", "children"]
+    "tags": ["god", "fault", "imperfect"]
   },
   {
-    "content": "おとなは、だれも、はじめは子供だった。しかし、そのことを忘れずにいるおとなは、いくらもいない。",
-    "author": "アントワーヌ・ド・サン＝テグジュペリ",
+    "content": "神は、我々を人間にするために、何らかの欠点を与える。",
+    "author": "ウィリアム・シェイクスピア",
     "language": "ja",
-    "tags": ["grown-up", "children"]
+    "tags": ["god", "fault", "imperfect"]
   },
   {
-    "content": "어른들은 모두 한때는 어린이였다. 하지만 그걸 잊지 않고 있는 건 극히 일부다.",
-    "author": "앙투안 드 생텍쥐페리",
+    "content": "신은 우리를 인간으로 만들기 위해 무언가 결점을 주었다.",
+    "author": "윌리엄 셰익스피어",
     "language": "ko",
-    "tags": ["grown-up", "children"]
+    "tags": ["god", "fault", "imperfect"]
   }
 ]
