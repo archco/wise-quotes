@@ -32,4 +32,11 @@ describe('Schema', function () {
       schema.db.should.to.be.an.instanceof(SqlitePromiseDriver);
     });
   });
+
+  describe('#create', () => {
+    it('should be resolved.', async () => {
+      let res = await schema.create();
+      res.should.to.equal('create: All queries executed.');
+    });
+  });
 });

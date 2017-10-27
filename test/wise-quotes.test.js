@@ -87,9 +87,9 @@ describe('WiseQuotes', function () {
       row.should.be.a('object');
     });
 
-    it('should eventually include keys "id, content, author and language"', async function () {
+    it('should eventually include keys "rowid, content, author and language"', async function () {
       let row = await wq.read(1);
-      row.should.include.keys('id', 'content', 'author', 'language');
+      row.should.include.keys('rowid', 'content', 'author', 'language');
     });
   });
 
@@ -121,6 +121,18 @@ describe('WiseQuotes', function () {
     it('should eventually be an array', async function () {
       let rows = await wq.retrieveByTagName('love');
       rows.should.be.an('array');
+    });
+  });
+
+  describe('#match', () => {
+    it('Returns result of quotes match "Nietzsche"', async function () {
+      let rows = await wq.match('Nietzsche');
+      rows.length.should.to.equal(3);
+    });
+
+    it('Tags are included in results row.', async function () {
+      let rows = await wq.match('Nietzsche');
+      rows[0].tags.should.not.empty;
     });
   });
 

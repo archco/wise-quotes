@@ -37,10 +37,10 @@ class WiseQuotes {
    */
   get random() {
     return (async () => {
-      let sql = this._refineSql(`SELECT id FROM ${this.table.quote} WHERE %L ORDER BY RANDOM()`);
+      let sql = this._refineSql(`SELECT rowid FROM ${this.table.quote} WHERE %L ORDER BY RANDOM()`);
       let row = await this.db.get(sql);
 
-      return await this.read(row.id);
+      return await this.read(row.rowid);
     })();
   }
 
@@ -83,7 +83,7 @@ class WiseQuotes {
    */
   async read(id) {
     let row = await this.db.get(
-      `SELECT id,author,content,language FROM ${this.table.quote} WHERE id = ?`,
+      `SELECT rowid,author,content,language FROM ${this.table.quote} WHERE rowid = ?`,
       id
     );
     if (row) {
@@ -102,7 +102,7 @@ class WiseQuotes {
    */
   async update(id, obj) {
     await this.db.run(
-      `UPDATE ${this.table.quote} SET author = ?, content = ?, language = ? WHERE id = ?`,
+      `UPDATE ${this.table.quote} SET author = ?, content = ?, language = ? WHERE rowid = ?`,
       [obj.author, obj.content, obj.language, id]
     );
     await this.tag.sync(id, obj.tags);
@@ -118,7 +118,7 @@ class WiseQuotes {
    */
   async delete(id) {
     await this.tag.truncate(id);
-    let result = await this.db.run(`DELETE FROM ${this.table.quote} WHERE id = ?`);
+    let result = await this.db.run(`DELETE FROM ${this.table.quote} WHERE rowid = ?`);
 
     return result.changes;
   }
@@ -130,12 +130,12 @@ class WiseQuotes {
    */
   async all() {
     let sql = this._refineSql(
-      `SELECT id,author,content,language FROM ${this.table.quote} WHERE %L`
+      `SELECT rowid,author,content,language FROM ${this.table.quote} WHERE %L`
     );
     let rows = await this.db.all(sql);
 
     for (let row of rows) {
-      row.tags = await this.tag.getTags(row.id);
+      row.tags = await this.tag.getTags(row.rowid);
     }
 
     return rows;
@@ -169,7 +169,7 @@ class WiseQuotes {
     let tag = await this.tag.getByName(tagName);
 
     if (tag) {
-      rows = await this.retrieveByTagID(tag.id);
+      rows = await this.retrieveByTagID(tag.rowid);
       for (let row of rows) {
         row = await this.tag.quoteAppendTags(row);
       }
@@ -186,9 +186,22 @@ class WiseQuotes {
    */
   async retrieveByTagID(tagID) {
     let sql = this._refineSql(
-      `SELECT ${this.table.quote}.* FROM ${this.table.quote_tag} JOIN ${this.table.quote} ON ${this.table.quote_tag}.quote_id = ${this.table.quote}.id WHERE (tag_id = ?) AND (%L)` // jscs:ignore maximumLineLength
+      `SELECT ${this.table.quote}.rowid,${this.table.quote}.* FROM ${this.table.quote_tag} JOIN ${this.table.quote} ON ${this.table.quote_tag}.quote_id = ${this.table.quote}.rowid WHERE (tag_id = ?) AND (%L)` // jscs:ignore maximumLineLength
     );
     let rows = await this.db.all(sql, tagID);
+
+    return rows;
+  }
+
+  async match(str) {
+    let sql = this._refineSql(
+      `SELECT rowid,author,content,language FROM ${this.table.quote} WHERE (${this.table.quote} MATCH ?) AND (%L) ` // jscs:ignore maximumLineLength
+    );
+    let rows = await this.db.all(sql, str);
+
+    for (let row of rows) {
+      row.tags = await this.tag.getTags(row.rowid);
+    }
 
     return rows;
   }

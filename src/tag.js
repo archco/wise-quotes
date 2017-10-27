@@ -19,7 +19,7 @@ class Tag {
   async getTags(quoteID) {
     let tags = [];
     let rows = await this.db.all(
-      `SELECT tag_id,name FROM ${this.table.quote_tag} JOIN ${this.table.tag} ON ${this.table.quote_tag}.tag_id = ${this.table.tag}.id WHERE quote_id = ?`, // jscs:ignore maximumLineLength
+      `SELECT tag_id,name FROM ${this.table.quote_tag} JOIN ${this.table.tag} ON ${this.table.quote_tag}.tag_id = ${this.table.tag}.rowid WHERE quote_id = ?`, // jscs:ignore maximumLineLength
       quoteID
     );
 
@@ -38,7 +38,7 @@ class Tag {
    */
   async getQuotes(tagID) {
     let rows = await this.db.all(
-      `SELECT ${this.table.quote}.* FROM ${this.table.quote_tag} JOIN ${this.table.quote} ON ${this.table.quote_tag}.quote_id = ${this.table.quote}.id WHERE tag_id = ?`, // jscs:ignore maximumLineLength
+      `SELECT ${this.table.quote}.* FROM ${this.table.quote_tag} JOIN ${this.table.quote} ON ${this.table.quote_tag}.quote_id = ${this.table.quote}.rowid WHERE tag_id = ?`, // jscs:ignore maximumLineLength
       tagID
     );
 
@@ -112,7 +112,7 @@ class Tag {
    * @return {Promise} [ resolve({Object} row) | reject(err) ]
    */
   async read(id) {
-    let row = await this.db.get(`SELECT * FROM ${this.table.tag} WHERE id = ?`, id);
+    let row = await this.db.get(`SELECT rowid,* FROM ${this.table.tag} WHERE rowid = ?`, id);
 
     return row;
   }
@@ -124,7 +124,7 @@ class Tag {
    * @return {Promise} [ resolve({Object} row) | reject(err) ]
    */
   async getByName(tagName) {
-    let row = await this.db.get(`SELECT * FROM ${this.table.tag} WHERE name = ?`, tagName);
+    let row = await this.db.get(`SELECT rowid,* FROM ${this.table.tag} WHERE name = ?`, tagName);
 
     return row;
   }
@@ -136,7 +136,7 @@ class Tag {
    * @return {Promise} [ resolve({Object} quote) | reject(err) ]
    */
   async quoteAppendTags(quote) {
-    let tags = await this.getTags(quote.id);
+    let tags = await this.getTags(quote.rowid);
     if (tags) quote.tags = tags;
 
     return quote;
@@ -148,7 +148,7 @@ class Tag {
 
     for (let tagName of tags) {
       let tag = await this.getOrCreate(tagName);
-      await this._relate(quoteID, tag.id);
+      await this._relate(quoteID, tag.rowid);
     }
 
     return 'Relate Successfully.';

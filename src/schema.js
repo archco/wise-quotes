@@ -24,23 +24,20 @@ class Schema {
       )`
     );
 
-    // quote table.
+    // quote table. using fts5
     await this.db.run(
-      `CREATE TABLE ${this.table.quote} (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        author TEXT NOT NULL,
-        content TEXT NOT NULL,
-        language TEXT NOT NULL,
-        FOREIGN KEY(language) REFERENCES ${this.table.lang}(code)
+      `CREATE VIRTUAL TABLE ${this.table.quote} USING fts5(
+        author,
+        content,
+        language
       )`
     );
 
-    // tag table.
+    // tag table. using fts5
     await this.db.run(
-      `CREATE TABLE ${this.table.tag} (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        description TEXT
+      `CREATE VIRTUAL TABLE ${this.table.tag} USING fts5(
+        name,
+        description
       )`
     );
 
