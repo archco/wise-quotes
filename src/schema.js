@@ -2,8 +2,9 @@ const SqlitePromiseDriver = require('./sqlite-promise-driver.js');
 
 // Language Codes (ISO 639-1)
 // @links http://data.okfn.org/data/core/language-codes
-const Language = require('./lib/language-codes.json');
+const Languages = require('./lib/language-codes.json');
 const Tags = require('./lib/popular-tags.json');
+const Util = require('./lib/util');
 
 class Schema {
   constructor(db, table) {
@@ -75,8 +76,9 @@ class Schema {
   }
 
   async _seedLanguage() {
-    // Language seed.
-    for (let lang of Language) {
+    // Languages seed.
+    for (let [i, lang] of Languages.entries()) {
+      Util.progressShow(i + 1, Languages.length);
       await this.db.run(
         `INSERT INTO ${this.table.lang} (code,name) VALUES (?,?)`,
         [lang.alpha2, lang.English]
@@ -88,7 +90,8 @@ class Schema {
 
   async _seedTag() {
     // Tags.
-    for (let tag of Tags) {
+    for (let [i, tag] of Tags.entries()) {
+      Util.progressShow(i + 1, Tags.length);
       await this.db.run(
         `INSERT INTO ${this.table.tag} (name,description) VALUES (?,?)`,
         [tag, `Popular tag: ${tag}`]

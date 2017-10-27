@@ -3,6 +3,7 @@ const SqlitePromiseDriver = require('./sqlite-promise-driver.js');
 const Config = require('./config.json');
 const Schema = require('./schema.js');
 const Tag = require('./tag.js');
+const Util = require('./lib/util');
 
 class WiseQuotes {
   constructor(config = {}) {
@@ -151,8 +152,9 @@ class WiseQuotes {
     let feeds = require(path.resolve(__dirname, '../feeds/', filename));
     let result;
 
-    for (let feed of feeds) {
-      result = await this.create(feed);
+    for (let [i, item] of feeds.entries()) {
+      Util.progressShow(i + 1, feeds.length);
+      result = await this.create(item);
     }
 
     return `Feeds Complete: lastID ${result.id}`;

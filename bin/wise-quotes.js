@@ -4,6 +4,7 @@ const path = require('path');
 const jsonfile = require('jsonfile');
 const program = require('commander');
 const dateformat = require('dateformat');
+const inquirer = require('inquirer');
 const WiseQuotes = require('../index.js');
 const pkg = require('../package.json');
 
@@ -31,6 +32,12 @@ program
   .command('feed')
   .description('feed to database.')
   .action(feedProcess);
+
+program
+  .command('db:refresh')
+  .description('Refreshing database.')
+  .option('-f, --feed <file>', 'Set feed file.')
+  .action(databaseRefresh);
 
 program.parse(process.argv);
 
@@ -87,4 +94,31 @@ async function feedProcess() {
   let result = await wq.feed();
 
   console.log(result);
+}
+
+async function databaseRefresh(cmd) {
+  const question = {
+    type: 'confirm',
+    name: 'confirmed',
+    message: 'Are you sure?',
+    default: false,
+  };
+  const refreshProcess = async () => {
+    console.log(await wq.migration());
+    if (cmd.feed) {
+      console.log(`Feed from feeds/${cmd.feed}`);
+      wq.feed(cmd.feed);
+    }
+
+    return 'Database refresh complete.';
+  };
+
+  inquirer.prompt(question)
+    .then(async res => {
+      if (res.confirmed) {
+        console.log(await refreshProcess());
+      } else {
+        console.log('Command is canceled.');
+      }
+    });
 }
