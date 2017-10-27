@@ -8,7 +8,8 @@
     "status": "node ./bin/wise-quotes --status",
     "feed": "node ./bin/wise-quotes feed",
     "backup": "node ./bin/wise-quotes backup",
-    "build": "node ./bin/wise-quotes build"
+    "build": "node ./bin/wise-quotes build",
+    "match": "node ./bin/wise-quotes match"
   },
   "repository": {
     "type": "git",

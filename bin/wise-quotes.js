@@ -34,6 +34,11 @@ program
   .action(feedProcess);
 
 program
+  .command('match <query>')
+  .description('Search from quote table.')
+  .action(matchQuotes);
+
+program
   .command('db:refresh')
   .description('Refreshing database.')
   .option('-f, --feed <file>', 'Set feed file.')
@@ -94,6 +99,14 @@ async function feedProcess() {
   let result = await wq.feed();
 
   console.log(result);
+}
+
+async function matchQuotes(query) {
+  let rows = await wq.match(query);
+  console.log(`Hits: ${rows.length}`);
+  rows.forEach(row => {
+    console.log(`${row.author} - ${row.content}`);
+  });
 }
 
 async function databaseRefresh(cmd) {
