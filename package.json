@@ -1,6 +1,6 @@
 {
   "name": "wise-quotes",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "The database for wise saying and quotes.",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "feed": "node ./bin/wise-quotes feed",
     "backup": "node ./bin/wise-quotes backup",
     "build": "node ./bin/wise-quotes build",
-    "match": "node ./bin/wise-quotes match"
+    "match": "node ./bin/wise-quotes match",
+    "tag": "node ./bin/wise-quotes tag"
   },
   "repository": {
     "type": "git",

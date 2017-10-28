@@ -5,6 +5,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.0] - 2017-10-28
+quotes count: 267
+### Added
+- Add new CLI commands.
+  - `match <query>` : Search quotes.
+  - `tag <name>` : Retrieve quotes by tag name.
+  - `db:refresh --feed feedfile.json` : Refresh database.
+
+### Changed
+- Change database structure: remove auto increment primary key, instead use `rowid`.
+
+
 ## [0.1.3] - 2017-07-02
 quotes count: 213
 
@@ -34,7 +46,8 @@ quotes count: 60
 quotes count: 10  
 First Release.
 
-[Unreleased]: https://github.com/archco/wise-quotes/compare/v0.1.3...master
+[Unreleased]: https://github.com/archco/wise-quotes/compare/v0.2.0...master
+[0.2.0]: https://github.com/archco/wise-quotes/compare/v0.1.3...v0.2.0
 [0.1.3]: https://github.com/archco/wise-quotes/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/archco/wise-quotes/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/archco/wise-quotes/compare/v0.1.0...v0.1.1
