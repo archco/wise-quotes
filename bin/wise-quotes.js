@@ -39,6 +39,11 @@ program
   .action(matchQuotes);
 
 program
+  .command('tag <name>')
+  .description('Retrieve quotes by tag name.')
+  .action(retrieveByTagName);
+
+program
   .command('db:refresh')
   .description('Refreshing database.')
   .option('-f, --feed <file>', 'Set feed file.')
@@ -103,6 +108,14 @@ async function feedProcess() {
 
 async function matchQuotes(query) {
   let rows = await wq.match(query);
+  console.log(`Hits: ${rows.length}`);
+  rows.forEach(row => {
+    console.log(`${row.author} - ${row.content}`);
+  });
+}
+
+async function retrieveByTagName(name) {
+  let rows = await wq.retrieveByTagName(name);
   console.log(`Hits: ${rows.length}`);
   rows.forEach(row => {
     console.log(`${row.author} - ${row.content}`);

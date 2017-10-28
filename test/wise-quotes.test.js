@@ -108,19 +108,12 @@ describe('WiseQuotes', function () {
     });
   });
 
-  describe('#retrieveByTagID', function () {
-
-    it('should eventually be an array', async function () {
-      let rows = await wq.retrieveByTagID(1);
-      rows.should.be.an('array');
-    });
-  });
-
   describe('#retrieveByTagName', function () {
 
     it('should eventually be an array', async function () {
       let rows = await wq.retrieveByTagName('love');
-      rows.should.be.an('array');
+      rows.should.not.empty;
+      rows[0].tags.should.to.include('love');
     });
   });
 

@@ -157,40 +157,29 @@ class WiseQuotes {
       result = await this.create(item);
     }
 
-    return `Feeds Complete: lastID ${result.id}`;
+    return `Feeds Complete: lastID ${result.rowid}`;
   }
 
   /**
-   * retrieveByTagName
+   * Retrieve quotes by tag name.
    *
-   * @param  {String} tagName
+   * @param  {String} name
    * @return {Promise} [ resolve({Array} rows) | reject(err) ]
    */
-  async retrieveByTagName(tagName) {
-    let rows = [];
-    let tag = await this.tag.getByName(tagName);
-
-    if (tag) {
-      rows = await this.retrieveByTagID(tag.rowid);
-      for (let row of rows) {
-        row = await this.tag.quoteAppendTags(row);
-      }
-    }
-
-    return rows;
-  }
-
-  /**
-   * get quotes by tag id.
-   *
-   * @param  {Number} tagID
-   * @return {Promise} [ resolve({Array} rows) | reject(err) ]
-   */
-  async retrieveByTagID(tagID) {
+  async retrieveByTagName(name) {
     let sql = this._refineSql(
-      `SELECT ${this.table.quote}.rowid,${this.table.quote}.* FROM ${this.table.quote_tag} JOIN ${this.table.quote} ON ${this.table.quote_tag}.quote_id = ${this.table.quote}.rowid WHERE (tag_id = ?) AND (%L)` // jscs:ignore maximumLineLength
+      `SELECT ${this.table.quote}.rowid,${this.table.quote}.*
+      FROM ${this.table.quote}
+      JOIN ${this.table.quote_tag}
+      ON ${this.table.quote}.rowid=${this.table.quote_tag}.quote_id
+      JOIN ${this.table.tag}
+      ON ${this.table.quote_tag}.tag_id=${this.table.tag}.rowid
+      WHERE (${this.table.tag}.name = ?) AND (%L)`
     );
-    let rows = await this.db.all(sql, tagID);
+    let rows = await this.db.all(sql, name);
+    for (let row of rows) {
+      row.tags = await this.tag.getTags(row.rowid);
+    }
 
     return rows;
   }
