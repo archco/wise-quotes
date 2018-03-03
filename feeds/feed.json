@@ -1,56 +1,56 @@
 [
   {
-    "content": "Efforts and courage are not enough without purpose and direction.",
-    "author": "John F. Kennedy",
+    "content": "Our riches, being in our brains.",
+    "author": "Wolfgang Amadeus Mozart",
     "language": "en",
-    "tags": ["effort", "courage", "purpose", "direction"]
+    "tags": ["rich", "brain"]
   },
   {
-    "content": "目的と方針がなければ、努力と勇気は十分ではない。",
-    "author": "ジョン・F・ケネディ",
+    "content": "私達の財産、それは私達の頭の中にある。",
+    "author": "ヴォルフガング・アマデウス・モーツァルト",
     "language": "ja",
-    "tags": ["effort", "courage", "purpose", "direction"]
+    "tags": ["rich", "brain"]
   },
   {
-    "content": "목적과 방침이 없다면 노력과 용기만으로는 충분하지 않다.",
-    "author": "존 F. 케네디",
+    "content": "우리의 재산, 그것은 우리들의 머릿속에 있다.",
+    "author": "볼프강 아마데우스 모차르트",
     "language": "ko",
-    "tags": ["effort", "courage", "purpose", "direction"]
+    "tags": ["rich", "brain"]
   },
   {
-    "content": "Ask not what your country can do for you; ask what you can do for your country.",
-    "author": "John F. Kennedy",
+    "content": "Just as people behave to me, so do I behave to them. When I see that a person despises me and treats me with contempt, I can be as proud as any peacock.",
+    "author": "Wolfgang Amadeus Mozart",
     "language": "en",
-    "tags": ["country", "patriotism"]
+    "tags": ["behave", "despise", "proud"]
   },
   {
-    "content": "国があなたのために何をしてくれるのかを問うのではなく、あなたが国のために何を成すことができるのかを問うて欲しい。",
-    "author": "ジョン・F・ケネディ",
+    "content": "相手の振る舞いに合わせて、わたしも彼らに接している。わたしを見下し、小ばかにする人がいれば、わたしは得意満面に振る舞うだろう。",
+    "author": "ヴォルフガング・アマデウス・モーツァルト",
     "language": "ja",
-    "tags": ["country", "patriotism"]
+    "tags": ["behave", "despise", "proud"]
   },
   {
-    "content": "국가가 당신을 위해 무엇을 해줄 수 있는가를 묻는 대신, 당신이 국가를 위해 무엇을 할 것인가를 물어보아라.",
-    "author": "존 F. 케네디",
+    "content": "상대가 나를 어찌 대하는지에 따라 내 행동도 바뀐다. 나를 경멸하고 멸시하는 자를 본다면 나는 어떤 공작새보다도 위풍당당할 것이다.",
+    "author": "볼프강 아마데우스 모차르트",
     "language": "ko",
-    "tags": ["country", "patriotism"]
+    "tags": ["behave", "despise", "proud"]
   },
   {
-    "content": "If a free society cannot help the many who are poor, it cannot save the few who are rich.",
-    "author": "John F. Kennedy",
+    "content": "I am one of those who will go on doing till all doings are at an end.",
+    "author": "Wolfgang Amadeus Mozart",
     "language": "en",
-    "tags": ["society", "poor", "rich"]
+    "tags": ["persistence"]
   },
   {
-    "content": "もし自由社会が、貧しい多数の人々を助けることができなければ、富める少数の人々も守ることができないだろう。",
-    "author": "ジョン・F・ケネディ",
+    "content": "わたしは何事も最後までやり遂げる人間だ。",
+    "author": "ヴォルフガング・アマデウス・モーツァルト",
     "language": "ja",
-    "tags": ["society", "poor", "rich"]
+    "tags": ["persistence"]
   },
   {
-    "content": "자유 사회가 다수의 빈곤한 사람을 돕지 못한다면, 소수의 부유한 사람 또한 구할 수 없을 것이다.",
-    "author": "존 F. 케네디",
+    "content": "나는 무슨 일이든 끝날 때까지 파고드는 사람이다.",
+    "author": "볼프강 아마데우스 모차르트",
     "language": "ko",
-    "tags": ["society", "poor", "rich"]
+    "tags": ["persistence"]
   }
 ]

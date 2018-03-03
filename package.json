@@ -4,7 +4,7 @@
   "description": "The database for wise saying and quotes.",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha",
+    "test": "mocha",
     "status": "node ./bin/wise-quotes --status",
     "feed": "node ./bin/wise-quotes feed",
     "backup": "node ./bin/wise-quotes backup",
