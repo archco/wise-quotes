@@ -17,13 +17,13 @@ class Tag {
    * @return {Promise} [ resolve({Array} tags) | reject(err) ]
    */
   async getTags(quoteID) {
-    let tags = [];
-    let rows = await this.db.all(
+    const tags = [];
+    const rows = await this.db.all(
       `SELECT tag_id,name FROM ${this.table.quote_tag} JOIN ${this.table.tag} ON ${this.table.quote_tag}.tag_id = ${this.table.tag}.rowid WHERE quote_id = ?`, // jscs:ignore maximumLineLength
       quoteID
     );
 
-    for (let row of rows) {
+    for (const row of rows) {
       tags.push(row.name);
     }
 
@@ -37,7 +37,7 @@ class Tag {
    * @return {Promise} [ resolve({Array} rows) | reject(err) ]
    */
   async getQuotes(tagID) {
-    let rows = await this.db.all(
+    const rows = await this.db.all(
       `SELECT ${this.table.quote}.* FROM ${this.table.quote_tag} JOIN ${this.table.quote} ON ${this.table.quote_tag}.quote_id = ${this.table.quote}.rowid WHERE tag_id = ?`, // jscs:ignore maximumLineLength
       tagID
     );
@@ -52,12 +52,12 @@ class Tag {
    * @return {Promise} [ resolve({Object} row) | reject(err) ]
    */
   async getOrCreate(tagName) {
-    let row = await this.getByName(tagName);
+    const row = await this.getByName(tagName);
 
     if (row) {
       return row;
     } else {
-      let insertID = await this.create(tagName);
+      const insertID = await this.create(tagName);
       return this.read(insertID);
     }
   }
@@ -70,12 +70,9 @@ class Tag {
    * @return {Promise} [ resolve({String} msg) | reject(err) ]
    */
   sync(quoteID, tags) {
-    if (Array.isArray(tags)) {
-      return this._relateToQuote(quoteID, tags);
-    } else {
-      // empty promise.
-      return Promise.resolve('Tags is empty.');
-    }
+    return Array.isArray(tags)
+      ? this._relateToQuote(quoteID, tags)
+      : Promise.resolve('Tags is empty.');
   }
 
   /**
@@ -85,7 +82,7 @@ class Tag {
    * @return {Promise} [ resolve({Object} result) | reject(err) ]
    */
   async truncate(quoteID) {
-    let result = await this.db.run(
+    const result = await this.db.run(
       `DELETE FROM ${this.table.quote_tag} WHERE quote_id = ?`,
       quoteID
     );
@@ -100,7 +97,7 @@ class Tag {
    * @return {Promise} [ resolve({Number} lastID) | reject(err) ]
    */
   async create(name) {
-    let result = await this.db.run(`INSERT INTO ${this.table.tag} (name) VALUES (?)`, name);
+    const result = await this.db.run(`INSERT INTO ${this.table.tag} (name) VALUES (?)`, name);
 
     return result.lastID;
   }
@@ -112,7 +109,7 @@ class Tag {
    * @return {Promise} [ resolve({Object} row) | reject(err) ]
    */
   async read(id) {
-    let row = await this.db.get(`SELECT rowid,* FROM ${this.table.tag} WHERE rowid = ?`, id);
+    const row = await this.db.get(`SELECT rowid,* FROM ${this.table.tag} WHERE rowid = ?`, id);
 
     return row;
   }
@@ -124,7 +121,7 @@ class Tag {
    * @return {Promise} [ resolve({Object} row) | reject(err) ]
    */
   async getByName(tagName) {
-    let row = await this.db.get(`SELECT rowid,* FROM ${this.table.tag} WHERE name = ?`, tagName);
+    const row = await this.db.get(`SELECT rowid,* FROM ${this.table.tag} WHERE name = ?`, tagName);
 
     return row;
   }
@@ -136,18 +133,18 @@ class Tag {
    * @return {Promise} [ resolve({Object} quote) | reject(err) ]
    */
   async quoteAppendTags(quote) {
-    let tags = await this.getTags(quote.rowid);
+    const tags = await this.getTags(quote.rowid);
     if (tags) quote.tags = tags;
 
     return quote;
   }
 
   async _relateToQuote(quoteID, tags) {
-    // first, remove old tags.
+    // Remove old tags first.
     await this.truncate(quoteID);
 
-    for (let tagName of tags) {
-      let tag = await this.getOrCreate(tagName);
+    for (const tagName of tags) {
+      const tag = await this.getOrCreate(tagName);
       await this._relate(quoteID, tag.rowid);
     }
 
