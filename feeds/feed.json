@@ -1,56 +1,56 @@
 [
   {
-    "content": "Our riches, being in our brains.",
-    "author": "Wolfgang Amadeus Mozart",
+    "content": "I have always found that mercy bears richer fruits than strict justice.",
+    "author": "Abraham Lincoln",
     "language": "en",
-    "tags": ["rich", "brain"]
+    "tags": ["strict", "justice", "mercy"]
   },
   {
-    "content": "私達の財産、それは私達の頭の中にある。",
-    "author": "ヴォルフガング・アマデウス・モーツァルト",
+    "content": "私は厳格な公正よりも情けの方がより豊かな果実を実らせるといつも感じている。",
+    "author": "エイブラハム・リンカーン",
     "language": "ja",
-    "tags": ["rich", "brain"]
+    "tags": ["strict", "justice", "mercy"]
   },
   {
-    "content": "우리의 재산, 그것은 우리들의 머릿속에 있다.",
-    "author": "볼프강 아마데우스 모차르트",
+    "content": "나는 엄격한 정의보다 자비가 더 풍성한 열매를 맺도록 한다는 걸 언제나 느끼고 있다.",
+    "author": "에이브러햄 링컨",
     "language": "ko",
-    "tags": ["rich", "brain"]
+    "tags": ["strict", "justice", "mercy"]
   },
   {
-    "content": "Just as people behave to me, so do I behave to them. When I see that a person despises me and treats me with contempt, I can be as proud as any peacock.",
-    "author": "Wolfgang Amadeus Mozart",
+    "content": "Determine that the thing can and shall be done, and then we shall find the way.",
+    "author": "Abraham Lincoln",
     "language": "en",
-    "tags": ["behave", "despise", "proud"]
+    "tags": ["can", "shall", "way"]
   },
   {
-    "content": "相手の振る舞いに合わせて、わたしも彼らに接している。わたしを見下し、小ばかにする人がいれば、わたしは得意満面に振る舞うだろう。",
-    "author": "ヴォルフガング・アマデウス・モーツァルト",
+    "content": "そのことはできる、それをやる、と決断せよ。それからその方法を見つけるのだ。",
+    "author": "エイブラハム・リンカーン",
     "language": "ja",
-    "tags": ["behave", "despise", "proud"]
+    "tags": ["can", "shall", "way"]
   },
   {
-    "content": "상대가 나를 어찌 대하는지에 따라 내 행동도 바뀐다. 나를 경멸하고 멸시하는 자를 본다면 나는 어떤 공작새보다도 위풍당당할 것이다.",
-    "author": "볼프강 아마데우스 모차르트",
+    "content": "이것은 할 수 있다, 해야 한다고 결단해라. 그러면 우리는 방법을 찾을 것이다.",
+    "author": "에이브러햄 링컨",
     "language": "ko",
-    "tags": ["behave", "despise", "proud"]
+    "tags": ["can", "shall", "way"]
   },
   {
-    "content": "I am one of those who will go on doing till all doings are at an end.",
-    "author": "Wolfgang Amadeus Mozart",
+    "content": "If I had six hours to chop down a tree, I’d spend the first four hours sharpening the axe.",
+    "author": "Abraham Lincoln",
     "language": "en",
-    "tags": ["persistence"]
+    "tags": ["prepare"]
   },
   {
-    "content": "わたしは何事も最後までやり遂げる人間だ。",
-    "author": "ヴォルフガング・アマデウス・モーツァルト",
+    "content": "もし、木を切り倒すのに6時間与えられたら、私は最初の4時間を斧を研ぐのに費やすだろう。",
+    "author": "エイブラハム・リンカーン",
     "language": "ja",
-    "tags": ["persistence"]
+    "tags": ["prepare"]
   },
   {
-    "content": "나는 무슨 일이든 끝날 때까지 파고드는 사람이다.",
-    "author": "볼프강 아마데우스 모차르트",
+    "content": "만약 내게 나무를 베는데 6시간이 주어진다면, 나는 처음 4시간을 도끼의 날을 가는 데 소비할 것이다.",
+    "author": "에이브러햄 링컨",
     "language": "ko",
-    "tags": ["persistence"]
+    "tags": ["prepare"]
   }
 ]
