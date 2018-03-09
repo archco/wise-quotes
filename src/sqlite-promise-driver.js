@@ -12,12 +12,8 @@ class SqlitePromiseDriver {
    */
   close() {
     return new Promise((resolve, reject) => {
-      this.db.close((err) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(true);
-        }
+      this.db.close(err => {
+        err ? reject(err) : resolve(true);
       });
     });
   }
@@ -32,11 +28,7 @@ class SqlitePromiseDriver {
   run(sql, params = []) {
     return new Promise((resolve, reject) => {
       this.db.run(sql, params, function (err) {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(this);
-        }
+        err ? reject(err) : resolve(this);
       });
     });
   }
@@ -51,11 +43,7 @@ class SqlitePromiseDriver {
   get(sql, params = []) {
     return new Promise((resolve, reject) => {
       this.db.get(sql, params, (err, row) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(row);
-        }
+        err ? reject(err) : resolve(row);
       });
     });
   }
@@ -70,11 +58,7 @@ class SqlitePromiseDriver {
   all(sql, params = []) {
     return new Promise((resolve, reject) => {
       this.db.all(sql, params, (err, rows) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(rows);
-        }
+        err ? reject(err) : resolve(rows);
       });
     });
   }
@@ -89,12 +73,8 @@ class SqlitePromiseDriver {
    */
   each(sql, params = [], callback = null) {
     return new Promise((resolve, reject) => {
-      let completeHandle = (err, effected) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(effected);
-        }
+      const completeHandle = (err, effected) => {
+        err ? reject(err) : resolve(effected);
       };
 
       if (typeof arguments[1] === 'function') {
@@ -114,11 +94,7 @@ class SqlitePromiseDriver {
   exec(sql) {
     return new Promise((resolve, reject) => {
       this.db.exec(sql, function (err) {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(true);
-        }
+        err ? reject(err) : resolve(true);
       });
     });
   }
