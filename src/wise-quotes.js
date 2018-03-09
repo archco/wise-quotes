@@ -25,8 +25,8 @@ class WiseQuotes {
    */
   get count() {
     return (async () => {
-      let sql = this._refineSql(`SELECT COUNT(*) AS count FROM ${this.table.quote} WHERE %L`);
-      let row = await this.db.get(sql);
+      const sql = `SELECT COUNT(*) AS count FROM ${this.table.quote} WHERE %L`;
+      const row = await this.getFromDB(sql);
 
       return row.count;
     })();
@@ -38,8 +38,8 @@ class WiseQuotes {
    */
   get random() {
     return (async () => {
-      let sql = this._refineSql(`SELECT rowid FROM ${this.table.quote} WHERE %L ORDER BY RANDOM()`);
-      let row = await this.db.get(sql);
+      const sql = `SELECT rowid FROM ${this.table.quote} WHERE %L ORDER BY RANDOM()`;
+      const row = await this.getFromDB(sql);
 
       return await this.read(row.rowid);
     })();
@@ -67,7 +67,7 @@ class WiseQuotes {
    * @return {Promise} [ resolve({Object} row) | reject(err) ]
    */
   async create(obj) {
-    let result = await this.db.run(
+    const result = await this.db.run(
       `INSERT INTO ${this.table.quote} (author,content,language) VALUES (?,?,?)`,
       [obj.author, obj.content, obj.language]
     );
@@ -130,12 +130,10 @@ class WiseQuotes {
    * @return {Promise} [ resolve({Array} rows) | reject(err) ]
    */
   async all() {
-    let sql = this._refineSql(
-      `SELECT rowid,author,content,language FROM ${this.table.quote} WHERE %L`
-    );
-    let rows = await this.db.all(sql);
+    const sql = `SELECT rowid,author,content,language FROM ${this.table.quote} WHERE %L`;
+    const rows = await this.allFromDB(sql);
 
-    for (let row of rows) {
+    for (const row of rows) {
       row.tags = await this.tag.getTags(row.rowid);
     }
 
@@ -149,10 +147,10 @@ class WiseQuotes {
    * @return {Promise} [ resolve({String} message) | reject(err) ]
    */
   async feed(filename = 'feed.json') {
-    let feeds = require(path.resolve(__dirname, '../feeds/', filename));
+    const feeds = require(path.resolve(__dirname, '../feeds/', filename));
     let result;
 
-    for (let [i, item] of feeds.entries()) {
+    for (const [i, item] of feeds.entries()) {
       Util.progressShow(i + 1, feeds.length);
       result = await this.create(item);
     }
@@ -167,17 +165,16 @@ class WiseQuotes {
    * @return {Promise} [ resolve({Array} rows) | reject(err) ]
    */
   async retrieveByTagName(name) {
-    let sql = this._refineSql(
-      `SELECT ${this.table.quote}.rowid,${this.table.quote}.*
-      FROM ${this.table.quote}
-      JOIN ${this.table.quote_tag}
-      ON ${this.table.quote}.rowid=${this.table.quote_tag}.quote_id
-      JOIN ${this.table.tag}
-      ON ${this.table.quote_tag}.tag_id=${this.table.tag}.rowid
-      WHERE (${this.table.tag}.name = ?) AND (%L)`
-    );
-    let rows = await this.db.all(sql, name);
-    for (let row of rows) {
+    const sql = `SELECT ${this.table.quote}.rowid,${this.table.quote}.*
+    FROM ${this.table.quote}
+    JOIN ${this.table.quote_tag}
+    ON ${this.table.quote}.rowid=${this.table.quote_tag}.quote_id
+    JOIN ${this.table.tag}
+    ON ${this.table.quote_tag}.tag_id=${this.table.tag}.rowid
+    WHERE (${this.table.tag}.name = ?) AND (%L)`;
+    const rows = await this.allFromDB(sql, name);
+
+    for (const row of rows) {
       row.tags = await this.tag.getTags(row.rowid);
     }
 
@@ -185,16 +182,36 @@ class WiseQuotes {
   }
 
   async match(str) {
-    let sql = this._refineSql(
-      `SELECT rowid,author,content,language FROM ${this.table.quote} WHERE (${this.table.quote} MATCH ?) AND (%L) ` // jscs:ignore maximumLineLength
-    );
-    let rows = await this.db.all(sql, str);
+    const sql = `SELECT rowid,author,content,language
+    FROM ${this.table.quote}
+    WHERE (${this.table.quote} MATCH ?) AND (%L)`;
+    const rows = await this.allFromDB(sql, str);
 
-    for (let row of rows) {
+    for (const row of rows) {
       row.tags = await this.tag.getTags(row.rowid);
     }
 
     return rows;
+  }
+
+  /**
+   * Get row from database with language filter.
+   *
+   * @param {string} sql
+   * @returns {Promise} resolve(row: object)
+   */
+  async getFromDB(sql, params = []) {
+    return await this.db.get(this._refineSql(sql), params);
+  }
+
+  /**
+   * Get rows from database with language filter.
+   *
+   * @param {string} sql
+   * @returns {Promise} resolve(rows: object[])
+   */
+  async allFromDB(sql, params = []) {
+    return await this.db.all(this._refineSql(sql), params);
   }
 
   // private

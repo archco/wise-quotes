@@ -24,8 +24,9 @@ program
   .action(generateBackupJSON);
 
 program
-  .command('build')
+  .command('make')
   .description('generate quotes.json file.')
+  .option('-o, --output <path>', 'Output path.')
   .action(generateQuotesJSON);
 
 program
@@ -65,15 +66,18 @@ if (program.status) {
 }
 
 async function displayStatus() {
-  let count = await wq.count;
+  const count = await wq.count;
 
   console.log(`Total rows: ${count}`);
   console.log(await wq.random);
 }
 
-async function generateQuotesJSON() {
-  let rows = await wq.all();
-  let file = path.resolve(__dirname, '../db/quotes.json');
+async function generateQuotesJSON({ output }) {
+  const rows = await wq.all();
+  const defaultFileName = 'quotes.json';
+  const file = output
+    ? path.extname(output) ? path.resolve(output) : path. resolve(output, defaultFileName)
+    : path.resolve(__dirname, '../db/', defaultFileName);
 
   jsonfile.writeFile(file, rows, { spaces: 0 }, function (err) {
     if (err) {
@@ -85,11 +89,9 @@ async function generateQuotesJSON() {
 }
 
 async function generateBackupJSON() {
-  let rows = await wq.all();
-  let file = path.resolve(
-    __dirname,
-    '../db/backup/' + dateformat(new Date(), 'yyyymmdd') + '_quotes.json'
-  );
+  const rows = await wq.all();
+  const fileName = `${dateformat(new Date(), 'yyyymmdd')}_quotes.json`;
+  const file = path.resolve(__dirname, '../db/backup/', fileName);
 
   jsonfile.writeFile(file, rows, { spaces: 2 }, function (err) {
     if (err) {
@@ -101,13 +103,13 @@ async function generateBackupJSON() {
 }
 
 async function feedProcess() {
-  let result = await wq.feed();
+  const result = await wq.feed();
 
   console.log(result);
 }
 
 async function matchQuotes(query) {
-  let rows = await wq.match(query);
+  const rows = await wq.match(query);
   console.log(`Hits: ${rows.length}`);
   rows.forEach(row => {
     console.log(`${row.author} - ${row.content}`);
@@ -115,14 +117,14 @@ async function matchQuotes(query) {
 }
 
 async function retrieveByTagName(name) {
-  let rows = await wq.retrieveByTagName(name);
+  const rows = await wq.retrieveByTagName(name);
   console.log(`Hits: ${rows.length}`);
   rows.forEach(row => {
     console.log(`${row.author} - ${row.content}`);
   });
 }
 
-async function databaseRefresh(cmd) {
+async function databaseRefresh({ feed }) {
   const question = {
     type: 'confirm',
     name: 'confirmed',
@@ -131,9 +133,9 @@ async function databaseRefresh(cmd) {
   };
   const refreshProcess = async () => {
     console.log(await wq.migration());
-    if (cmd.feed) {
-      console.log(`Feed from feeds/${cmd.feed}`);
-      wq.feed(cmd.feed);
+    if (feed) {
+      console.log(`Feed from feeds/${feed}`);
+      wq.feed(feed);
     }
 
     return 'Database refresh complete.';
