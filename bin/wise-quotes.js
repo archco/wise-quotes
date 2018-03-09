@@ -24,8 +24,9 @@ program
   .action(generateBackupJSON);
 
 program
-  .command('build')
+  .command('make')
   .description('generate quotes.json file.')
+  .option('-o, --output <path>', 'Output path.')
   .action(generateQuotesJSON);
 
 program
@@ -71,9 +72,12 @@ async function displayStatus() {
   console.log(await wq.random);
 }
 
-async function generateQuotesJSON() {
-  let rows = await wq.all();
-  let file = path.resolve(__dirname, '../db/quotes.json');
+async function generateQuotesJSON({ output }) {
+  const rows = await wq.all();
+  const defaultFileName = 'quotes.json';
+  const file = output
+    ? path.extname(output) ? path.resolve(output) : path. resolve(output, defaultFileName)
+    : path.resolve(__dirname, '../db/', defaultFileName);
 
   jsonfile.writeFile(file, rows, { spaces: 0 }, function (err) {
     if (err) {

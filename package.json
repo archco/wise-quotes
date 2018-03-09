@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "description": "The database for wise saying and quotes.",
   "main": "index.js",
+  "bin": "bin/wise-quotes.js",
   "scripts": {
     "test": "mocha",
     "status": "node ./bin/wise-quotes --status",
