@@ -5,7 +5,7 @@ const jsonfile = require('jsonfile');
 const program = require('commander');
 const dateformat = require('dateformat');
 const inquirer = require('inquirer');
-const WiseQuotes = require('../index.js');
+const WiseQuotes = require('../src/wise-quotes.js');
 const pkg = require('../package.json');
 
 const wq = new WiseQuotes();

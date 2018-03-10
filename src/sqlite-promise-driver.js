@@ -8,7 +8,7 @@ class SqlitePromiseDriver {
   /**
    * close
    *
-   * @return {Promise} [ resolve(true) | reject(err) ]
+   * @returns {Promise.<true, Error>}
    */
   close() {
     return new Promise((resolve, reject) => {
@@ -23,7 +23,7 @@ class SqlitePromiseDriver {
    *
    * @param  {String} sql
    * @param  {Array}  params
-   * @return {Promise} [ resolve({Object} result) | reject(err) ]
+   * @returns {Promise.<object, Error>} Statement {sql: string, lastID: number, changes: number}
    */
   run(sql, params = []) {
     return new Promise((resolve, reject) => {
@@ -38,7 +38,7 @@ class SqlitePromiseDriver {
    *
    * @param  {String} sql
    * @param  {Array}  params
-   * @return {Promise} [ resolve({Object} row) | reject(err) ]
+   * @returns {Promise.<object, Error>} Row as object.
    */
   get(sql, params = []) {
     return new Promise((resolve, reject) => {
@@ -53,7 +53,7 @@ class SqlitePromiseDriver {
    *
    * @param  {String} sql
    * @param  {Array}  params
-   * @return {Promise} [ resolve({Array} rows) | reject(err) ]
+   * @returns {Promise.<Array, Error>} Rows as object[].
    */
   all(sql, params = []) {
     return new Promise((resolve, reject) => {
@@ -69,7 +69,7 @@ class SqlitePromiseDriver {
    * @param  {String}   sql
    * @param  {Array}    params
    * @param  {Function} callback (err, row)
-   * @return {Promise} [ resolve({Number} effected) | reject(err) ]
+   * @returns {Promise.<number, Error>} The number of affected.
    */
   each(sql, params = [], callback = null) {
     return new Promise((resolve, reject) => {
@@ -89,7 +89,7 @@ class SqlitePromiseDriver {
    * exec
    *
    * @param  {String} sql
-   * @return {Promise} [ resolve(true) | reject(err) ]
+   * @returns {Promise.<true, Error>}
    */
   exec(sql) {
     return new Promise((resolve, reject) => {
@@ -105,7 +105,7 @@ class SqlitePromiseDriver {
    * @param  {String}   sql
    * @param  {Array}    params
    * @param  {Function} callback
-   * @return {Statement}
+   * @returns {Statement}
    */
   prepare(sql, params = [], callback = null) {
     return this.db.prepare(sql, params, callback);

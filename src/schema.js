@@ -66,7 +66,7 @@ class Schema {
   /**
    * seed - async function.
    *
-   * @return {AsyncFunction} message.
+   * @return {Promise.<string, Error>} message.
    */
   async seed() {
     await this._seedLanguage();

@@ -21,7 +21,7 @@ class WiseQuotes {
 
   /**
    * count
-   * @return {Promise} [ resolve({Number} count) | reject(err) ]
+   * @returns {Promise.<number, Error>} The count of quotes.
    */
   get count() {
     return (async () => {
@@ -34,7 +34,7 @@ class WiseQuotes {
 
   /**
    * random
-   * @return {Promise} [ resolve({Object} row) | reject(err) ]
+   * @returns {Promise.<object, Error>} A quote row as object.
    */
   get random() {
     return (async () => {
@@ -50,7 +50,7 @@ class WiseQuotes {
   /**
    * migration - async function.
    *
-   * @return {Promise} [ resolve({String} message) | reject(err) ]
+   * @returns {Promise.<string, Error>} Message.
    */
   async migration() {
     await this.schema.drop();
@@ -64,7 +64,7 @@ class WiseQuotes {
    * create a new quote.
    *
    * @param  {Object} obj
-   * @return {Promise} [ resolve({Object} row) | reject(err) ]
+   * @returns {Promise.<object, Error>} A quote row as object.
    */
   async create(obj) {
     const result = await this.db.run(
@@ -80,7 +80,7 @@ class WiseQuotes {
    * read - get a quote.
    *
    * @param  {Number} id
-   * @return {Promise} [ resolve({Object|undefined} row) | reject(err) ]
+   * @returns {Promise.<object, Error>} object or undefined.
    */
   async read(id) {
     let row = await this.db.get(
@@ -99,7 +99,7 @@ class WiseQuotes {
    *
    * @param  {Number} id
    * @param  {Object} obj
-   * @return {Promise} [ resolve({Object} row) | reject(err) ]
+   * @returns {Promise.<object, Error>} The row object that updated.
    */
   async update(id, obj) {
     await this.db.run(
@@ -115,7 +115,7 @@ class WiseQuotes {
    * delete
    *
    * @param  {Number} id
-   * @return {Promise} [ resolve({Number} changes) | reject(err) ]
+   * @returns {Promise.<number, Error>} The number of affected.
    */
   async delete(id) {
     await this.tag.truncate(id);
@@ -127,7 +127,7 @@ class WiseQuotes {
   /**
    * get all quotes.
    *
-   * @return {Promise} [ resolve({Array} rows) | reject(err) ]
+   * @returns {Promise.<Array, Error>} Returns all rows as object[].
    */
   async all() {
     const sql = `SELECT rowid,author,content,language FROM ${this.table.quote} WHERE %L`;
@@ -144,7 +144,7 @@ class WiseQuotes {
    * feed
    *
    * @param  {String} filename
-   * @return {Promise} [ resolve({String} message) | reject(err) ]
+   * @returns {Promise.<string, Error>} Message.
    */
   async feed(filename = 'feed.json') {
     const feeds = require(path.resolve(__dirname, '../feeds/', filename));
@@ -162,7 +162,7 @@ class WiseQuotes {
    * Retrieve quotes by tag name.
    *
    * @param  {String} name
-   * @return {Promise} [ resolve({Array} rows) | reject(err) ]
+   * @returns {Promise.<Array, Error>} returns rows as object[].
    */
   async retrieveByTagName(name) {
     const sql = `SELECT ${this.table.quote}.rowid,${this.table.quote}.*
@@ -181,6 +181,12 @@ class WiseQuotes {
     return rows;
   }
 
+  /**
+   * Retrieves rows that match by query.
+   *
+   * @param {string} str search query.
+   * @returns {Promise.<Array, Error>} Returns rows as object[].
+   */
   async match(str) {
     const sql = `SELECT rowid,author,content,language
     FROM ${this.table.quote}
@@ -198,7 +204,7 @@ class WiseQuotes {
    * Get row from database with language filter.
    *
    * @param {string} sql
-   * @returns {Promise} resolve(row: object)
+   * @returns {Promise.<object, Error>} Returns row as object.
    */
   async getFromDB(sql, params = []) {
     return await this.db.get(this._refineSql(sql), params);
@@ -208,7 +214,7 @@ class WiseQuotes {
    * Get rows from database with language filter.
    *
    * @param {string} sql
-   * @returns {Promise} resolve(rows: object[])
+   * @returns {Promise.<Array, Error>} Returns rows as object[].
    */
   async allFromDB(sql, params = []) {
     return await this.db.all(this._refineSql(sql), params);

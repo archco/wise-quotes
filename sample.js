@@ -1,9 +1,11 @@
-const WiseQuotes = require('./index.js');
-let file = '../db/sample.sqlite3';
-let memory = ':memory:';
+const WiseQuotes = require('./src/wise-quotes');
+const DB = {
+  file: '../db/sample.sqlite3',
+  memory: ':memory:',
+};
 
-let wq = new WiseQuotes({
-  database: memory,
+const wq = new WiseQuotes({
+  database: DB.memory,
 });
 
 (async function () {
