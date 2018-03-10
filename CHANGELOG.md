@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.3.0] - 2018-03-10
+
+quotes count: 312
+
+### Changed
+
+- Change command `build` to `make` #16
+
 ## [0.2.0] - 2017-10-28
 
 quotes count: 267
@@ -60,7 +68,8 @@ quotes count: 60
 quotes count: 10  
 First Release.
 
-[Unreleased]: https://github.com/archco/wise-quotes/compare/v0.2.0...master
+[Unreleased]: https://github.com/archco/wise-quotes/compare/v0.3.0...master
+[0.3.0]: https://github.com/archco/wise-quotes/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/archco/wise-quotes/compare/v0.1.3...v0.2.0
 [0.1.3]: https://github.com/archco/wise-quotes/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/archco/wise-quotes/compare/v0.1.1...v0.1.2

@@ -1,56 +1,56 @@
 [
   {
-    "content": "I have always found that mercy bears richer fruits than strict justice.",
-    "author": "Abraham Lincoln",
+    "content": "The unexamined life is not worth living.",
+    "author": "Socrates",
     "language": "en",
-    "tags": ["strict", "justice", "mercy"]
+    "tags": ["examined", "life", "worth"]
   },
   {
-    "content": "私は厳格な公正よりも情けの方がより豊かな果実を実らせるといつも感じている。",
-    "author": "エイブラハム・リンカーン",
+    "content": "吟味されざる生に、生きる価値なし。",
+    "author": "ソクラテス",
     "language": "ja",
-    "tags": ["strict", "justice", "mercy"]
+    "tags": ["examined", "life", "worth"]
   },
   {
-    "content": "나는 엄격한 정의보다 자비가 더 풍성한 열매를 맺도록 한다는 걸 언제나 느끼고 있다.",
-    "author": "에이브러햄 링컨",
+    "content": "반성이 없는 삶은 살 가치가 없다.",
+    "author": "소크라테스",
     "language": "ko",
-    "tags": ["strict", "justice", "mercy"]
+    "tags": ["examined", "life", "worth"]
   },
   {
-    "content": "Determine that the thing can and shall be done, and then we shall find the way.",
-    "author": "Abraham Lincoln",
+    "content": "Think not those faithful who praise all your words and actions; but those who kindly reprove your faults.",
+    "author": "Socrates",
     "language": "en",
-    "tags": ["can", "shall", "way"]
+    "tags": ["faithful", "praise", "reprove"]
   },
   {
-    "content": "そのことはできる、それをやる、と決断せよ。それからその方法を見つけるのだ。",
-    "author": "エイブラハム・リンカーン",
+    "content": "あなたのあらゆる言動をほめる人は信頼するに値しない。間違いを指摘してくれる人こそ信頼できる。",
+    "author": "ソクラテス",
     "language": "ja",
-    "tags": ["can", "shall", "way"]
+    "tags": ["faithful", "praise", "reprove"]
   },
   {
-    "content": "이것은 할 수 있다, 해야 한다고 결단해라. 그러면 우리는 방법을 찾을 것이다.",
-    "author": "에이브러햄 링컨",
+    "content": "당신의 모든 말과 행동을 칭찬해 주는 사람을 신뢰하지 말라. 당신의 실수를 지적해 주는 사람을 신뢰하라.",
+    "author": "소크라테스",
     "language": "ko",
-    "tags": ["can", "shall", "way"]
+    "tags": ["faithful", "praise", "reprove"]
   },
   {
-    "content": "If I had six hours to chop down a tree, I’d spend the first four hours sharpening the axe.",
-    "author": "Abraham Lincoln",
+    "content": "Remember that there is nothing stable in human affairs; therefore avoid undue elation in prosperity, or undue depression in adversity.",
+    "author": "Socrates",
     "language": "en",
-    "tags": ["prepare"]
+    "tags": ["stable", "prosperity", "adversity"]
   },
   {
-    "content": "もし、木を切り倒すのに6時間与えられたら、私は最初の4時間を斧を研ぐのに費やすだろう。",
-    "author": "エイブラハム・リンカーン",
+    "content": "人間に関することに安定などないことを忘れてはならない。それゆえに、繁栄している時には過度の喜びを避け、逆境にある時には過度の落ち込みを避けなさい。",
+    "author": "ソクラテス",
     "language": "ja",
-    "tags": ["prepare"]
+    "tags": ["stable", "prosperity", "adversity"]
   },
   {
-    "content": "만약 내게 나무를 베는데 6시간이 주어진다면, 나는 처음 4시간을 도끼의 날을 가는 데 소비할 것이다.",
-    "author": "에이브러햄 링컨",
+    "content": "인간의 일에 아무것도 안정적인 건 없다는 걸 명심하라. 그러니 번영할 때 너무 의기양양할 것도, 역경에서 너무 의기소침할 것도 없다.",
+    "author": "소크라테스",
     "language": "ko",
-    "tags": ["prepare"]
+    "tags": ["stable", "prosperity", "adversity"]
   }
 ]
