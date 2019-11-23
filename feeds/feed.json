@@ -1,56 +1,56 @@
 [
   {
-    "content": "The unexamined life is not worth living.",
-    "author": "Socrates",
+    "content": "If it's your job to eat a frog, it's best to do it first thing in the morning. And if it's your job to eat two frogs, it's best to eat the biggest one first.",
+    "author": "Mark Twain",
     "language": "en",
-    "tags": ["examined", "life", "worth"]
+    "tags": ["humor", "best"]
   },
   {
-    "content": "吟味されざる生に、生きる価値なし。",
-    "author": "ソクラテス",
+    "content": "もしあなたがカエルを食べる必要がありなら、朝早く食べるのが最善である。そして、もしあなたがカエル二匹を食べる必要がありなら、そのうちの大きいものを先に食べるのが最善である。",
+    "author": "マーク・トウェイン",
     "language": "ja",
-    "tags": ["examined", "life", "worth"]
+    "tags": ["humor", "best"]
   },
   {
-    "content": "반성이 없는 삶은 살 가치가 없다.",
-    "author": "소크라테스",
+    "content": "만약 당신이 개구리를 먹어야만 한다면, 아침 일찍 먹는 게 최선이다. 그리고 만약 당신이 개구리 두 마리를 먹어야만 한다면, 그중 큰 것을 먼저 먹는 게 최선이다.",
+    "author": "마크 트웨인",
     "language": "ko",
-    "tags": ["examined", "life", "worth"]
+    "tags": ["humor", "best"]
   },
   {
-    "content": "Think not those faithful who praise all your words and actions; but those who kindly reprove your faults.",
-    "author": "Socrates",
+    "content": "Success isn't owned. It's leased and rent is due every day.",
+    "author": "J. J. Watt",
     "language": "en",
-    "tags": ["faithful", "praise", "reprove"]
+    "tags": ["success"]
   },
   {
-    "content": "あなたのあらゆる言動をほめる人は信頼するに値しない。間違いを指摘してくれる人こそ信頼できる。",
-    "author": "ソクラテス",
+    "content": "成功は、自分のものではない。それは借りてきたもので代金は毎日支払わなければならない。",
+    "author": "J・J・ワット",
     "language": "ja",
-    "tags": ["faithful", "praise", "reprove"]
+    "tags": ["success"]
   },
   {
-    "content": "당신의 모든 말과 행동을 칭찬해 주는 사람을 신뢰하지 말라. 당신의 실수를 지적해 주는 사람을 신뢰하라.",
-    "author": "소크라테스",
+    "content": "성공은 자신의 것이 아니다. 성공은 빌려온 것이며 대금은 매일 지급해야 한다.",
+    "author": "J. J. 와트",
     "language": "ko",
-    "tags": ["faithful", "praise", "reprove"]
+    "tags": ["success"]
   },
   {
-    "content": "Remember that there is nothing stable in human affairs; therefore avoid undue elation in prosperity, or undue depression in adversity.",
-    "author": "Socrates",
+    "content": "Do what is right, not what is easy nor what is popular.",
+    "author": "Roy T. Bennett",
     "language": "en",
-    "tags": ["stable", "prosperity", "adversity"]
+    "tags": ["right", "easy", "popular"]
   },
   {
-    "content": "人間に関することに安定などないことを忘れてはならない。それゆえに、繁栄している時には過度の喜びを避け、逆境にある時には過度の落ち込みを避けなさい。",
-    "author": "ソクラテス",
+    "content": "正しいことをしなさい、楽や有名なものではなく。",
+    "author": "ロイ・Ｔ・ベネット",
     "language": "ja",
-    "tags": ["stable", "prosperity", "adversity"]
+    "tags": ["right", "easy", "popular"]
   },
   {
-    "content": "인간의 일에 아무것도 안정적인 건 없다는 걸 명심하라. 그러니 번영할 때 너무 의기양양할 것도, 역경에서 너무 의기소침할 것도 없다.",
-    "author": "소크라테스",
+    "content": "옳은 일을 하라, 쉽거나 유명한 것이 아니라.",
+    "author": "로이 T. 베넷",
     "language": "ko",
-    "tags": ["stable", "prosperity", "adversity"]
+    "tags": ["right", "easy", "popular"]
   }
 ]
