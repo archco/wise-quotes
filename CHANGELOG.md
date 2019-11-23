@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.3.1] - 2019-11-23
+
+quotes count: 321
+
+### Updated
+
+- Update dependencies.
+
 ## [0.3.0] - 2018-03-10
 
 quotes count: 312
@@ -68,7 +76,8 @@ quotes count: 60
 quotes count: 10  
 First Release.
 
-[Unreleased]: https://github.com/archco/wise-quotes/compare/v0.3.0...master
+[Unreleased]: https://github.com/archco/wise-quotes/compare/v0.3.1...master
+[0.3.1]: https://github.com/archco/wise-quotes/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/archco/wise-quotes/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/archco/wise-quotes/compare/v0.1.3...v0.2.0
 [0.1.3]: https://github.com/archco/wise-quotes/compare/v0.1.2...v0.1.3
