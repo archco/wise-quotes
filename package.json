@@ -9,7 +9,7 @@
     "status": "node ./bin/wise-quotes --status",
     "feed": "node ./bin/wise-quotes feed",
     "backup": "node ./bin/wise-quotes backup",
-    "build": "node ./bin/wise-quotes build",
+    "build": "node ./bin/wise-quotes make",
     "match": "node ./bin/wise-quotes match",
     "tag": "node ./bin/wise-quotes tag"
   },
