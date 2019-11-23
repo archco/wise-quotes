@@ -27,16 +27,16 @@
   },
   "homepage": "https://github.com/archco/wise-quotes#readme",
   "dependencies": {
-    "commander": "^2.15.0",
+    "commander": "^4.0.1",
     "dateformat": "^3.0.3",
-    "inquirer": "^5.1.0",
-    "jsonfile": "^4.0.0",
-    "sqlite3": "^3.1.13"
+    "inquirer": "^7.0.0",
+    "jsonfile": "^5.0.0",
+    "sqlite3": "^4.1.0"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "eslint": "^4.18.2",
-    "mocha": "^5.0.4"
+    "chai": "^4.2.0",
+    "eslint": "^6.7.0",
+    "mocha": "^6.2.2"
   },
   "engines": {
     "node": ">=7.6.0"

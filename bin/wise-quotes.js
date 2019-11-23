@@ -76,7 +76,7 @@ async function generateQuotesJSON({ output }) {
   const rows = await wq.all();
   const defaultFileName = 'quotes.json';
   const file = output
-    ? path.extname(output) ? path.resolve(output) : path. resolve(output, defaultFileName)
+    ? path.extname(output) ? path.resolve(output) : path.resolve(output, defaultFileName)
     : path.resolve(__dirname, '../db/', defaultFileName);
 
   jsonfile.writeFile(file, rows, { spaces: 0 }, function (err) {
