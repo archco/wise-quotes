@@ -1,6 +1,6 @@
 {
   "name": "wise-quotes",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "The database for wise saying and quotes.",
   "main": "src/wise-quotes.js",
   "bin": "bin/wise-quotes.js",
